@@ -1,0 +1,439 @@
+/* =============================================
+   SERVICES.CSS - Service-Specific Layouts Only
+   Uses hero-box component from components.css
+   ============================================= */
+
+/* =============================================
+   SERVICES SECTION LAYOUT
+   ============================================= */
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.services-container > .top-service-box,
+.services-container > .bottom-cards {
+    width: 70%;
+}
+
+/* Services section background with circuit traces */
+#services {
+    margin: 0 -2rem;
+    padding: var(--spacing-xl) 2rem;
+    margin-bottom: var(--spacing-xxl);
+    border-bottom: none;
+    background: var(--cts-white);
+    background-image: 
+        url("data:image/svg+xml,%3Csvg width='900' height='450' viewBox='0 0 900 450' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M0,180 L120,180 L120,80 L280,80 L280,150 L420,150 L420,50 L580,50 L580,120 L720,120'/%3E%3Ccircle cx='120' cy='80' r='8' fill='%23134028'/%3E%3Ccircle cx='280' cy='150' r='8' fill='%23134028'/%3E%3Ccircle cx='580' cy='120' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='900' height='450' viewBox='0 0 900 450' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M900,250 L780,250 L780,150 L620,150 L620,220 L480,220 L480,120 L320,120 L320,190 L180,190'/%3E%3Ccircle cx='780' cy='150' r='8' fill='%23134028'/%3E%3Ccircle cx='620' cy='220' r='8' fill='%23134028'/%3E%3Ccircle cx='320' cy='190' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='700' height='650' viewBox='0 0 700 650' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M380,0 L380,90 L280,90 L280,180 L450,180 L450,270 L320,270 L320,360 L480,360 L480,450'/%3E%3Ccircle cx='280' cy='180' r='8' fill='%23134028'/%3E%3Ccircle cx='450' cy='270' r='8' fill='%23134028'/%3E%3Ccircle cx='480' cy='360' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg width='800' height='400' viewBox='0 0 800 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M0,350 L100,350 L100,280 L200,280 L200,320 L350,320 L350,250 L450,250 L450,300 L600,300'/%3E%3Ccircle cx='100' cy='280' r='8' fill='%23134028'/%3E%3Ccircle cx='200' cy='320' r='8' fill='%23134028'/%3E%3Ccircle cx='450' cy='300' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: left 30%, right 70%, 30% top, left bottom;
+    background-repeat: no-repeat;
+    background-size: 60% 45%, 60% 45%, 45% 55%, 50% 40%;
+}
+
+/* In your services.css, make it more specific: */
+.carousel-slide .slide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+}
+
+
+/* =============================================
+   KODIAK BOX - Using Hero Box Component
+   ============================================= */
+
+/* Kodiak uses the .hero-box component with specific classes */
+/*.top-service-box {
+    /* This inherits from .hero-box in components.css */
+    /* Only add service-specific overrides here */
+/*}
+
+/* Legacy class mapping - keeps existing HTML working */
+.kodiak-title {
+    /* Same styling as .hero-box__title */
+    position: absolute;
+    top: var(--kodiak-title-top);
+    left: var(--kodiak-title-left);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-kodiak);
+    font-weight: var(--font-weight-black);
+    color: var(--cts-white);
+    text-shadow: var(--text-shadow-kodiak);
+    letter-spacing: var(--letter-spacing-kodiak);
+    z-index: var(--z-kodiak-title);
+    line-height: 1;
+    transform: translateY(-50%);
+}
+
+.kodiak-description {
+    /* Same styling as .hero-box__description */
+    position: absolute;
+    top: var(--kodiak-description-top);
+    right: var(--kodiak-description-right);
+    background: rgba(0, 0, 0, 0.85);
+    color: var(--cts-white);
+    padding: var(--kodiak-description-padding);
+    border-radius: var(--radius-medium);
+    max-width: var(--kodiak-description-width);
+    height: var(--kodiak-description-height);
+    opacity: 0;
+    transform: var(--kodiak-description-transform-hidden);
+    transition: var(--transition-cubic-slow);
+    z-index: var(--z-overlay);
+}
+
+.kodiak-description h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.5rem;
+    color: var(--cts-green-hover);
+    font-weight: var(--font-weight-semibold);
+}
+
+.kodiak-description p {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--cts-white);
+}
+
+.kodiak-description p:last-child {
+    margin-bottom: 0;
+}
+
+.top-service-box:hover .kodiak-description {
+    opacity: 1;
+    transform: var(--kodiak-description-transform-visible);
+}
+
+/* =============================================
+   BOTTOM SERVICE CARDS LAYOUT
+   ============================================= */
+
+.bottom-cards {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+/* Cylinder Solutions img positioning */
+.card--service .card__image {
+    object-fit: cover !important;
+    height: 100% !important;
+    width: 100% !important;
+    object-position: center !important;
+    min-height: var(--service-box-height) !important;
+}
+
+/* Refurbishment img positioning */
+/* Service-specific card positioning */
+.card--service:nth-child(4) .card__image {
+    object-position: center 25%;
+}
+
+/* =============================================
+   SERVICE PAGE LAYOUT
+   ============================================= */
+
+.service-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    margin-top: var(--navbar-height);
+    background: var(--cts-white);
+    box-shadow: var(--shadow-standard);
+    min-height: calc(100vh - var(--navbar-height));
+}
+
+.service-nav {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: var(--cts-gray-light);
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.service-header {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.service-hero {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    background: var(--cts-navy);
+}
+
+.service-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+.service-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--cts-green-overlay) 0%, rgba(30, 45, 59, 0.7) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-xl);
+}
+
+.service-hero__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--cts-white);
+    margin: 0 0 var(--spacing-md) 0;
+    text-shadow: var(--text-shadow-strong);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.service-hero__subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    max-width: 600px;
+    line-height: 1.4;
+}
+
+.service-content {
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxl);
+}
+
+.service-overview {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.service-overview h2 {
+    color: var(--cts-green);
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+}
+
+.service-overview h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--cts-green);
+    border-radius: 2px;
+}
+
+.service-overview p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--cts-gray-dark);
+    margin: 0;
+}
+
+.service-features h2 {
+    text-align: center;
+    color: var(--cts-navy);
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.service-benefits {
+    background: linear-gradient(135deg, var(--cts-gray-light) 0%, #f0f4f7 100%);
+    padding: var(--spacing-xxl);
+    border-radius: var(--radius-large);
+    border-left: 6px solid var(--cts-green);
+}
+
+.service-benefits h2 {
+    color: var(--cts-navy);
+    font-size: var(--font-size-h2);
+    margin-bottom: var(--spacing-xl);
+    text-align: center;
+}
+
+.benefits-list {
+    display: grid;
+    gap: var(--spacing-md);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.service-cta {
+    background: var(--gradient-button);
+    color: var(--cts-white);
+    padding: var(--spacing-xxl);
+    border-radius: var(--radius-large);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.service-cta h2 {
+    font-size: var(--font-size-h2);
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--cts-white);
+}
+
+.service-cta p {
+    font-size: 1.1rem;
+    margin: 0 0 var(--spacing-xl) 0;
+    opacity: 0.95;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.service-cta .btn {
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.service-cta .btn--primary {
+    background: var(--cts-white);
+    color: var(--cts-green);
+}
+
+.service-cta .btn--primary:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.service-cta .btn--secondary {
+    background: transparent;
+    color: var(--cts-white);
+    border: 2px solid var(--cts-white);
+}
+
+.service-cta .btn--secondary:hover {
+    background: var(--cts-white);
+    color: var(--cts-green);
+    transform: translateY(-2px);
+}
+
+/* =============================================
+   RESPONSIVE DESIGN
+   ============================================= */
+
+@media (max-width: 768px) {
+    .services-container > .top-service-box,
+    .services-container > .bottom-cards {
+        width: 90%;
+    }
+    
+    .bottom-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card--service {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .service-page {
+        margin-top: var(--navbar-height-mobile);
+    }
+    
+    .service-nav,
+    .service-content {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    
+    .service-hero {
+        height: 300px;
+    }
+    
+    .service-hero__overlay {
+        padding: var(--spacing-lg);
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .service-benefits,
+    .service-cta {
+        padding: var(--spacing-lg);
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-nav,
+    .service-content {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+    
+    .service-content {
+        gap: var(--spacing-xl);
+    }
+    
+    .service-hero {
+        height: 250px;
+    }
+    
+    .service-benefits,
+    .service-cta {
+        padding: var(--spacing-md);
+    }
+}

@@ -1,0 +1,260 @@
+/* =============================================
+   LAYOUT.CSS - Page Structure and Layout
+   Renamed from cts.css - Focused on layout only
+   ============================================= */
+
+/* =============================================
+   GLOBAL LAYOUT SETUP
+   ============================================= */
+
+/* Font and base body styling */
+body {
+    font-family: var(--font-primary);
+    background-image: url('images/cylinders1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 600;
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+/* =============================================
+   CONTAINER SYSTEM
+   ============================================= */
+
+/* Main page container - used by index.html */
+.page-container {
+    width: var(--container-main);
+    margin: 0 auto;
+    padding: var(--padding-container);
+    padding-top: 4.375rem;
+    background-color: var(--cts-white);
+    box-shadow: var(--shadow-standard);
+}
+
+/* Half-width container - used by about section */
+.page-container-half {
+    width: var(--container-half);
+    margin: 0 auto;
+    padding: var(--padding-container);
+    padding-top: 4.375rem;
+    background-color: var(--cts-white);
+    box-shadow: var(--shadow-standard);
+    transform: translateX(19rem); /* Shift right to align edges */
+}
+
+/* Background gap between containers */
+.background-gap {
+    height: var(--background-gap);
+    /* Shows body background naturally */
+}
+
+/* =============================================
+   BACKGROUND SYSTEM
+   ============================================= */
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-background);
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =============================================
+   HOME SECTION
+   ============================================= */
+
+.homeLogo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.homeLogo img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* =============================================
+   SECTION MANAGEMENT
+   ============================================= */
+
+.section {
+    padding: var(--spacing-xl) 0;
+    border-bottom: var(--border-section);
+    margin: 0 -2rem; /* Extend to full page-container width */
+    padding-left: 2rem; /* Add back the side padding for content */
+    padding-right: 2rem;
+}
+
+/* Specific section styling */
+#home {
+    border-bottom: var(--border-section);
+    margin: 0 -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#services {
+    padding: var(--spacing-lg) 0;
+    border-bottom: none; /* Services handles its own styling */
+}
+
+#about {
+    padding: 0;
+    border-bottom: none;
+}
+
+#contact {
+    padding: var(--spacing-lg) 0;
+}
+
+/* =============================================
+   CONTACT SECTION LAYOUT
+   ============================================= */
+
+.contact-container {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h2 {
+    color: var(--cts-navy-hex);
+    margin-bottom: var(--spacing-lg);
+}
+
+.contact-item {
+    margin-bottom: var(--spacing-lg);
+    padding: 1.5rem;
+    background: var(--cts-gray-light);
+    border-radius: var(--radius-medium);
+    border-left: var(--border-feature);
+}
+
+.contact-item h3 {
+    color: var(--cts-green);
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    margin: 0;
+    color: var(--cts-gray-medium);
+    line-height: 1.5;
+}
+
+.map-container {
+    flex: 1;
+}
+
+.map-container h2 {
+    color: var(--cts-navy-hex);
+    margin-bottom: var(--spacing-md);
+}
+
+.map-embed {
+    border-radius: var(--radius-large);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    margin-bottom: var(--spacing-sm);
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 300px;
+    border: 0;
+}
+
+.map-note {
+    font-size: 0.875rem;
+    color: var(--cts-gray-medium);
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+}
+
+/* =============================================
+   MOBILE RESPONSIVE LAYOUT
+   ============================================= */
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+    /* Make both containers full width and stack normally */
+    .page-container,
+    .page-container-half {
+        width: var(--container-mobile);
+        margin: 0 auto;
+        transform: none; /* Remove any transforms */
+        padding: var(--padding-container-mobile);
+        padding-top: 3rem;
+    }
+    
+    /* Smaller background gap on mobile */
+    .background-gap {
+        height: var(--background-gap-tablet);
+    }
+    
+    /* Contact section mobile */
+    .contact-container {
+        flex-direction: column; /* Stack contact info and map */
+    }
+    
+    .contact-item {
+        padding: 1rem;
+    }
+    
+    .map-embed iframe {
+        height: 250px;
+    }
+}
+
+/* Phone screens */
+@media (max-width: 480px) {
+    .page-container,
+    .page-container-half {
+        width: var(--container-phone);
+        padding: 1.5rem 0.75rem;
+        padding-top: 2rem;
+    }
+    
+    /* Even smaller elements */
+    section h1 {
+        font-size: 1.8rem;
+    }
+    
+    section h2 {
+        font-size: 1.4rem;
+    }
+    
+    .background-gap {
+        height: var(--background-gap-phone);
+    }
+    
+    .contact-item {
+        padding: 0.75rem;
+    }
+    
+    .map-embed iframe {
+        height: 200px;
+    }
+}

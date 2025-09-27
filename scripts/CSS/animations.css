@@ -1,0 +1,567 @@
+/* =============================================
+   ANIMATIONS.CSS - Complete Animation System
+   Organized animation utilities and effects
+   ============================================= */
+
+/* =============================================
+   GLOBAL ANIMATION SETTINGS
+   ============================================= */
+
+/* Smooth scroll for the entire site */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* =============================================
+   KEYFRAME ANIMATIONS
+   ============================================= */
+
+/* Fade in from bottom */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in from top */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade in from left */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Fade in from right */
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale in animation */
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Pulse animation for CTA backgrounds */
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.1; 
+        transform: scale(1.1); 
+    }
+}
+
+/* Slide up animation for descriptions */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Expand underline animation */
+@keyframes expandUnderline {
+    from {
+        width: 20px;
+        height: 3px;
+    }
+    to {
+        width: 100%;
+        height: 4px;
+    }
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -8px, 0);
+    }
+    70% {
+        transform: translate3d(0, -4px, 0);
+    }
+    90% {
+        transform: translate3d(0, -2px, 0);
+    }
+}
+
+/* Gentle float animation */
+@keyframes gentleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+/* =============================================
+   TRANSITION UTILITIES
+   ============================================= */
+
+/* Base transition classes */
+.transition-fast {
+    transition: var(--transition-fast, all 0.3s ease);
+}
+
+.transition-smooth {
+    transition: var(--transition-smooth, all 0.4s ease);
+}
+
+.transition-slow {
+    transition: var(--transition-slower, all 0.6s ease);
+}
+
+.transition-slowest {
+    transition: var(--transition-slowest, all 0.8s ease);
+}
+
+.transition-cubic {
+    transition: var(--transition-cubic, all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94));
+}
+
+/* Transform transition only */
+.transition-transform {
+    transition: transform 0.3s ease;
+}
+
+.transition-opacity {
+    transition: opacity 0.3s ease;
+}
+
+.transition-colors {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* =============================================
+   HOVER EFFECT UTILITIES
+   ============================================= */
+
+/* Lift on hover */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Gentle lift */
+.hover-lift-gentle {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift-gentle:hover {
+    transform: translateY(-2px);
+}
+
+/* Scale on hover */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-scale-gentle {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale-gentle:hover {
+    transform: scale(1.02);
+}
+
+/* Rotate on hover */
+.hover-rotate {
+    transition: transform 0.3s ease;
+}
+
+.hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+/* Glow effect */
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(25, 100, 54, 0.4);
+}
+
+/* Brighten on hover */
+.hover-brighten {
+    transition: filter 0.3s ease;
+}
+
+.hover-brighten:hover {
+    filter: brightness(1.1);
+}
+
+/* Fade on hover */
+.hover-fade {
+    transition: opacity 0.3s ease;
+}
+
+.hover-fade:hover {
+    opacity: 0.8;
+}
+
+/* =============================================
+   LOADING ANIMATIONS
+   ============================================= */
+
+/* Apply fade-in animation */
+.animate-fadeIn {
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fadeInDown {
+    animation: fadeInDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fadeInLeft {
+    animation: fadeInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-fadeInRight {
+    animation: fadeInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.animate-scaleIn {
+    animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Staggered animation delays */
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+.animate-delay-5 { animation-delay: 0.5s; }
+
+/* =============================================
+   COMPONENT-SPECIFIC ANIMATIONS
+   ============================================= */
+
+/* Progressive reveal underlines for headers */
+section h1 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+}
+
+section h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 20px;
+    height: 3px;
+    background-color: var(--cts-green);
+    border-radius: 2px;
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Trigger animation when hovering anywhere in the section */
+section:hover h1::after {
+    width: 100%;
+    height: 4px;
+}
+
+/* Feature card animation enhancements */
+.feature-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cts-green), var(--cts-green-hover));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Service box animations */
+.service-box,
+.card--service {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.service-box:hover,
+.card--service:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Service box description slide-up */
+.service-box-description,
+.card__description {
+    transition: all 0.6s ease;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.service-box:hover .service-box-description,
+.card--service:hover .card__description {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Staggered text reveal in descriptions */
+.service-box-description h3,
+.service-box-description p {
+    opacity: 0;
+    transition: opacity 0.3s ease 0.4s;
+}
+
+.service-box:hover .service-box-description h3,
+.service-box:hover .service-box-description p {
+    opacity: 1;
+}
+
+/* Button animations */
+.btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Back button specific animation */
+.btn--back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(25, 100, 54, 0.4);
+}
+
+/* Kodiak description animation */
+.kodiak-description {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.top-service-box:hover .kodiak-description {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* CTA pulse animation */
+.service-cta::before {
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* =============================================
+   SCROLL ANIMATIONS (Optional - for future use)
+   ============================================= */
+
+/* Intersection Observer utility classes */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal-right.revealed {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =============================================
+   UTILITY ANIMATION CLASSES
+   ============================================= */
+
+/* Quick utility classes for common animations */
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+.animate-float {
+    animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Pause animations */
+.animate-paused {
+    animation-play-state: paused;
+}
+
+/* Remove all animations */
+.no-animate,
+.no-animate * {
+    animation: none !important;
+    transition: none !important;
+}
+
+/* =============================================
+   PERFORMANCE OPTIMIZATIONS
+   ============================================= */
+
+/* GPU acceleration for smoother animations */
+.gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
+}
+
+/* Apply to animated elements automatically */
+.feature-card,
+.service-box,
+.card--service,
+.btn,
+.kodiak-description {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* =============================================
+   RESPONSIVE ANIMATION ADJUSTMENTS
+   ============================================= */
+
+/* Reduce animations on mobile for performance */
+@media (max-width: 768px) {
+    .feature-card:hover {
+        transform: translateY(-4px); /* Less movement */
+    }
+    
+    .service-box:hover,
+    .card--service:hover {
+        transform: translateY(-2px); /* Gentler on mobile */
+    }
+    
+    .btn:hover {
+        transform: translateY(-1px); /* Subtle on mobile */
+    }
+    
+    /* Disable complex animations on very small screens */
+    @media (max-width: 480px) {
+        .kodiak-description {
+            opacity: 1; /* Always visible on small screens */
+            transform: none;
+            position: relative; /* Stack instead of overlay */
+            background: rgba(0, 0, 0, 0.9);
+            margin-top: 1rem;
+        }
+        
+        .animate-float,
+        .animate-bounce {
+            animation: none; /* Disable decorative animations */
+        }
+    }
+}

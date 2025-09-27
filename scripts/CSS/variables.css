@@ -1,0 +1,186 @@
+:root {
+    /* ============================================= 
+       COLORS - Your Brand Palette 
+       ============================================= */
+    
+    /* Primary Greens (I found 4 shades you use) */
+    --cts-green: #196436;                /* Main brand green */
+    --cts-green-hover: #22753d;          /* Hover state */
+    --cts-green-light: #2a8a47;          /* Lighter shade */
+    --cts-green-dark: #134028;           /* Circuit board traces color */
+    --cts-green-overlay: rgba(25, 100, 54, 0.9);  /* Service box overlay */
+    
+    /* Navy Blue */
+    --cts-navy: rgb(30, 45, 59);         /* Navbar background */
+    --cts-navy-hex: #1e2d3b;             /* Same color in hex */
+    
+    /* Grays */
+    --cts-gray-light: #f8f9fa;           /* Light backgrounds */
+    --cts-gray-medium: #666;             /* Text */
+    --cts-gray-dark: #333;               /* Dark text */
+    --cts-gray-darker: #555;             /* Hover states */
+    --cts-gray-border: #ccc;             /* Border color */
+    
+    /* Basics */
+    --cts-white: #ffffff;
+    --cts-black: #000000;
+    
+    /* ============================================= 
+       LAYOUT MEASUREMENTS 
+       ============================================= */
+    
+    /* Navbar */
+    --navbar-height: 60px;
+    --navbar-height-mobile: 50px;
+    --navbar-logo-size: 36px;
+    --navbar-logo-size-mobile: 30px;
+    
+    /* Containers */
+    --container-main: 70vw;
+    --container-half: 38rem;
+    --container-mobile: 90%;
+    --container-phone: 95%;
+    
+    /* Gaps and Sections */
+    --background-gap: 5rem;
+    --background-gap-tablet: 2rem;
+    --background-gap-phone: 1rem;
+    
+    /* Service Boxes */
+    --service-box-height: 10.25rem;
+    --service-box-height-mobile: 8rem;
+    --service-box-height-phone: 6rem;
+    --kodiak-box-height: 35rem;
+    
+    /* ============================================= 
+   KODIAK SERVICE BOX SYSTEM
+   ============================================= */
+
+    /* Kodiak Box Dimensions */
+    --kodiak-box-height: 35rem;
+    --kodiak-box-border-radius: 16px;
+
+    /* Kodiak Element Positioning */
+    --kodiak-button-bottom: 20px;
+    --kodiak-button-left: 20px;
+    --kodiak-title-top: 33%;
+    --kodiak-title-left: 20px;
+    --kodiak-description-top: 1.25rem;
+    --kodiak-description-right: 1.25rem;
+
+    /* Kodiak Description Box */
+    --kodiak-description-width: 25rem;
+    --kodiak-description-height: 25rem;
+    --kodiak-description-padding: 2rem;
+
+    /* Kodiak Animation */
+    --kodiak-description-transform-hidden: translateX(1.25rem);
+    --kodiak-description-transform-visible: translateX(0);
+
+    
+    /* ============================================= 
+       SPACING (You use these A LOT)
+       ============================================= */
+    
+    --spacing-xs: 0.5rem;      /* 8px */
+    --spacing-sm: 1rem;        /* 16px */
+    --spacing-md: 1.5rem;      /* 24px */
+    --spacing-lg: 2rem;        /* 32px */
+    --spacing-xl: 3rem;        /* 48px */
+    --spacing-xxl: 4rem;       /* 64px */
+    
+    /* Specific spacing you use */
+    --padding-button: 10px 20px;
+    --padding-button-lg: 12px 24px;
+    --padding-button-sm: 8px 16px;
+    --padding-container: 3rem 2rem;
+    --padding-container-mobile: 2rem 1rem;
+    
+    /* ============================================= 
+       TYPOGRAPHY
+       ============================================= */
+    
+    /* Font Families */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-navbar: Verdana, sans-serif;
+    
+    /* Font Sizes */
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+    --font-size-smaller: 12px;
+    --font-size-h1: 2.5rem;
+    --font-size-h2: 2rem;
+    --font-size-h3: 1.5rem;
+    --font-size-kodiak: 3rem;
+    
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    
+    /* Letter Spacing */
+    --letter-spacing-tight: -0.5px;
+    --letter-spacing-kodiak: 3px;
+    
+    /* ============================================= 
+       SHADOWS (You repeat these everywhere!)
+       ============================================= */
+    
+    --shadow-navbar: 0 2px 10px rgba(0, 0, 0, 0.2);
+    --shadow-standard: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.25);
+    --shadow-button-hover: 0 8px 25px rgba(25, 100, 54, 0.4);
+    --shadow-back-button: 0 6px 20px rgba(25, 100, 54, 0.4);
+    
+    /* Text Shadows */
+    --text-shadow-strong: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    --text-shadow-kodiak: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    
+    /* ============================================= 
+       BORDERS & RADIUS
+       ============================================= */
+    
+    --radius-small: 5px;
+    --radius-medium: 8px;
+    --radius-large: 12px;
+    --radius-xl: 16px;
+    
+    --border-section: 3px solid rgb(30, 45, 59);
+    --border-feature: 4px solid #196436;
+    
+    /* ============================================= 
+       TRANSITIONS & ANIMATIONS
+       ============================================= */
+    
+    --transition-fast: all 0.3s ease;
+    --transition-smooth: all 0.4s ease;
+    --transition-slower: all 0.6s ease;
+    --transition-slowest: all 0.8s ease;
+    --transition-cubic: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-cubic-fast: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-cubic-slow: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    
+    /* Animation Delays */
+    --delay-text-reveal: 0.4s;
+    
+    /* ============================================= 
+       Z-INDEX LAYERS (Keep them organized!)
+       ============================================= */
+    
+    --z-background: -1;
+    --z-base: 1;
+    --z-overlay: 5;
+    --z-kodiak-title: 8;
+    --z-hover: 10;
+    --z-navbar: 1000;
+    
+    /* ============================================= 
+       GRADIENTS (Your button gradients)
+       ============================================= */
+    
+    --gradient-button: linear-gradient(135deg, #196436, #22753d);
+    --gradient-button-hover: linear-gradient(135deg, #22753d, #2a8a47);
+}

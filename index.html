@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTS Website</title>
+    <link rel="icon" type="image/png" href="images/favicon.PNG">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files - Clean Organization (ORDER MATTERS!) -->
+    <link rel="stylesheet" href="scripts/CSS/variables.css">    <!-- 1st: Design tokens -->
+    <link rel="stylesheet" href="scripts/CSS/components.css">   <!-- 2nd: Reusable components -->
+    <link rel="stylesheet" href="scripts/CSS/layout.css">       <!-- 3rd: Page structure -->
+    <link rel="stylesheet" href="scripts/CSS/navbar.css">       <!-- 4th: Navigation -->
+    <link rel="stylesheet" href="scripts/CSS/services.css">     <!-- 5th: Service-specific -->
+    <link rel="stylesheet" href="scripts/CSS/animations.css">   <!-- 6th: Animations -->
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="#" data-section="home">
+                    <img src="images/faviconClear.PNG" alt="Home">
+                </a>
+            </li>
+            <li><a href="#" data-section="services">Services</a></li>
+            <li><a href="#" data-section="about">About</a></li>
+            <li><a href="#" data-section="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="background-image">
+        <img src="images/background.avif" alt="Background">
+    </div>
+
+    <div class="page-container">
+        <!-- Sections -->
+        <section id="home">
+            <div class="homeLogo">
+                <img src="images/logo.avif" alt="Logo Image" style="max-width: 100%; height: auto;">
+            </div>
+        </section>
+
+        <section id="services">
+            <h1>Services</h1>
+            <div class="services-container">
+                <!-- Top Kodiak Box - Using Hero Box Component -->
+                <div class="hero-box top-service-box" onclick="window.location.href='kodiak.html'">
+                    <img src="images/kodiak.jpg" alt="Kodiak Equipment">
+                    
+                    <!-- Hero Box Title -->
+                    <div class="hero-box__title">KODIAK</div>
+                    
+                    <!-- Hero Box Button -->
+                    <button class="btn btn--primary btn--large btn--hero-position" 
+                            onclick="event.stopPropagation(); window.location.href='kodiak.html'">
+                        Explore
+                    </button>
+                    
+                    <!-- Hero Box Description -->
+                    <div class="hero-box__description">
+                        <br>
+                        <h3>Revolutionary Automation</h3>
+                        <br>
+                        <p>Revolutionary automation for medical oxygen cylinder testing. The Kodiak eliminates manual processes, operator requirements, and complex training - delivering autonomous testing and stamping with zero data entry.</p>
+                        <br>
+                        <p>After BLANK years in development, the Kodiak is now operational in BLANK locations worldwide, delivering proven reliability and efficiency in real-world testing environments.</p>
+                    </div>
+                </div>
+                
+                <!-- Bottom Service Cards - Using Card Components -->
+                <div class="bottom-cards">
+                    <div class="card card--service" onclick="window.location.href='testing.html'">
+                        <div class="card__title">Cylinder Testing</div>
+                        <img src="images/cylindersCart.jpg" class="card__image" alt="Cylinder Cart">
+                        <div class="card__description">Professional testing with state-of-the-art equipment</div>
+                    </div>
+                    
+                    <div class="card card--service" onclick="window.location.href='maintenance.html'">
+                        <div class="card__title">Maintenance</div>
+                        <img src="images/cylinderTesting.jpg" class="card__image" alt="Cylinder Testing">
+                        <div class="card__description">Complete maintenance solutions for optimal performance</div>
+                    </div>
+                    
+                    <div class="card card--service" onclick="window.location.href='inspection.html'">
+                        <div class="card__title">Cylinder Solutions</div>
+                        <img src="images/cylinders1.jpg" class="card__image" alt="Cylinders">
+                        <div class="card__description">Inspection and Certification Services</div>
+                    </div>
+                    
+                    <div class="card card--service" onclick="window.location.href='refurbishment.html'">
+                        <div class="card__title">Refurbishment</div>
+                        <img src="images/refirbCylinders.webp" class="card__image" alt="Cylinder Refurbishment">
+                        <div class="card__description">Cylinder Restoration and Refurbishment</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Background gap - no container -->
+    <div class="background-gap"></div>
+
+    <div class="page-container-half">
+        <section id="about">
+            <h1>About Us</h1>
+            <p>Cylinder Testing Solutions is dedicated to comprehensive cylinder services and innovative testing solutions. We specialize in cylinder retesting, refurbishment, and sales for both steel and aluminum cylinders across industrial and medical applications.</p>
+            
+            <h2>Our Solutions</h2>
+            <p>We provide automated equipment specifically designed for high-volume medical cylinder testing, delivering efficiency and precision for demanding operational environments.</p>
+            
+            <h2>Partnership Approach</h2>
+            <p>At CTS, we believe in true partnerships with our customers. We provide innovative products backed by readily available customer service and ongoing support - not just a sale followed by endless additional costs. Our commitment extends beyond the initial purchase to ensure your long-term success.</p>
+        </section>
+    </div>
+    
+    <!-- Background gap - no container -->
+    <div class="background-gap"></div>
+    
+    <div class="page-container">
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <div class="contact-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h2>Get in Touch</h2>
+                    <div class="contact-item">
+                        <h3>Address</h3>
+                        <p>123 Industrial Way<br>
+                        Your City, State 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <p>(555) 123-4567</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>info@cts-cylinders.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                        Saturday: 9:00 AM - 2:00 PM<br>
+                        Sunday: Closed</p>
+                    </div>
+                </div>
+                
+                <!-- Google Maps -->
+                <div class="map-container">
+                    <h2>Find Us</h2>
+                    <div class="map-embed">
+                        <!-- Replace the src with your actual business location -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.4037!!2d-83.1499!3d42.5803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDM0JzQ5LjEiTiA4M8KwMDgnNTkuNiJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="map-note">Click map for directions and larger view</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Link to the navbar JavaScript -->
+        <script src="scripts/JS/navbar.js"></script>
+    </div>
+</body>
+</html>

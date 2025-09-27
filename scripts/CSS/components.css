@@ -1,0 +1,392 @@
+/* =============================================
+   COMPONENTS.CSS - Reusable UI Components
+   Add this to your existing components.css
+   ============================================= */
+
+/* =============================================
+   BUTTON COMPONENTS
+   ============================================= */
+
+/* Base button styles - ALL buttons get this */
+.btn {
+    display: inline-block;
+    padding: var(--padding-button, 10px 20px);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-medium, 8px);
+    cursor: pointer;
+    transition: var(--transition-fast, all 0.3s ease);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--cts-green), var(--cts-green-hover));
+    color: var(--cts-white);
+    box-shadow: var(--shadow-card, 0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.btn--primary:hover {
+    background: linear-gradient(135deg, var(--cts-green-hover), var(--cts-green-light));
+    box-shadow: var(--shadow-button-hover, 0 8px 25px rgba(25, 100, 54, 0.4));
+}
+
+.btn--secondary {
+    background: var(--cts-gray-dark, #333);
+    color: var(--cts-white);
+    box-shadow: var(--shadow-card, 0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.btn--secondary:hover {
+    background: var(--cts-gray-darker, #555);
+    transform: translateY(-2px);
+}
+
+.btn--back {
+    background: var(--cts-gray-dark, #333);
+    color: var(--cts-white);
+}
+
+.btn--back:hover {
+    background: var(--cts-gray-darker, #555);
+    transform: translateY(-2px);
+}
+
+.btn--large {
+    padding: var(--padding-button-lg, 12px 24px);
+    font-size: 18px;
+}
+
+.btn--small {
+    padding: var(--padding-button-sm, 8px 16px);
+    font-size: 14px;
+}
+
+.btn--block {
+    display: block;
+    width: 100%;
+}
+
+/* =============================================
+   HERO BOX COMPONENT (Reusable Featured Box)
+   Usage: Large featured content box with overlay elements
+   ============================================= */
+
+.hero-box {
+    width: 100%;
+    height: var(--kodiak-box-height);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cts-gray-light);
+    border-radius: var(--kodiak-box-border-radius);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    z-index: var(--z-base);
+    transition: var(--transition-smooth);
+    cursor: pointer;
+}
+
+.hero-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    display: block;
+}
+
+.hero-box:hover {
+    z-index: var(--z-hover);
+}
+
+/* Hero box main title */
+.hero-box__title {
+    position: absolute;
+    top: var(--kodiak-title-top);
+    left: var(--kodiak-title-left);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-kodiak);
+    font-weight: var(--font-weight-black);
+    color: var(--cts-white);
+    text-shadow: var(--text-shadow-kodiak);
+    letter-spacing: var(--letter-spacing-kodiak);
+    z-index: var(--z-kodiak-title);
+    line-height: 1;
+    transform: translateY(-50%);
+}
+
+/* Hero box description overlay */
+.hero-box__description {
+    position: absolute;
+    top: var(--kodiak-description-top);
+    right: var(--kodiak-description-right);
+    background: rgba(0, 0, 0, 0.85);
+    color: var(--cts-white);
+    padding: var(--kodiak-description-padding);
+    border-radius: var(--radius-medium);
+    max-width: var(--kodiak-description-width);
+    height: var(--kodiak-description-height);
+    opacity: 0;
+    transform: var(--kodiak-description-transform-hidden);
+    transition: var(--transition-cubic-slow);
+    z-index: var(--z-overlay);
+}
+
+.hero-box:hover .hero-box__description {
+    opacity: 1;
+    transform: var(--kodiak-description-transform-visible);
+}
+
+/* Hero box description content styling */
+.hero-box__description h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.5rem;
+    color: var(--cts-green-hover);
+    font-weight: var(--font-weight-semibold);
+}
+
+.hero-box__description p {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    color: var(--cts-white);
+}
+
+.hero-box__description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Hero box button positioning */
+.hero-box .btn--hero-position {
+    position: absolute;
+    bottom: var(--kodiak-button-bottom);
+    left: var(--kodiak-button-left);
+    right: auto;
+    z-index: 10;
+}
+
+/* =============================================
+   CARD COMPONENTS
+   ============================================= */
+
+.card {
+    position: relative;
+    background: var(--cts-white);
+    border-radius: var(--radius-large, 12px);
+    box-shadow: var(--shadow-card, 0 4px 6px rgba(0, 0, 0, 0.1));
+    overflow: hidden;
+    transition: var(--transition-smooth, all 0.4s ease);
+}
+
+.card:hover {
+    transform: none;
+    box-shadow: var(--shadow-hover, 0 12px 30px rgba(0, 0, 0, 0.25));
+    cursor: pointer;
+    z-index: 10;
+}
+
+.card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card__title {
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    color: var(--cts-white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: var(--text-shadow-strong, 2px 2px 4px rgba(0, 0, 0, 0.8));
+    z-index: 5;
+}
+
+.card__content {
+    padding: var(--spacing-md, 1.5rem);
+}
+
+.card__description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--cts-gray-medium, #666);
+}
+
+/* Service card specific styling */
+.card--service {
+    flex: 1;
+    height: var(--service-box-height, 10.25rem);
+    position: relative;
+    overflow: hidden;
+}
+
+.card--service .card__description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 33.33%;
+    background: var(--cts-green-overlay, rgba(25, 100, 54, 0.9));
+    color: var(--cts-white);
+    padding: var(--spacing-sm);
+    border-radius: 0 0 var(--radius-large) var(--radius-large);
+    opacity: 0;
+    transform: translateY(100%);
+    transition: var(--transition-slower);
+    z-index: var(--z-overlay);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.card--service:hover .card__description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =============================================
+   FEATURE CARDS (Used by service pages)
+   ============================================= */
+
+.feature-card {
+    background: var(--cts-white);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+    transition: var(--transition-smooth);
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card__icon {
+    font-size: 3rem;
+    margin-bottom: var(--spacing-md);
+    display: block;
+}
+
+.feature-card h3 {
+    color: var(--cts-green);
+    font-size: 1.3rem;
+    margin: 0 0 var(--spacing-md) 0;
+    font-weight: var(--font-weight-semibold);
+}
+
+.feature-card p {
+    color: var(--cts-gray-medium);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* =============================================
+   BENEFITS LIST (Used by service pages)
+   ============================================= */
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+}
+
+.benefit-item__check {
+    color: var(--cts-green);
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(25, 100, 54, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+}
+
+.benefit-item span:last-child {
+    color: var(--cts-gray-dark);
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+/* =============================================
+   UTILITY CLASSES
+   ============================================= */
+
+.u-mt-sm { margin-top: var(--spacing-sm, 1rem); }
+.u-mt-md { margin-top: var(--spacing-md, 1.5rem); }
+.u-mt-lg { margin-top: var(--spacing-lg, 2rem); }
+.u-mb-sm { margin-bottom: var(--spacing-sm, 1rem); }
+.u-mb-md { margin-bottom: var(--spacing-md, 1.5rem); }
+.u-mb-lg { margin-bottom: var(--spacing-lg, 2rem); }
+
+.u-text-center { text-align: center; }
+.u-text-left { text-align: left; }
+.u-text-right { text-align: right; }
+
+.u-hidden { display: none; }
+.u-block { display: block; }
+.u-inline-block { display: inline-block; }
+
+/* =============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================= */
+
+@media (max-width: 768px) {
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+    
+    .btn--large {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    
+    .card--service {
+    flex: 1;
+    height: var(--service-box-height) !important; /* Force the height */
+    min-height: var(--service-box-height); /* Backup enforcement */
+    max-height: var(--service-box-height); /* Prevent growing */
+    position: relative;
+    overflow: hidden;
+    }
+
+    .card--service .card__image {
+    width: 100%;
+    height: 100%; /* Fill the forced container */
+    object-fit: cover; /* Crop to fit perfectly */
+    object-position: center; /* Center the crop */
+    display: block;
+}
+    
+    /*.hero-box__description {
+        opacity: 1; 
+        transform: none;
+        position: relative; 
+        background: rgba(0, 0, 0, 0.9);
+        margin-top: var(--spacing-sm);
+        max-width: none;
+        height: auto; 
+    } */
+} 
+
+@media (max-width: 480px) {
+    .card--service {
+        height: var(--service-box-height-phone, 6rem);
+    }
+    
+    .card__title {
+        font-size: 0.9rem;
+    }
+}
