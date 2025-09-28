@@ -169,6 +169,184 @@
 }
 
 /* =============================================
+   CAROUSEL COMPONENT SYSTEM
+   ============================================= */
+
+/* Base carousel container */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin: var(--spacing-lg) 0;
+}
+
+.carousel__wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-large);
+    box-shadow: var(--shadow-standard);
+}
+
+.carousel__slides {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel__slide {
+    min-width: 100%;
+    position: relative;
+}
+
+/* Carousel Navigation */
+.carousel__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid var(--cts-green);
+    width: var(--carousel-arrow-size);
+    height: var(--carousel-arrow-size);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    display: none; /* Hidden on mobile */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--cts-green);
+    z-index: 10;
+}
+
+.carousel__nav:hover {
+    background: var(--cts-green);
+    color: var(--cts-white);
+}
+
+.carousel__nav--prev {
+    left: var(--spacing-lg);
+}
+
+.carousel__nav--next {
+    right: var(--spacing-lg);
+}
+
+/* Carousel Indicators */
+.carousel__indicators {
+    display: flex;
+    justify-content: center;
+    gap: var(--carousel-indicators-gap);
+    margin-top: var(--spacing-lg);
+}
+
+.carousel__dot {
+    width: var(--carousel-dot-size);
+    height: var(--carousel-dot-size);
+    border-radius: 50%;
+    border: 2px solid var(--cts-green);
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.carousel__dot.active {
+    background: var(--cts-green);
+    transform: scale(1.2);
+}
+
+.carousel__dot:hover {
+    background: var(--cts-green-hover);
+}
+
+/* Carousel Card Component */
+.carousel-card {
+    position: relative;
+    height: var(--carousel-height-desktop);
+    min-height: var(--carousel-height-min);
+    max-height: var(--carousel-height-max);
+    overflow: hidden;
+}
+
+.carousel-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--carousel-overlay-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--carousel-padding);
+}
+
+.carousel-card__content {
+    text-align: center;
+    color: var(--cts-white);
+    max-width: 600px;
+}
+
+.carousel-card__title {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: var(--font-weight-black);
+    margin: 0 0 var(--spacing-md) 0;
+    text-shadow: var(--text-shadow-strong);
+    letter-spacing: var(--letter-spacing-tight);
+}
+
+.carousel-card__subtitle {
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    font-weight: var(--font-weight-medium);
+    margin: 0 0 var(--spacing-md) 0;
+    opacity: 0.95;
+}
+
+.carousel-card__description {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.5;
+    margin: 0 0 var(--spacing-xl) 0;
+    opacity: 0.9;
+}
+
+/* Carousel Variants */
+.carousel-card--featured {
+    min-height: var(--carousel-height-featured);
+}
+
+/* Desktop Enhancement */
+@media (min-width: 768px) {
+    .carousel__nav {
+        display: flex;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 767px) {
+    .carousel-card {
+        height: var(--carousel-height-mobile);
+    }
+    
+    .carousel-card__overlay {
+        padding: var(--carousel-padding-mobile);
+    }
+    
+    .carousel__indicators {
+        gap: var(--carousel-indicators-gap-mobile);
+        margin-top: var(--spacing-md);
+    }
+    
+    .carousel__dot {
+        width: var(--carousel-dot-size-mobile);
+        height: var(--carousel-dot-size-mobile);
+    }
+}
+
+/* =============================================
    CARD COMPONENTS
    ============================================= */
 

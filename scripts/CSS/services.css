@@ -359,6 +359,17 @@
 }
 
 /* =============================================
+   SERVICES-SPECIFIC CAROUSEL USAGE
+   ============================================= */
+
+.services-carousel {
+    /* Service-specific carousel container styles */
+    margin: var(--spacing-xl) 0;
+}
+
+
+
+/* =============================================
    RESPONSIVE DESIGN
    ============================================= */
 

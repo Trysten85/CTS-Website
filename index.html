@@ -44,57 +44,119 @@
 
         <section id="services">
             <h1>Services</h1>
-            <div class="services-container">
-                <!-- Top Kodiak Box - Using Hero Box Component -->
-                <div class="hero-box top-service-box" onclick="window.location.href='kodiak.html'">
-                    <img src="images/kodiak.jpg" alt="Kodiak Equipment">
-                    
-                    <!-- Hero Box Title -->
-                    <div class="hero-box__title">KODIAK</div>
-                    
-                    <!-- Hero Box Button -->
-                    <button class="btn btn--primary btn--large btn--hero-position" 
-                            onclick="event.stopPropagation(); window.location.href='kodiak.html'">
-                        Explore
-                    </button>
-                    
-                    <!-- Hero Box Description -->
-                    <div class="hero-box__description">
-                        <br>
-                        <h3>Revolutionary Automation</h3>
-                        <br>
-                        <p>Revolutionary automation for medical oxygen cylinder testing. The Kodiak eliminates manual processes, operator requirements, and complex training - delivering autonomous testing and stamping with zero data entry.</p>
-                        <br>
-                        <p>After BLANK years in development, the Kodiak is now operational in BLANK locations worldwide, delivering proven reliability and efficiency in real-world testing environments.</p>
+            
+            <!-- Mobile-First Services Carousel using Components -->
+            <div class="carousel services-carousel">
+                <!-- Carousel Container -->
+                <div class="carousel__wrapper">
+                    <!-- Service Cards -->
+                    <div class="carousel__slides">
+                        <!-- Slide 1: Kodiak (Featured) -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card carousel-card--featured">
+                                <img src="images/kodiak.jpg" alt="Kodiak Equipment" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">KODIAK</h2>
+                                        <p class="carousel-card__subtitle">Revolutionary Automation</p>
+                                        <p class="carousel-card__description">
+                                            Zero operator. Zero data entry. Zero training. 
+                                            The Kodiak eliminates manual processes while delivering autonomous testing and stamping.
+                                        </p>
+                                        <button onclick="window.location.href='kodiak.html'" class="btn btn--primary btn--large">
+                                            Explore Kodiak
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Testing -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card">
+                                <img src="images/cylindersCart.jpg" alt="Cylinder Testing" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">Cylinder Testing</h2>
+                                        <p class="carousel-card__description">
+                                            Professional cylinder testing with state-of-the-art equipment and certified technicians.
+                                        </p>
+                                        <button onclick="window.location.href='testing.html'" class="btn btn--primary">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Maintenance -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card">
+                                <img src="images/cylinderTesting.jpg" alt="Maintenance Services" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">Maintenance</h2>
+                                        <p class="carousel-card__description">
+                                            Complete maintenance solutions for optimal equipment performance and reliability.
+                                        </p>
+                                        <button onclick="window.location.href='maintenance.html'" class="btn btn--primary">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Inspection -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card">
+                                <img src="images/cylinders1.jpg" alt="Inspection Services" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">Inspection Services</h2>
+                                        <p class="carousel-card__description">
+                                            Thorough inspection and certification services to ensure safety and compliance.
+                                        </p>
+                                        <button onclick="window.location.href='inspection.html'" class="btn btn--primary">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 5: Refurbishment -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card">
+                                <img src="images/refirbCylinders.webp" alt="Refurbishment Services" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">Refurbishment</h2>
+                                        <p class="carousel-card__description">
+                                            Complete cylinder restoration and refurbishment to extend equipment life.
+                                        </p>
+                                        <button onclick="window.location.href='refurbishment.html'" class="btn btn--primary">
+                                            Learn More
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Bottom Service Cards - Using Card Components -->
-                <div class="bottom-cards">
-                    <div class="card card--service" onclick="window.location.href='testing.html'">
-                        <div class="card__title">Cylinder Testing</div>
-                        <img src="images/cylindersCart.jpg" class="card__image" alt="Cylinder Cart">
-                        <div class="card__description">Professional testing with state-of-the-art equipment</div>
-                    </div>
-                    
-                    <div class="card card--service" onclick="window.location.href='maintenance.html'">
-                        <div class="card__title">Maintenance</div>
-                        <img src="images/cylinderTesting.jpg" class="card__image" alt="Cylinder Testing">
-                        <div class="card__description">Complete maintenance solutions for optimal performance</div>
-                    </div>
-                    
-                    <div class="card card--service" onclick="window.location.href='inspection.html'">
-                        <div class="card__title">Cylinder Solutions</div>
-                        <img src="images/cylinders1.jpg" class="card__image" alt="Cylinders">
-                        <div class="card__description">Inspection and Certification Services</div>
-                    </div>
-                    
-                    <div class="card card--service" onclick="window.location.href='refurbishment.html'">
-                        <div class="card__title">Refurbishment</div>
-                        <img src="images/refirbCylinders.webp" class="card__image" alt="Cylinder Refurbishment">
-                        <div class="card__description">Cylinder Restoration and Refurbishment</div>
-                    </div>
+                <!-- Navigation Dots -->
+                <div class="carousel__indicators">
+                    <button class="carousel__dot active" onclick="goToSlide(0)" aria-label="Go to Kodiak"></button>
+                    <button class="carousel__dot" onclick="goToSlide(1)" aria-label="Go to Testing"></button>
+                    <button class="carousel__dot" onclick="goToSlide(2)" aria-label="Go to Maintenance"></button>
+                    <button class="carousel__dot" onclick="goToSlide(3)" aria-label="Go to Inspection"></button>
+                    <button class="carousel__dot" onclick="goToSlide(4)" aria-label="Go to Refurbishment"></button>
                 </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="carousel__nav carousel__nav--prev" onclick="prevSlide()" aria-label="Previous service">‹</button>
+                <button class="carousel__nav carousel__nav--next" onclick="nextSlide()" aria-label="Next service">›</button>
             </div>
         </section>
     </div>
@@ -151,7 +213,7 @@
                     <h2>Find Us</h2>
                     <div class="map-embed">
                         <!-- Replace the src with your actual business location -->
-                       <!-- <iframe 
+                        <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.4037!!2d-83.1499!3d42.5803!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDM0JzQ5LjEiTiA4M8KwMDgnNTkuNiJX!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus"
                             width="100%" 
                             height="300" 
@@ -160,14 +222,15 @@
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
-                    </div> -->
+                    </div>
                     <p class="map-note">Click map for directions and larger view</p>
                 </div>
             </div>
         </section>
         
-        <!-- Link to the navbar JavaScript -->
+        <!-- Link to the JavaScript -->
         <script src="scripts/JS/navbar.js"></script>
+        <script src="scripts/JS/carousel.js"></script>
     </div>
 </body>
 </html>

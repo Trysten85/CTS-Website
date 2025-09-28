@@ -3,617 +3,605 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTS - Kodiak: Revolutionary Automation</title>
+    <title>CTS - Service Page Test Kitchen Sink</title>
     <link rel="icon" type="image/png" href="images/favicon.PNG">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- CSS Files in correct order -->
-    <link rel="stylesheet" href="scripts/CSS/variables.css">
-    <link rel="stylesheet" href="scripts/CSS/components.css">
-    <link rel="stylesheet" href="scripts/CSS/navbar.css">
-    <link rel="stylesheet" href="scripts/CSS/layout.css">
-    <link rel="stylesheet" href="scripts/CSS/services.css">
+    <!-- CSS FILES IN CORRECT ORDER -->
+    <link rel="stylesheet" href="scripts/CSS/variables.css">     <!-- 1st: Variables -->
+    <link rel="stylesheet" href="scripts/CSS/components.css">    <!-- 2nd: Components -->
+    <link rel="stylesheet" href="scripts/CSS/navbar.css">        <!-- 3rd: Rest of styles -->
+    <link rel="stylesheet" href="scripts/CSS/services.css">      <!-- Updated with service page styles -->
     <link rel="stylesheet" href="scripts/CSS/animations.css">
     
+    
+
+    
+    <!-- Test page specific styles -->
     <style>
-        .kodiak-page {
-            margin-top: var(--navbar-height);
-            background: var(--cts-white);
-            min-height: calc(100vh - var(--navbar-height));
+        .test-header {
+            background: linear-gradient(135deg, #1e2d3b, #2a4a5e);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
         }
         
-        .kodiak-hero {
-            height: 100vh;
-            min-height: 600px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .kodiak-hero__background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/kodiak.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .kodiak-hero__overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--cts-green-overlay) 0%, rgba(30, 45, 59, 0.7) 100%);
-            z-index: 2;
-        }
-        
-        .kodiak-carousel {
-            position: relative;
-            z-index: 10;
+        .test-section {
             max-width: 1200px;
-            width: 90%;
-            margin: 0 auto;
-            padding: 2rem;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        .carousel-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--cts-white);
+        .test-section h2 {
+            color: var(--cts-green, #196436);
+            border-bottom: 2px solid var(--cts-green, #196436);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
         }
         
-        .carousel-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: var(--font-weight-black);
-            letter-spacing: var(--letter-spacing-kodiak);
-            margin: 0 0 1rem 0;
-            text-shadow: var(--text-shadow-kodiak);
-        }
-        
-        .carousel-subtitle {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            font-weight: var(--font-weight-medium);
-            margin: 0;
-            opacity: 0.95;
-        }
-        
-        .carousel-container {
-            position: relative;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: var(--radius-large);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            min-height: 400px;
-            max-height: 60vh;
-        }
-        
-        .carousel-content {
-            position: relative;
-            height: 100%;
-        }
-        
-        .carousel-slide {
-            display: none;
-            padding: 2rem;
-            animation: fadeInScale 0.6s ease;
-            overflow-y: auto;
-            max-height: 55vh;
-        }
-        
-        .carousel-slide.active {
-            display: block;
-        }
-        
-        .slide-title {
-            color: var(--cts-green);
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: var(--font-weight-bold);
-            margin: 0 0 1rem 0;
-            text-align: center;
-        }
-        
-        .slide-subtitle {
-            color: var(--cts-gray-dark);
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            text-align: center;
-            margin: 0 0 3rem 0;
-            line-height: 1.6;
-        }
-        
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--cts-white);
-            border: 2px solid var(--cts-green);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: bold;
-            color: var(--cts-green);
-            z-index: 20;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            margin-left: 10px;
         }
         
-        .carousel-nav:hover {
-            background: var(--cts-green);
-            color: var(--cts-white);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        .status.working {
+            background: #4caf50;
+            color: white;
         }
         
-        .carousel-nav--prev {
-            left: 20px;
+        .status.broken {
+            background: #f44336;
+            color: white;
         }
         
-        .carousel-nav--next {
-            right: 20px;
+        .demo-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
         }
         
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
+        .service-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            margin-top: 2rem;
-            padding: 1rem;
+            margin: 1rem 0;
         }
         
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
+        .service-preview {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: all 0.3s ease;
-        }
-        
-        .carousel-indicator.active {
-            background: var(--cts-white);
-            transform: scale(1.3);
-        }
-        
-        .slide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .slide-card {
-            background: var(--cts-white);
-            padding: 2rem;
-            border-radius: var(--radius-medium);
-            box-shadow: var(--shadow-card);
-            text-align: center;
-            transition: var(--transition-smooth);
             border: 2px solid transparent;
+            text-align: center;
         }
         
-        .slide-card:hover {
+        .service-preview:hover {
             border-color: var(--cts-green);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
         }
         
-        .slide-card__icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .slide-card h3 {
+        .service-preview h4 {
             color: var(--cts-green);
-            margin: 0 0 1rem 0;
-            font-size: 1.3rem;
+            margin: 0 0 0.5rem 0;
         }
         
-        .slide-card p {
-            color: var(--cts-gray-medium);
+        .service-preview p {
+            color: #666;
             margin: 0;
-            line-height: 1.6;
-        }
-        
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .comparison-card {
-            padding: 2rem;
-            border-radius: var(--radius-medium);
-            position: relative;
-        }
-        
-        .comparison-card--manual {
-            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-            border-left: 6px solid #f44336;
-        }
-        
-        .comparison-card--kodiak {
-            background: linear-gradient(135deg, var(--cts-gray-light) 0%, #e8f5e8 100%);
-            border-left: 6px solid var(--cts-green);
-        }
-        
-        .comparison-card h3 {
-            margin: 0 0 1rem 0;
-            font-size: 1.5rem;
-        }
-        
-        .comparison-card--manual h3 {
-            color: #c62828;
-        }
-        
-        .comparison-card--kodiak h3 {
-            color: var(--cts-green);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--cts-white);
-            border-radius: var(--radius-medium);
-            box-shadow: var(--shadow-card);
-            border: 2px solid transparent;
-            transition: var(--transition-smooth);
-        }
-        
-        .stat-card:hover {
-            border-color: var(--cts-green);
-            transform: translateY(-4px);
-        }
-        
-        .stat-card__number {
-            font-size: 2.5rem;
-            font-weight: var(--font-weight-black);
-            color: var(--cts-green);
-            display: block;
-            line-height: 1;
-        }
-        
-        .stat-card__label {
             font-size: 0.9rem;
-            color: var(--cts-gray-dark);
-            margin-top: 0.5rem;
         }
         
-        .cta-buttons {
-            display: flex;
+        .component-test {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            justify-content: center;
-            margin-top: 3rem;
-            flex-wrap: wrap;
+            margin: 1rem 0;
         }
         
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .carousel-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            
-            .carousel-nav--prev {
-                left: 10px;
-            }
-            
-            .carousel-nav--next {
-                right: 10px;
-            }
-            
-            .comparison-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .kodiak-carousel {
-                width: 95%;
-                padding: 0.5rem;
-                height: 90vh;
-            }
-            
-            .carousel-slide {
-                padding: 1rem;
-            }
-            
-            .slide-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-            
-            .carousel-header {
-                margin-bottom: 1rem;
-            }
-            
-            .carousel-title {
-                font-size: clamp(2rem, 8vw, 3rem);
-            }
-            
-            .carousel-subtitle {
-                font-size: clamp(1rem, 3vw, 1.2rem);
-            }
+        .test-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Your actual navbar -->
     <nav class="navbar">
         <ul>
-            <li><a href="index.html"><img src="images/faviconClear.PNG" alt="Home"></a></li>
+            <li>
+                <a href="index.html">
+                    <img src="images/faviconClear.PNG" alt="Home">
+                </a>
+            </li>
             <li><a href="index.html#services">Services</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </nav>
-
-    <div class="kodiak-page">
-        <!-- Full-screen Hero with Carousel -->
-        <div class="kodiak-hero">
-            <!-- Background Image -->
-            <div class="kodiak-hero__background"></div>
+    
+    <!-- Test Page Header -->
+    <div class="test-header">
+        <h1>🧪 CTS Service Page Kitchen Sink</h1>
+        <p>Testing the New Consolidated Service Page System</p>
+    </div>
+    
+    <!-- Service Page Demo Section -->
+    <div class="test-section">
+        <h2>🎯 Service Page Demos</h2>
+        <p>Click any service below to see the new service page template in action:</p>
+        
+        <div class="service-preview-grid">
+            <div class="service-preview" onclick="loadServiceDemo('maintenance')">
+                <h4>🔧 Maintenance</h4>
+                <p>Complete maintenance solutions</p>
+            </div>
             
-            <!-- Green Overlay -->
-            <div class="kodiak-hero__overlay"></div>
+            <div class="service-preview" onclick="loadServiceDemo('testing')">
+                <h4>💧 Testing</h4>
+                <p>Professional cylinder testing</p>
+            </div>
             
-            <!-- Carousel Container -->
-            <div class="kodiak-carousel">
-                <!-- Header -->
-                <div class="carousel-header">
-                    <h1 class="carousel-title">KODIAK</h1>
-                    <p class="carousel-subtitle">Revolutionary Automation for Medical Cylinder Testing</p>
+            <div class="service-preview" onclick="loadServiceDemo('inspection')">
+                <h4>🛡️ Inspection</h4>
+                <p>Thorough inspection services</p>
+            </div>
+            
+            <div class="service-preview" onclick="loadServiceDemo('refurbishment')">
+                <h4>🔄 Refurbishment</h4>
+                <p>Complete cylinder restoration</p>
+            </div>
+        </div>
+        
+        <!-- Demo Container -->
+        <div id="service-demo-container" style="margin-top: 2rem; border: 2px solid var(--cts-green); border-radius: 8px; overflow: hidden; min-height: 200px;">
+            <div style="padding: 2rem; text-align: center; color: #666;">
+                👆 Click a service above to see the demo
+            </div>
+        </div>
+    </div>
+    
+    <!-- Component Tests -->
+    <div class="test-section">
+        <h2>🧩 Component Tests</h2>
+        
+        <h3>Button Components</h3>
+        <div class="demo-section">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <button class="btn btn--primary">Primary Button</button>
+                <button class="btn btn--primary btn--large">Large Primary</button>
+                <button class="btn btn--secondary">Secondary Button</button>
+                <button class="btn btn--back">← Back Button</button>
+                <a href="#" class="btn btn--primary">Link as Button</a>
+            </div>
+        </div>
+        
+        <h3>Feature Cards</h3>
+        <div class="demo-section">
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="feature-card">
+                    <div class="feature-card__icon">🔧</div>
+                    <h3>Test Feature</h3>
+                    <p>This is a test feature card with hover effects.</p>
                 </div>
-                
-                <!-- Carousel -->
-                <div class="carousel-container">
-                    <!-- Navigation Arrows -->
-                    <button class="carousel-nav carousel-nav--prev" onclick="prevSlide()">‹</button>
-                    <button class="carousel-nav carousel-nav--next" onclick="nextSlide()">›</button>
-                    
-                    <!-- Carousel Content -->
-                    <div class="carousel-content">
-                        <!-- Slide 1: Overview -->
-                        <div class="carousel-slide active">
-                            <h2 class="slide-title">Zero Operator. Zero Data Entry. Zero Training.</h2>
-                            <p class="slide-subtitle">The Kodiak eliminates manual processes, operator requirements, and complex training while delivering autonomous testing and stamping with complete precision.</p>
-                            
-                            <div class="slide-grid">
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">🤖</div>
-                                    <h3>Fully Autonomous</h3>
-                                    <p>Complete automation from cylinder input to final stamping - no human intervention required.</p>
-                                </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">📊</div>
-                                    <h3>Zero Data Entry</h3>
-                                    <p>Automatic data capture and processing eliminates manual entry errors.</p>
-                                </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">⚡</div>
-                                    <h3>High Volume</h3>
-                                    <p>Designed for demanding operational environments with consistent throughput.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Slide 2: Capabilities -->
-                        <div class="carousel-slide">
-                            <h2 class="slide-title">Complete Testing Capabilities</h2>
-                            <p class="slide-subtitle">The Kodiak handles every aspect of medical cylinder testing that traditionally required multiple services and operators.</p>
-                            
-                            <div class="slide-grid">
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">💧</div>
-                                    <h3>Hydrostatic Testing</h3>
-                                    <p>Automated pressure testing with precise control and measurement systems.</p>
-                                </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">👁️</div>
-                                    <h3>Visual Inspection</h3>
-                                    <p>Advanced imaging systems for comprehensive defect detection.</p>
-                                </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">🏷️</div>
-                                    <h3>Automated Stamping</h3>
-                                    <p>Integrated stamping system for immediate certification marking.</p>
-                                </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">📋</div>
-                                    <h3>Documentation</h3>
-                                    <p>Complete digital records automatically generated and stored.</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Slide 3: Comparison -->
-                        <div class="carousel-slide">
-                            <h2 class="slide-title">Kodiak vs Manual Process</h2>
-                            <p class="slide-subtitle">See the dramatic difference between traditional manual testing and Kodiak automation.</p>
-                            
-                            <div class="comparison-grid">
-                                <div class="comparison-card comparison-card--manual">
-                                    <h3>❌ Manual Process</h3>
-                                    <ul style="margin: 0; padding-left: 1.5rem;">
-                                        <li>Requires trained operators</li>
-                                        <li>Manual data entry errors</li>
-                                        <li>Inconsistent processing times</li>
-                                        <li>Multiple service appointments</li>
-                                        <li>Ongoing labor costs</li>
-                                        <li>Human error potential</li>
-                                    </ul>
-                                </div>
-                                <div class="comparison-card comparison-card--kodiak">
-                                    <h3>✅ Kodiak Automation</h3>
-                                    <ul style="margin: 0; padding-left: 1.5rem;">
-                                        <li>Zero operator requirements</li>
-                                        <li>Automatic data capture</li>
-                                        <li>Consistent, predictable timing</li>
-                                        <li>Complete testing in single cycle</li>
-                                        <li>One-time equipment investment</li>
-                                        <li>Eliminates human error</li>
-                                    </ul>
+                <div class="feature-card">
+                    <div class="feature-card__icon">⚙️</div>
+                    <h3>Another Feature</h3>
+                    <p>Hover over these cards to see the animations.</p>
+                </div>
+            </div>
+        </div>
+        
+        <h3>Benefits List</h3>
+        <div class="demo-section">
+            <div class="benefits-list" style="max-width: none;">
+                <div class="benefit-item">
+                    <span class="benefit-item__check">✓</span>
+                    <span>Test benefit item with checkmark styling</span>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-item__check">✓</span>
+                    <span>Another benefit showing the consistent design</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CSS Status Check -->
+    <div class="test-section">
+        <h2>📊 System Status</h2>
+        <div id="system-status">
+            <p>Checking CSS files and component system...</p>
+        </div>
+        
+        <div class="component-test">
+            <div class="test-card">
+                <h4>Variables CSS</h4>
+                <span id="variables-status" class="status">Testing</span>
+            </div>
+            <div class="test-card">
+                <h4>Components CSS</h4>
+                <span id="components-status" class="status">Testing</span>
+            </div>
+            <div class="test-card">
+                <h4>Services CSS</h4>
+                <span id="services-status" class="status">Testing</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Carousel Component Tests -->
+    <div class="test-section">
+        <h2>🎠 Carousel Component System</h2>
+        
+        <h3>Mobile-First Services Carousel</h3>
+        <div class="demo-section">
+            <!-- Mobile-First Services Carousel using Components -->
+            <div class="carousel services-carousel">
+                <!-- Carousel Container -->
+                <div class="carousel__wrapper">
+                    <!-- Service Cards -->
+                    <div class="carousel__slides">
+                        <!-- Slide 1: Kodiak (Featured) -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card carousel-card--featured">
+                                <img src="images/kodiak.jpg" alt="Kodiak Equipment" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">KODIAK</h2>
+                                        <p class="carousel-card__subtitle">Revolutionary Automation</p>
+                                        <p class="carousel-card__description">
+                                            Zero operator. Zero data entry. Zero training. 
+                                            The Kodiak eliminates manual processes while delivering autonomous testing and stamping.
+                                        </p>
+                                        <button onclick="window.location.href='kodiak.html'" class="btn btn--primary btn--large">
+                                            Explore Kodiak
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Slide 4: Results -->
-                        <div class="carousel-slide">
-                            <h2 class="slide-title">Proven Results Worldwide</h2>
-                            <p class="slide-subtitle">After years in development, the Kodiak is delivering proven reliability and efficiency in real-world testing environments.</p>
-                            
-                            <div class="stats-grid">
-                                <div class="stat-card">
-                                    <span class="stat-card__number">XX</span>
-                                    <div class="stat-card__label">Active Installations</div>
+                        <!-- Slide 2: Testing -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card">
+                                <img src="images/cylindersCart.jpg" alt="Cylinder Testing" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">Cylinder Testing</h2>
+                                        <p class="carousel-card__description">
+                                            Professional cylinder testing with state-of-the-art equipment and certified technicians.
+                                        </p>
+                                        <button onclick="window.location.href='testing.html'" class="btn btn--primary">
+                                            Learn More
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="stat-card">
-                                    <span class="stat-card__number">XXX%</span>
-                                    <div class="stat-card__label">Efficiency Increase</div>
-                                </div>
-                                <div class="stat-card">
-                                    <span class="stat-card__number">0</span>
-                                    <div class="stat-card__label">Training Required</div>
-                                </div>
-                                <div class="stat-card">
-                                    <span class="stat-card__number">99.X%</span>
-                                    <div class="stat-card__label">Accuracy Rate</div>
-                                </div>
-                            </div>
-                            
-                            <div class="cta-buttons">
-                                <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">
-                                    Request Demo
-                                </button>
-                                <button onclick="window.location.href='index.html#contact'" class="btn btn--secondary btn--large">
-                                    Get Pricing
-                                </button>
                             </div>
                         </div>
                         
-                        <!-- Slide 5: Implementation -->
-                        <div class="carousel-slide">
-                            <h2 class="slide-title">Seamless Implementation</h2>
-                            <p class="slide-subtitle">From consultation to full operation, we ensure a smooth transition to automated testing.</p>
-                            
-                            <div class="slide-grid">
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">🎯</div>
-                                    <h3>1. Consultation</h3>
-                                    <p>Assess your facility needs and design optimal Kodiak configuration.</p>
+                        <!-- Slide 3: Maintenance -->
+                        <div class="carousel__slide">
+                            <div class="carousel-card">
+                                <img src="images/cylinderTesting.jpg" alt="Maintenance Services" class="carousel-card__image">
+                                <div class="carousel-card__overlay">
+                                    <div class="carousel-card__content">
+                                        <h2 class="carousel-card__title">Maintenance</h2>
+                                        <p class="carousel-card__description">
+                                            Complete maintenance solutions for optimal equipment performance and reliability.
+                                        </p>
+                                        <button onclick="window.location.href='maintenance.html'" class="btn btn--primary">
+                                            Learn More
+                                        </button>
+                                    </div>
                                 </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">🔧</div>
-                                    <h3>2. Installation</h3>
-                                    <p>Professional installation by certified Kodiak technicians.</p>
-                                </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">🔗</div>
-                                    <h3>3. Integration</h3>
-                                    <p>Seamless integration with existing workflows and systems.</p>
-                                </div>
-                                <div class="slide-card">
-                                    <div class="slide-card__icon">📞</div>
-                                    <h3>4. Support</h3>
-                                    <p>Ongoing technical support and maintenance for optimal performance.</p>
-                                </div>
-                            </div>
-                            
-                            <div class="cta-buttons">
-                                <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">
-                                    Start Implementation
-                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Indicators -->
-                <div class="carousel-indicators">
-                    <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
-                    <div class="carousel-indicator" onclick="goToSlide(1)"></div>
-                    <div class="carousel-indicator" onclick="goToSlide(2)"></div>
-                    <div class="carousel-indicator" onclick="goToSlide(3)"></div>
-                    <div class="carousel-indicator" onclick="goToSlide(4)"></div>
+                <!-- Navigation Dots -->
+                <div class="carousel__indicators">
+                    <button class="carousel__dot active" onclick="goToSlide(0)" aria-label="Go to Kodiak"></button>
+                    <button class="carousel__dot" onclick="goToSlide(1)" aria-label="Go to Testing"></button>
+                    <button class="carousel__dot" onclick="goToSlide(2)" aria-label="Go to Maintenance"></button>
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="carousel__nav carousel__nav--prev" onclick="prevSlide()" aria-label="Previous service">‹</button>
+                <button class="carousel__nav carousel__nav--next" onclick="nextSlide()" aria-label="Next service">›</button>
+            </div>
+            
+            <p><strong>Test:</strong> Try swiping on mobile, clicking arrows on desktop, or using arrow keys!</p>
+        </div>
+        
+        <h3>Carousel Component Status</h3>
+        <div class="demo-section">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                <div class="test-card">
+                    <h4>Touch/Swipe</h4>
+                    <span id="touch-status" class="status">Testing...</span>
+                </div>
+                <div class="test-card">
+                    <h4>Keyboard Nav</h4>
+                    <span id="keyboard-status" class="status">Testing...</span>
+                </div>
+                <div class="test-card">
+                    <h4>Dot Navigation</h4>
+                    <span id="dots-status" class="status">Testing...</span>
+                </div>
+                <div class="test-card">
+                    <h4>Arrows</h4>
+                    <span id="arrows-status" class="status">Testing...</span>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Animation Tests -->
+    <div class="test-section">
+        <h2>🎨 Animation System Tests</h2>
+        
+        <h3>Button Animations</h3>
+        <div class="demo-section">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; align-items: center;">
+                <button class="btn btn--primary">Hover Test</button>
+                <button class="btn btn--secondary">Should Lift</button>
+                <button class="btn btn--back">← With Shimmer</button>
+                <div style="padding: 1rem; background: #f0f0f0; border-radius: 8px; cursor: pointer;" class="hover-lift">
+                    <strong>Hover Lift Utility</strong>
+                </div>
+                <div style="padding: 1rem; background: #e8f5e8; border-radius: 8px; cursor: pointer;" class="hover-glow">
+                    <strong>Hover Glow</strong>
+                </div>
+            </div>
+        </div>
+        
+        <h3>Loading Animations</h3>
+        <div class="demo-section">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+                <div class="animate-fadeIn" style="padding: 1rem; background: #e3f2fd; border-radius: 8px; text-align: center;">
+                    <strong>Fade In</strong>
+                </div>
+                <div class="animate-fadeInLeft animate-delay-1" style="padding: 1rem; background: #fce4ec; border-radius: 8px; text-align: center;">
+                    <strong>Fade Left + Delay</strong>
+                </div>
+                <div class="animate-scaleIn animate-delay-2" style="padding: 1rem; background: #f1f8e9; border-radius: 8px; text-align: center;">
+                    <strong>Scale In + More Delay</strong>
+                </div>
+            </div>
+            <button onclick="replayAnimations()" class="btn btn--secondary" style="margin-top: 1rem;">
+                Replay Animations
+            </button>
+        </div>
+        
+        <h3>Utility Animations</h3>
+        <div class="demo-section">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <div class="animate-float" style="padding: 1rem; background: #e8eaf6; border-radius: 8px; text-align: center;">
+                    <strong>Gentle Float</strong>
+                </div>
+                <div class="animate-pulse" style="padding: 1rem; background: #fff8e1; border-radius: 8px; text-align: center;">
+                    <strong>Pulse Effect</strong>
+                </div>
+                <div id="bounce-demo" class="animate-bounce" style="padding: 1rem; background: #ffebee; border-radius: 8px; text-align: center;">
+                    <strong>Bounce</strong>
+                </div>
+            </div>
+            <button onclick="toggleBounce()" class="btn btn--secondary" style="margin-top: 1rem;">
+                Toggle Bounce
+            </button>
+        </div>
+        
+        <h3>Progressive Header Test</h3>
+        <div class="demo-section">
+            <section style="background: #f5f5f5; padding: 2rem; border-radius: 8px;">
+                <h1>Hover This Section</h1>
+                <p>The underline below the h1 should expand when you hover anywhere in this gray area.</p>
+            </section>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="test-section" style="background: #e8f5e9;">
+        <h2>🚀 Quick Actions</h2>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button onclick="testAllSystems()" class="btn btn--primary">
+                Test All Systems
+            </button>
+            <button onclick="testCarousel()" class="btn btn--primary">
+                Test Carousel
+            </button>
+            <button onclick="window.location.href='maintenance.html'" class="btn btn--secondary">
+                View Maintenance Page
+            </button>
+            <button onclick="window.location.href='index.html'" class="btn btn--back">
+                Back to Home
+            </button>
+        </div>
+    </div>
+    
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const indicators = document.querySelectorAll('.carousel-indicator');
-        const totalSlides = slides.length;
+        // Service demo data
+        const serviceData = {
+            maintenance: {
+                title: "Maintenance Services",
+                subtitle: "Complete maintenance solutions",
+                heroImage: "images/cylinderTesting.jpg",
+                overview: "Our comprehensive maintenance services ensure peak equipment performance.",
+                features: [
+                    { icon: "🔧", title: "Preventive Maintenance", desc: "Regular scheduled maintenance" },
+                    { icon: "🚨", title: "Emergency Repairs", desc: "24/7 emergency response" }
+                ]
+            },
+            testing: {
+                title: "Cylinder Testing Services", 
+                subtitle: "Professional testing with state-of-the-art equipment",
+                heroImage: "images/cylindersCart.jpg",
+                overview: "Our testing services utilize state-of-the-art equipment and certified technicians.",
+                features: [
+                    { icon: "💧", title: "Hydrostatic Testing", desc: "Pressure testing for integrity" },
+                    { icon: "👁️", title: "Visual Inspection", desc: "Thorough visual examination" }
+                ]
+            },
+            inspection: {
+                title: "Inspection Services",
+                subtitle: "Thorough inspection and certification",
+                heroImage: "images/cylinders1.jpg", 
+                overview: "Our inspection services ensure compliance with all safety standards.",
+                features: [
+                    { icon: "🛡️", title: "Safety Inspections", desc: "Comprehensive safety evaluations" },
+                    { icon: "📜", title: "Regulatory Compliance", desc: "Meet all requirements" }
+                ]
+            },
+            refurbishment: {
+                title: "Refurbishment Services",
+                subtitle: "Complete cylinder restoration", 
+                heroImage: "images/refirbCylinders.webp",
+                overview: "Complete cylinder restoration to extend equipment life.",
+                features: [
+                    { icon: "🔄", title: "Complete Restoration", desc: "Full restoration to specs" },
+                    { icon: "🎨", title: "Surface Treatment", desc: "Professional surface prep" }
+                ]
+            }
+        };
         
-        function showSlide(index) {
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
+        function loadServiceDemo(serviceKey) {
+            const service = serviceData[serviceKey];
+            const container = document.getElementById('service-demo-container');
             
-            // Show current slide
-            slides[index].classList.add('active');
-            indicators[index].classList.add('active');
+            container.innerHTML = `
+                <div class="service-hero" style="height: 200px;">
+                    <img src="${service.heroImage}" alt="${service.title}" class="service-hero__image">
+                    <div class="service-hero__overlay">
+                        <h1 class="service-hero__title" style="font-size: 2rem;">${service.title}</h1>
+                        <p class="service-hero__subtitle" style="font-size: 1rem;">${service.subtitle}</p>
+                    </div>
+                </div>
+                <div style="padding: 2rem;">
+                    <div class="service-overview">
+                        <h2>Service Overview</h2>
+                        <p>${service.overview}</p>
+                    </div>
+                    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 2rem;">
+                        ${service.features.map(feature => `
+                            <div class="feature-card">
+                                <div class="feature-card__icon">${feature.icon}</div>
+                                <h3>${feature.title}</h3>
+                                <p>${feature.desc}</p>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+        
+        function testAllSystems() {
+            // Test Variables
+            const rootStyles = getComputedStyle(document.documentElement);
+            const greenVar = rootStyles.getPropertyValue('--cts-green').trim();
+            document.getElementById('variables-status').textContent = greenVar ? 'Working' : 'Missing';
+            document.getElementById('variables-status').className = greenVar ? 'status working' : 'status broken';
             
-            currentSlide = index;
+            // Test Components
+            const testBtn = document.createElement('div');
+            testBtn.className = 'btn';
+            document.body.appendChild(testBtn);
+            const btnStyles = getComputedStyle(testBtn);
+            document.body.removeChild(testBtn);
+            
+            const hasComponents = btnStyles.padding && btnStyles.padding !== '0px';
+            document.getElementById('components-status').textContent = hasComponents ? 'Working' : 'Missing';
+            document.getElementById('components-status').className = hasComponents ? 'status working' : 'status broken';
+            
+            // Test Services
+            const testCard = document.createElement('div');
+            testCard.className = 'feature-card';
+            document.body.appendChild(testCard);
+            const cardStyles = getComputedStyle(testCard);
+            document.body.removeChild(testCard);
+            
+            const hasServices = cardStyles.background && cardStyles.background !== 'rgba(0, 0, 0, 0)';
+            document.getElementById('services-status').textContent = hasServices ? 'Working' : 'Missing';
+            document.getElementById('services-status').className = hasServices ? 'status working' : 'status broken';
+            
+            // Update system status
+            const allWorking = greenVar && hasComponents && hasServices;
+            document.getElementById('system-status').innerHTML = allWorking ? 
+                '<div style="padding: 1rem; background: #e8f5e9; border-radius: 5px; color: #2e7d32;">✅ <strong>All systems operational!</strong> The new service page system is ready.</div>' :
+                '<div style="padding: 1rem; background: #ffebee; border-radius: 5px; color: #c62828;">⚠️ <strong>Some issues detected.</strong> Check the individual component tests above.</div>';
         }
         
-        function nextSlide() {
-            const next = (currentSlide + 1) % totalSlides;
-            showSlide(next);
+        function replayAnimations() {
+            const animated = document.querySelectorAll('.animate-fadeIn, .animate-fadeInLeft, .animate-scaleIn');
+            
+            animated.forEach(el => {
+                el.style.animation = 'none';
+                el.offsetHeight; // Trigger reflow
+                el.style.animation = null;
+            });
         }
         
-        function prevSlide() {
-            const prev = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(prev);
+        function toggleBounce() {
+            const bounce = document.getElementById('bounce-demo');
+            if (bounce.classList.contains('animate-bounce')) {
+                bounce.classList.remove('animate-bounce');
+                bounce.classList.add('animate-paused');
+            } else {
+                bounce.classList.remove('animate-paused');
+                bounce.classList.add('animate-bounce');
+            }
         }
         
-        function goToSlide(index) {
-            showSlide(index);
+        function testAnimations() {
+            let results = [];
+            
+            // Test transitions
+            const buttons = document.querySelectorAll('.btn');
+            const hasTransitions = Array.from(buttons).every(btn => {
+                const styles = getComputedStyle(btn);
+                return styles.transition && styles.transition !== 'none';
+            });
+            results.push(`Transitions: ${hasTransitions ? '✅ Working' : '❌ Missing'}`);
+            
+            // Test hover utilities
+            const hoverElements = document.querySelectorAll('[class*="hover-"]');
+            results.push(`Hover Utilities: ${hoverElements.length > 0 ? '✅ Found ' + hoverElements.length : '❌ None found'}`);
+            
+            // Test animations
+            const animatedElements = document.querySelectorAll('[class*="animate-"]');
+            results.push(`Animations: ${animatedElements.length > 0 ? '✅ Found ' + animatedElements.length : '❌ None found'}`);
+            
+            // Test feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            results.push(`Feature Cards: ${featureCards.length > 0 ? '✅ Found ' + featureCards.length : '❌ None found'}`);
+            
+            alert('🎨 Animation Test Results:\n\n' + results.join('\n'));
         }
         
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'ArrowRight') nextSlide();
+        // Auto-test on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            testAllSystems();
+            // Load maintenance demo by default
+            setTimeout(() => loadServiceDemo('maintenance'), 500);
         });
-        
-        // Auto-advance (optional - uncomment to enable)
-        // setInterval(nextSlide, 8000);
     </script>
+
+    <script src="scripts/JS/navbar.js"></script>
+    <script src="scripts/JS/carousel.js"></script>
 </body>
 </html>
