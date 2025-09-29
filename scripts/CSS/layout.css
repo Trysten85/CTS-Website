@@ -1,12 +1,14 @@
 /* =============================================
-   LAYOUT.CSS - Page Structure and Layout
-   FIXED: Container width overflow issues
+   LAYOUT.CSS - Page Structure and Layout Only
+   Reorganized for clarity and maintainability
+   NO animations, NO component styling, NO hover effects
    ============================================= */
 
 /* =============================================
-   BOX-SIZING RESET - Prevents overflow issues
+   1. GLOBAL LAYOUT SETUP
    ============================================= */
 
+/* Box-sizing reset - prevents overflow issues */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -14,13 +16,9 @@
 html {
     overflow-x: hidden;
     width: 100%;
+    scroll-behavior: smooth;
 }
 
-/* =============================================
-   GLOBAL LAYOUT SETUP
-   ============================================= */
-
-/* Font and base body styling */
 body {
     font-family: var(--font-primary);
     background-image: url('images/cylinders1.jpg');
@@ -32,47 +30,39 @@ body {
     padding: 0;
     width: 100%;
     max-width: 100vw;
-    overflow-x: hidden; /* CRITICAL: Prevents horizontal scroll */
-}
-
-/* Typography */
-h1, h2, h3 {
-    font-weight: 600;
-    letter-spacing: var(--letter-spacing-tight);
+    overflow-x: hidden;
 }
 
 /* =============================================
-   CONTAINER SYSTEM - FIXED
+   2. CONTAINER SYSTEM - Apple-inspired dark theme
    ============================================= */
 
-/* Main page container - FIXED to not exceed viewport */
 .page-container {
     width: 100%;
-    max-width: 100%; /* Never exceed parent */
+    max-width: 100%;
     margin: 0 auto;
     padding: var(--padding-container);
     padding-top: 4.375rem;
-    background-color: var(--cts-white);
-    box-shadow: var(--shadow-standard);
-    box-sizing: border-box; /* Include padding in width */
-    overflow-x: hidden; /* Prevent internal horizontal scroll */
-}
-
-/* Half-width container - FIXED alignment method */
-.page-container-half {
-    width: 50%;
-    max-width: 50vw; /* Never exceed half viewport */
-    margin: 0 0 0 auto; /* Align to right naturally */
-    padding: var(--padding-container);
-    padding-top: 4.375rem;
-    background-color: var(--cts-white);
-    box-shadow: var(--shadow-standard);
+    background: #000000;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     box-sizing: border-box;
     overflow-x: hidden;
-    /* REMOVED: transform: translateX(19rem) - this was causing overflow */
+    position: relative;
 }
 
-/* Background gap between containers */
+.page-container-half {
+    width: 50%;
+    max-width: 50vw;
+    margin: 0 0 0 auto;
+    padding: var(--padding-container);
+    padding-top: 4.375rem;
+    background: #000000;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative;
+}
+
 .background-gap {
     height: var(--background-gap);
     width: 100%;
@@ -80,7 +70,7 @@ h1, h2, h3 {
 }
 
 /* =============================================
-   BACKGROUND SYSTEM
+   3. BACKGROUND SYSTEM
    ============================================= */
 
 .background-image {
@@ -90,7 +80,7 @@ h1, h2, h3 {
     width: 100%;
     height: 100%;
     z-index: var(--z-background);
-    max-width: 100vw; /* Prevent overflow */
+    max-width: 100vw;
 }
 
 .background-image img {
@@ -100,8 +90,62 @@ h1, h2, h3 {
 }
 
 /* =============================================
-   HOME SECTION
+   4. SECTION LAYOUTS - Structure Only
    ============================================= */
+
+/* Base section structure */
+.section {
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+/* Section typography - basic styles only */
+.section h1,
+#about h1,
+#contact h1,
+#services h1 {
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+}
+
+.section h2,
+#about h2,
+#contact h2 {
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 1rem;
+}
+
+.section p,
+#about p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    font-size: 1.0625rem;
+    font-weight: 400;
+}
+
+/* =============================================
+   5. HOME SECTION LAYOUT
+   ============================================= */
+
+#home {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0 -2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    max-width: calc(100% + 4rem);
+    box-sizing: border-box;
+}
 
 .homeLogo {
     display: flex;
@@ -116,46 +160,203 @@ h1, h2, h3 {
 }
 
 /* =============================================
-   SECTION MANAGEMENT
+   6. HERO SECTION LAYOUT - Structure Only
    ============================================= */
 
-.section {
-    padding: var(--spacing-xl) 0;
-    border-bottom: var(--border-section);
-    margin: 0 -2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    max-width: 100%; /* Prevent section overflow */
-    box-sizing: border-box;
+.hero-section {
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-/* Specific section styling */
-#home {
-    border-bottom: var(--border-section);
-    margin: 0 -2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    max-width: calc(100% + 4rem); /* Account for negative margins */
-    box-sizing: border-box;
+.hero-section__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/background.avif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
 }
 
-#services {
-    padding: var(--spacing-lg) 0;
-    border-bottom: none;
+.hero-section__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--cts-green-overlay) 0%, rgba(30, 45, 59, 0.8) 100%);
+    z-index: 3;
 }
 
-#about {
-    padding: 0;
-    border-bottom: none;
+.hero-section__content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 90%;
 }
 
-#contact {
-    padding: var(--spacing-lg) 0;
+.hero-section__logo {
+    max-width: 280px;
+    width: 80%;
+    height: auto;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+}
+
+.hero-section__tagline {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+    font-weight: var(--font-weight-medium);
+    color: var(--cts-white);
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.5px;
+}
+
+.hero-section__scroll-arrow {
+    position: absolute;
+    left: 2rem;
+    bottom: 3rem;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--cts-white);
+}
+
+.scroll-arrow__icon {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.scroll-arrow__text {
+    font-size: 0.9rem;
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* =============================================
-   CONTACT SECTION LAYOUT
+   7. SERVICES SECTION LAYOUT
    ============================================= */
+
+#services {
+    margin: 0;
+    padding: var(--spacing-xxl) 2rem;
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+#services h1 {
+    text-align: left;
+    margin-bottom: var(--spacing-xl);
+    align-self: flex-start;
+    display: inline-block;
+    font-size: clamp(2rem, 5vw, 3rem);
+    position: relative;
+    z-index: 1;
+}
+
+.services-carousel {
+    width: var(--carousel-width-desktop, 80%);
+    max-width: var(--carousel-max-width, 1200px);
+    align-self: center;
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================
+   8. ABOUT SECTION LAYOUT
+   ============================================= */
+
+#about {
+    padding: var(--spacing-xxl) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#about h1 {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.about-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.about-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+.about-card__icon {
+    font-size: 3rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, rgba(25, 100, 54, 0.2), rgba(25, 100, 54, 0.05));
+    border-radius: 16px;
+    border: 1px solid rgba(25, 100, 54, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.about-card h2 {
+    color: #ffffff;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    margin: 0 0 1rem 0;
+    position: relative;
+    z-index: 1;
+}
+
+.about-card p {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    font-size: 1.0625rem;
+    margin: 0;
+    font-weight: 400;
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================
+   9. CONTACT SECTION LAYOUT
+   ============================================= */
+
+#contact {
+    padding: var(--spacing-xxl) 0;
+}
 
 .contact-container {
     display: flex;
@@ -163,55 +364,68 @@ h1, h2, h3 {
     margin-top: var(--spacing-lg);
     max-width: 100%;
     box-sizing: border-box;
+    position: relative;
+    z-index: 1;
 }
 
 .contact-info {
     flex: 1;
-    min-width: 0; /* Allow flex item to shrink */
+    min-width: 0;
 }
 
 .contact-info h2 {
-    color: var(--cts-navy-hex);
+    color: #ffffff;
     margin-bottom: var(--spacing-lg);
+    font-weight: 600;
+    letter-spacing: -0.3px;
 }
 
 .contact-item {
     margin-bottom: var(--spacing-lg);
-    padding: 1.5rem;
-    background: var(--cts-gray-light);
-    border-radius: var(--radius-medium);
-    border-left: var(--border-feature);
+    padding: 1.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-sizing: border-box;
+    backdrop-filter: blur(20px);
 }
 
 .contact-item h3 {
     color: var(--cts-green);
-    margin: 0 0 0.5rem 0;
-    font-size: 1.1rem;
+    margin: 0 0 0.75rem 0;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
 }
 
 .contact-item p {
     margin: 0;
-    color: var(--cts-gray-medium);
-    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    font-size: 1rem;
 }
 
 .map-container {
     flex: 1;
-    min-width: 0; /* Allow flex item to shrink */
+    min-width: 0;
+    position: relative;
+    z-index: 1;
 }
 
 .map-container h2 {
-    color: var(--cts-navy-hex);
+    color: #ffffff;
     margin-bottom: var(--spacing-md);
+    font-weight: 600;
+    letter-spacing: -0.3px;
 }
 
 .map-embed {
-    border-radius: var(--radius-large);
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: var(--shadow-card);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     margin-bottom: var(--spacing-sm);
     max-width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .map-embed iframe {
@@ -221,20 +435,20 @@ h1, h2, h3 {
 }
 
 .map-note {
-    font-size: 0.875rem;
-    color: var(--cts-gray-medium);
+    font-size: 0.8125rem;
+    color: rgba(255, 255, 255, 0.6);
     text-align: center;
     margin: 0;
     font-style: italic;
+    font-weight: 400;
 }
 
 /* =============================================
-   MOBILE RESPONSIVE LAYOUT
+   10. RESPONSIVE LAYOUT ADJUSTMENTS
    ============================================= */
 
 /* Tablet and smaller screens */
 @media (max-width: 768px) {
-    /* Make both containers full width and stack normally */
     .page-container,
     .page-container-half {
         width: var(--container-mobile);
@@ -246,12 +460,10 @@ h1, h2, h3 {
         box-sizing: border-box;
     }
     
-    /* Smaller background gap on mobile */
     .background-gap {
         height: var(--background-gap-tablet);
     }
     
-    /* Contact section mobile */
     .contact-container {
         flex-direction: column;
         gap: var(--spacing-lg);
@@ -263,6 +475,84 @@ h1, h2, h3 {
     
     .map-embed iframe {
         height: 250px;
+    }
+    
+    .hero-section__logo {
+        max-width: 400px;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-section__tagline {
+        font-size: 2rem;
+    }
+    
+    .hero-section__scroll-arrow {
+        left: 3rem;
+        bottom: 4rem;
+    }
+    
+    .scroll-arrow__icon {
+        font-size: 3rem;
+    }
+    
+    .scroll-arrow__text {
+        font-size: 1rem;
+    }
+    
+    #services {
+        padding: var(--spacing-xl) 1rem;
+    }
+    
+    #services h1 {
+        font-size: 2rem;
+    }
+    
+    .services-carousel {
+        width: 95%;
+    }
+}
+
+/* Tablet and up - About cards responsive */
+@media (min-width: 768px) {
+    .about-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .about-card:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+}
+
+/* Desktop - About cards and alignments */
+@media (min-width: 1024px) {
+    .about-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .about-card:nth-child(3) {
+        grid-column: auto;
+    }
+    
+    #about h1 {
+        text-align: left;
+    }
+    
+    .hero-section__logo {
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero-section__tagline {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section__scroll-arrow {
+        left: 4rem;
+        bottom: 5rem;
     }
 }
 
@@ -277,12 +567,11 @@ h1, h2, h3 {
         box-sizing: border-box;
     }
     
-    /* Even smaller elements */
-    section h1 {
+    .section h1 {
         font-size: 1.8rem;
     }
     
-    section h2 {
+    .section h2 {
         font-size: 1.4rem;
     }
     
@@ -296,5 +585,14 @@ h1, h2, h3 {
     
     .map-embed iframe {
         height: 200px;
+    }
+    
+    .hero-section__logo {
+        max-width: 240px;
+    }
+    
+    .hero-section__scroll-arrow {
+        left: 1.5rem;
+        bottom: 2rem;
     }
 }

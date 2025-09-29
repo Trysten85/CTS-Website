@@ -1,18 +1,19 @@
 /* =============================================
    ANIMATIONS.CSS - Complete Animation System
-   Organized animation utilities and effects
+   Reorganized: Pure animations, transitions, and hover effects
+   NO layout structure, NO component styling, NO positioning
    ============================================= */
 
 /* =============================================
-   GLOBAL ANIMATION SETTINGS
+   1. GLOBAL ANIMATION SETTINGS
    ============================================= */
 
-/* Smooth scroll for the entire site */
+/* Smooth scroll for entire site */
 html {
     scroll-behavior: smooth;
 }
 
-/* Reduce motion for accessibility */
+/* Accessibility - reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -25,11 +26,23 @@ html {
     }
 }
 
+/* GPU acceleration for smoother animations */
+.gpu-accelerate {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
 /* =============================================
-   KEYFRAME ANIMATIONS
+   2. KEYFRAME ANIMATIONS
    ============================================= */
 
-/* Fade in from bottom */
+/* Fade animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -41,7 +54,6 @@ html {
     }
 }
 
-/* Fade in from top */
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -53,7 +65,6 @@ html {
     }
 }
 
-/* Fade in from left */
 @keyframes fadeInLeft {
     from {
         opacity: 0;
@@ -65,7 +76,6 @@ html {
     }
 }
 
-/* Fade in from right */
 @keyframes fadeInRight {
     from {
         opacity: 0;
@@ -77,7 +87,7 @@ html {
     }
 }
 
-/* Scale in animation */
+/* Scale animations */
 @keyframes scaleIn {
     from {
         opacity: 0;
@@ -89,19 +99,18 @@ html {
     }
 }
 
-/* Pulse animation for CTA backgrounds */
-@keyframes pulse {
-    0%, 100% { 
-        opacity: 0.3; 
-        transform: scale(1); 
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
     }
-    50% { 
-        opacity: 0.1; 
-        transform: scale(1.1); 
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
-/* Slide up animation for descriptions */
+/* Movement animations */
 @keyframes slideUp {
     from {
         opacity: 0;
@@ -113,19 +122,6 @@ html {
     }
 }
 
-/* Expand underline animation */
-@keyframes expandUnderline {
-    from {
-        width: 20px;
-        height: 3px;
-    }
-    to {
-        width: 100%;
-        height: 4px;
-    }
-}
-
-/* Bounce animation */
 @keyframes bounce {
     0%, 20%, 53%, 80%, 100% {
         transform: translate3d(0,0,0);
@@ -141,7 +137,6 @@ html {
     }
 }
 
-/* Gentle float animation */
 @keyframes gentleFloat {
     0%, 100% {
         transform: translateY(0);
@@ -151,125 +146,232 @@ html {
     }
 }
 
-/* =============================================
-   TRANSITION UTILITIES
-   ============================================= */
-
-/* Base transition classes */
-.transition-fast {
-    transition: var(--transition-fast, all 0.3s ease);
-}
-
-.transition-smooth {
-    transition: var(--transition-smooth, all 0.4s ease);
-}
-
-.transition-slow {
-    transition: var(--transition-slower, all 0.6s ease);
-}
-
-.transition-slowest {
-    transition: var(--transition-slowest, all 0.8s ease);
-}
-
-.transition-cubic {
-    transition: var(--transition-cubic, all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94));
-}
-
-/* Transform transition only */
-.transition-transform {
-    transition: transform 0.3s ease;
-}
-
-.transition-opacity {
-    transition: opacity 0.3s ease;
-}
-
-.transition-colors {
-    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 0.3; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.1; 
+        transform: scale(1.1); 
+    }
 }
 
 /* =============================================
-   HOVER EFFECT UTILITIES
+   3. SECTION HEADER UNDERLINE ANIMATIONS
+   MOVED FROM: [original location] - The working gradient underlines
    ============================================= */
 
-/* Lift on hover */
-.hover-lift {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Base underline styling for all section headers */
+section h1,
+#services h1,
+#about h1,
+#contact h1 {
+    position: relative;
+    display: inline-block;
 }
 
-.hover-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+/* STANDARDIZED GRADIENT UNDERLINE - About style for all sections */
+#services h1::after,
+#about h1::after,
+#contact h1::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%; /* Center by default like About */
+    transform: translateX(-50%);
+    width: 80px; /* Same starting width as About */
+    height: 3px; /* Same height as About */
+    background: linear-gradient(90deg, transparent, var(--cts-green), transparent); /* Beautiful gradient */
+    border-radius: 2px;
+    transition: all 0.2s ease-out; /* Faster and smoother easing */
+    will-change: width, height, background; /* Optimize for animations */
 }
 
-/* Gentle lift */
-.hover-lift-gentle {
-    transition: transform 0.3s ease;
+/* STANDARDIZED HOVER - Same gradient expansion for all */
+#services:hover h1::after,
+#services h1:hover::after,
+#about:hover h1::after,
+#about h1:hover::after,
+#contact:hover h1::after,
+#contact h1:hover::after {
+    width: 120px; /* Same hover width as About */
+    height: 4px; /* Same hover height as About */
+    background: linear-gradient(90deg, transparent, var(--cts-green-hover), transparent); /* Gradient on hover */
+    transition: all 0.2s ease-out; /* Even faster and smoother */
 }
 
-.hover-lift-gentle:hover {
+/* DESKTOP - Left align all underlines on desktop */
+@media (min-width: 1024px) {
+    #services h1::after,
+    #about h1::after,
+    #contact h1::after {
+        left: 0;
+        transform: none;
+    }
+}
+
+/* RESPONSIVE TEXT ALIGNMENT */
+#services h1,
+#contact h1 {
+    text-align: left;
+}
+
+#about h1 {
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    #about h1 {
+        text-align: left;
+    }
+}
+
+/* =============================================
+   4. SERVICES SECTION - Animation moved to section 3
+   ============================================= */
+
+/* Services animation now handled in section 3 above */
+
+/* =============================================
+   5. ABOUT SECTION - Animation moved to section 3
+   ============================================= */
+
+/* About animation now handled in section 3 above */
+
+/* =============================================
+   6. HERO SECTION ANIMATIONS
+   ============================================= */
+
+.hero-section__logo {
+    animation: fadeInScale 1s ease;
+}
+
+.hero-section__tagline {
+    animation: fadeInUp 1s ease 0.3s both;
+}
+
+.hero-section__scroll-arrow {
+    animation: fadeInLeft 1s ease 0.6s both;
+}
+
+.scroll-arrow__icon {
+    animation: bounce 2s ease-in-out infinite;
+}
+
+/* =============================================
+   7. ABOUT SECTION CARD ANIMATIONS
+   ============================================= */
+
+/* Staggered loading animations */
+.about-card:nth-child(1) {
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.about-card:nth-child(2) {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.about-card:nth-child(3) {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+/* About card hover effects - SIMPLIFIED AND FAST */
+.about-card {
+    transition: all 0.15s ease-out; /* Much faster - was 0.4s */
+    position: relative;
+}
+
+/* Animated gradient border on hover - SIMPLIFIED */
+.about-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--cts-green), transparent, var(--cts-green));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.15s ease-out; /* Much faster - was 0.4s */
+}
+
+.about-card:hover::before {
+    opacity: 1;
+}
+
+/* Glow effect on hover - SIMPLIFIED */
+.about-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(25, 100, 54, 0.1) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: all 0.15s ease-out; /* Much faster - was 0.6s */
+    pointer-events: none;
+}
+
+.about-card:hover::after {
+    width: 300px;
+    height: 300px;
+}
+
+.about-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(25, 100, 54, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* About card icon animation - SIMPLIFIED */
+.about-card__icon {
+    transition: all 0.15s ease-out; /* Much faster - was 0.3s */
+}
+
+.about-card:hover .about-card__icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(25, 100, 54, 0.3);
+}
+
+/* Animated gradient text on hover - SIMPLIFIED */
+.about-card h2 {
+    transition: all 0.15s ease-out; /* Added fast transition */
+}
+
+.about-card:hover h2 {
+    background: linear-gradient(135deg, #ffffff, var(--cts-green-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* =============================================
+   8. CONTACT SECTION ANIMATIONS
+   ============================================= */
+
+.contact-item {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(25, 100, 54, 0.5);
     transform: translateY(-2px);
 }
 
-/* Scale on hover */
-.hover-scale {
-    transition: transform 0.3s ease;
-}
-
-.hover-scale:hover {
-    transform: scale(1.05);
-}
-
-.hover-scale-gentle {
-    transition: transform 0.3s ease;
-}
-
-.hover-scale-gentle:hover {
-    transform: scale(1.02);
-}
-
-/* Rotate on hover */
-.hover-rotate {
-    transition: transform 0.3s ease;
-}
-
-.hover-rotate:hover {
-    transform: rotate(5deg);
-}
-
-/* Glow effect */
-.hover-glow {
-    transition: box-shadow 0.3s ease;
-}
-
-.hover-glow:hover {
-    box-shadow: 0 0 20px rgba(25, 100, 54, 0.4);
-}
-
-/* Brighten on hover */
-.hover-brighten {
-    transition: filter 0.3s ease;
-}
-
-.hover-brighten:hover {
-    filter: brightness(1.1);
-}
-
-/* Fade on hover */
-.hover-fade {
-    transition: opacity 0.3s ease;
-}
-
-.hover-fade:hover {
-    opacity: 0.8;
-}
-
 /* =============================================
-   LOADING ANIMATIONS
+   9. ANIMATION UTILITY CLASSES
    ============================================= */
 
-/* Apply fade-in animation */
+/* Apply loading animations */
 .animate-fadeIn {
     animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -290,116 +392,123 @@ html {
     animation: scaleIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Staggered animation delays */
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+.animate-float {
+    animation: gentleFloat 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Animation delays for staggered effects */
 .animate-delay-1 { animation-delay: 0.1s; }
 .animate-delay-2 { animation-delay: 0.2s; }
 .animate-delay-3 { animation-delay: 0.3s; }
 .animate-delay-4 { animation-delay: 0.4s; }
 .animate-delay-5 { animation-delay: 0.5s; }
 
+/* Animation control */
+.animate-paused {
+    animation-play-state: paused;
+}
+
+.no-animate,
+.no-animate * {
+    animation: none !important;
+    transition: none !important;
+}
+
 /* =============================================
-   COMPONENT-SPECIFIC ANIMATIONS
+   10. HOVER EFFECT UTILITIES
    ============================================= */
 
-/* Progressive reveal underlines for headers */
-section h1 {
-    position: relative;
-    display: inline-block;
-    margin-bottom: var(--spacing-lg);
+/* Lift effects */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-section h1::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 20px;
-    height: 3px;
-    background-color: var(--cts-green);
-    border-radius: 2px;
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Trigger animation when hovering anywhere in the section */
-section:hover h1::after {
-    width: 100%;
-    height: 4px;
-}
-
-/* Feature card animation enhancements */
-.feature-card {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-}
-
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--cts-green), var(--cts-green-hover));
-    transform: scaleX(0);
-    transform-origin: left;
+.hover-lift-gentle {
     transition: transform 0.3s ease;
 }
 
-.feature-card:hover::before {
-    transform: scaleX(1);
+.hover-lift-gentle:hover {
+    transform: translateY(-2px);
 }
 
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+/* Scale effects */
+.hover-scale {
+    transition: transform 0.3s ease;
 }
 
-/* Service box animations */
-.service-box,
-.card--service {
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+.hover-scale:hover {
+    transform: scale(1.05);
 }
 
-.service-box:hover,
-.card--service:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+.hover-scale-gentle {
+    transition: transform 0.3s ease;
 }
 
-/* Service box description slide-up */
-.service-box-description,
-.card__description {
-    transition: all 0.6s ease;
-    transform: translateY(100%);
-    opacity: 0;
+.hover-scale-gentle:hover {
+    transform: scale(1.02);
 }
 
-.service-box:hover .service-box-description,
-.card--service:hover .card__description {
-    transform: translateY(0);
-    opacity: 1;
+/* Rotate effects */
+.hover-rotate {
+    transition: transform 0.3s ease;
 }
 
-/* Staggered text reveal in descriptions */
-.service-box-description h3,
-.service-box-description p {
-    opacity: 0;
-    transition: opacity 0.3s ease 0.4s;
+.hover-rotate:hover {
+    transform: rotate(5deg);
 }
 
-.service-box:hover .service-box-description h3,
-.service-box:hover .service-box-description p {
-    opacity: 1;
+/* Glow effects */
+.hover-glow {
+    transition: box-shadow 0.3s ease;
 }
 
-/* Button animations */
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(25, 100, 54, 0.4);
+}
+
+/* Brightness effects */
+.hover-brighten {
+    transition: filter 0.3s ease;
+}
+
+.hover-brighten:hover {
+    filter: brightness(1.1);
+}
+
+/* Fade effects */
+.hover-fade {
+    transition: opacity 0.3s ease;
+}
+
+.hover-fade:hover {
+    opacity: 0.8;
+}
+
+/* =============================================
+   11. BUTTON ANIMATIONS
+   ============================================= */
+
+/* All buttons get base animation */
 .btn {
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     position: relative;
     overflow: hidden;
 }
 
+/* Shimmer effect for buttons */
 .btn::before {
     content: '';
     position: absolute;
@@ -425,28 +534,197 @@ section:hover h1::after {
     box-shadow: 0 6px 20px rgba(25, 100, 54, 0.4);
 }
 
-/* Kodiak description animation */
-.kodiak-description {
+/* =============================================
+   12. CARD COMPONENT ANIMATIONS
+   ============================================= */
+
+/* Feature cards */
+.feature-card {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0); /* GPU acceleration */
+    backface-visibility: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cts-green), var(--cts-green-hover));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Service cards */
+.card--service {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateZ(0); /* GPU acceleration */
+    backface-visibility: hidden;
+}
+
+.card--service:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Card description slide-up animation */
+.card__description,
+.service-box-description {
+    transition: all 0.6s ease;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.card--service:hover .card__description,
+.service-box:hover .service-box-description {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Staggered text reveal in descriptions */
+.card__description h3,
+.card__description p,
+.service-box-description h3,
+.service-box-description p {
+    opacity: 0;
+    transition: opacity 0.3s ease 0.4s;
+}
+
+.card--service:hover .card__description h3,
+.card--service:hover .card__description p,
+.service-box:hover .service-box-description h3,
+.service-box:hover .service-box-description p {
+    opacity: 1;
+}
+
+/* =============================================
+   13. CAROUSEL COMPONENT ANIMATIONS
+   ============================================= */
+
+/* Carousel slide transitions */
+.carousel__slides {
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Carousel dot animations */
+.carousel__dot {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.carousel__dot.active {
+    transform: scale(1.2);
+}
+
+.carousel__dot:hover {
+    transform: scale(1.1);
+}
+
+/* Services carousel specific */
+.services-carousel .carousel__dot {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services-carousel .carousel__dot.active {
+    transform: scale(1.2);
+}
+
+.services-carousel .carousel__dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* =============================================
+   14. KODIAK SPECIFIC ANIMATIONS
+   ============================================= */
+
+/* Kodiak description slide-in animation */
+.kodiak-description,
+.hero-box__description {
     opacity: 0;
     transform: translateX(20px);
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.top-service-box:hover .kodiak-description {
+.top-service-box:hover .kodiak-description,
+.hero-box:hover .hero-box__description {
     opacity: 1;
     transform: translateX(0);
 }
 
-/* CTA pulse animation */
+/* =============================================
+   15. SERVICE CTA ANIMATIONS
+   ============================================= */
+
+/* CTA pulse background animation */
 .service-cta::before {
     animation: pulse 4s ease-in-out infinite;
 }
 
 /* =============================================
-   SCROLL ANIMATIONS (Optional - for future use)
+   16. RESPONSIVE ANIMATION ADJUSTMENTS
    ============================================= */
 
-/* Intersection Observer utility classes */
+/* Reduce animations on mobile for performance */
+@media (max-width: 768px) {
+    .feature-card:hover {
+        transform: translateY(-4px); /* Less movement on mobile */
+    }
+    
+    .card--service:hover,
+    .service-box:hover {
+        transform: translateY(-2px); /* Gentler on mobile */
+    }
+    
+    .btn:hover {
+        transform: translateY(-1px); /* Subtle on mobile */
+    }
+    
+    .about-card:hover {
+        transform: translateY(-4px); /* Reduced movement */
+    }
+}
+
+/* Disable complex animations on very small screens */
+@media (max-width: 480px) {
+    .kodiak-description,
+    .hero-box__description {
+        opacity: 1; /* Always visible on small screens */
+        transform: none;
+        position: relative; /* Stack instead of overlay */
+        background: rgba(0, 0, 0, 0.9);
+        margin-top: 1rem;
+    }
+    
+    .animate-float,
+    .animate-bounce {
+        animation: none; /* Disable decorative animations */
+    }
+    
+    .about-card::after {
+        display: none; /* Disable glow effect on mobile */
+    }
+}
+
+/* =============================================
+   17. SCROLL ANIMATIONS (Future Enhancement)
+   Optional: For use with Intersection Observer
+   ============================================= */
+
+/* Scroll reveal utility classes */
 .scroll-reveal {
     opacity: 0;
     transform: translateY(50px);
@@ -478,90 +756,4 @@ section:hover h1::after {
 .scroll-reveal-right.revealed {
     opacity: 1;
     transform: translateX(0);
-}
-
-/* =============================================
-   UTILITY ANIMATION CLASSES
-   ============================================= */
-
-/* Quick utility classes for common animations */
-.animate-bounce {
-    animation: bounce 1s infinite;
-}
-
-.animate-float {
-    animation: gentleFloat 3s ease-in-out infinite;
-}
-
-.animate-pulse {
-    animation: pulse 2s ease-in-out infinite;
-}
-
-/* Pause animations */
-.animate-paused {
-    animation-play-state: paused;
-}
-
-/* Remove all animations */
-.no-animate,
-.no-animate * {
-    animation: none !important;
-    transition: none !important;
-}
-
-/* =============================================
-   PERFORMANCE OPTIMIZATIONS
-   ============================================= */
-
-/* GPU acceleration for smoother animations */
-.gpu-accelerate {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    perspective: 1000;
-}
-
-/* Apply to animated elements automatically */
-.feature-card,
-.service-box,
-.card--service,
-.btn,
-.kodiak-description {
-    transform: translateZ(0);
-    backface-visibility: hidden;
-}
-
-/* =============================================
-   RESPONSIVE ANIMATION ADJUSTMENTS
-   ============================================= */
-
-/* Reduce animations on mobile for performance */
-@media (max-width: 768px) {
-    .feature-card:hover {
-        transform: translateY(-4px); /* Less movement */
-    }
-    
-    .service-box:hover,
-    .card--service:hover {
-        transform: translateY(-2px); /* Gentler on mobile */
-    }
-    
-    .btn:hover {
-        transform: translateY(-1px); /* Subtle on mobile */
-    }
-    
-    /* Disable complex animations on very small screens */
-    @media (max-width: 480px) {
-        .kodiak-description {
-            opacity: 1; /* Always visible on small screens */
-            transform: none;
-            position: relative; /* Stack instead of overlay */
-            background: rgba(0, 0, 0, 0.9);
-            margin-top: 1rem;
-        }
-        
-        .animate-float,
-        .animate-bounce {
-            animation: none; /* Disable decorative animations */
-        }
-    }
 }

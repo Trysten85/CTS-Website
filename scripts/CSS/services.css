@@ -1,41 +1,105 @@
 /* =============================================
-   SERVICES.CSS - Service-Specific Layouts Only
-   Uses hero-box component from components.css
+   SERVICES.CSS - Service-Specific Layouts
+   UPDATED: Apple-inspired sophisticated dark theme
    ============================================= */
 
 /* =============================================
-   SERVICES CAROUSEL WIDTH CONTROL
-   Add this to your services.css
+   SERVICES SECTION - SOPHISTICATED DARK THEME
    ============================================= */
 
-/* Services section container */
 #services {
-    margin: 0 -2rem;
-    padding: var(--spacing-xl) 2rem;
-    margin-bottom: var(--spacing-xxl);
-    border-bottom: none;
-    background: var(--cts-white);
+    margin: 0;
+    padding: var(--spacing-xxl) 2rem;
+    background: #000000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
-    flex-direction: column; /* Stack header and carousel vertically */
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Services header - aligned left, only as wide as the text */
+/* Services header - crisp white text, left aligned */
 #services h1 {
     text-align: left;
-    margin-bottom: var(--spacing-lg);
-    align-self: flex-start; /* Keep header at the left */
-    display: inline-block; /* Make h1 only as wide as its text content */
+    margin-bottom: var(--spacing-xl);
+    align-self: flex-start;
+    display: inline-block;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    position: relative;
+    z-index: 1;
 }
 
-/* Services-specific carousel container - centered */
+/* Animated underline - inherited from layout.css */
+#services h1::after {
+    margin: 1rem 0 0;
+}
+
+/* Services carousel container - centered */
 .services-carousel {
     width: var(--carousel-width-desktop, 80%);
     max-width: var(--carousel-max-width, 1200px);
-    align-self: center; /* Center the carousel within flex container */
+    align-self: center;
     margin-top: var(--spacing-xl);
     margin-bottom: var(--spacing-xl);
+    position: relative;
+    z-index: 1;
 }
 
+/* Carousel wrapper - glass morphism effect */
+.services-carousel .carousel__wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(20px);
+    overflow: hidden;
+}
+
+/* Carousel cards stay vibrant for contrast */
+.carousel-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Refined carousel dots */
+.services-carousel .carousel__dot {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.services-carousel .carousel__dot.active {
+    background: #ffffff;
+    border-color: #ffffff;
+    transform: scale(1.2);
+}
+
+.services-carousel .carousel__dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Subtle green accent line at bottom */
+.services-carousel .carousel__wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--cts-green), 
+        transparent
+    );
+}
+
+/* =============================================
+   LEGACY STYLES (Keep for compatibility)
+   ============================================= */
 
 .services-container {
     display: flex;
@@ -49,9 +113,6 @@
     width: 70%;
 }
 
-
-
-/* In your services.css, make it more specific: */
 .carousel-slide .slide-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -59,28 +120,20 @@
     gap: 1rem;
 }
 
-
 /* =============================================
    KODIAK BOX - Using Hero Box Component
    ============================================= */
 
-/* Kodiak uses the .hero-box component with specific classes */
-/*.top-service-box {
-    /* This inherits from .hero-box in components.css */
-    /* Only add service-specific overrides here */
-/*}
-
-/* Legacy class mapping - keeps existing HTML working */
+/* Legacy class mapping - glass morphism applied */
 .kodiak-title {
-    /* Same styling as .hero-box__title */
     position: absolute;
     top: var(--kodiak-title-top);
     left: var(--kodiak-title-left);
     font-family: var(--font-primary);
     font-size: var(--font-size-kodiak);
     font-weight: var(--font-weight-black);
-    color: var(--cts-white);
-    text-shadow: var(--text-shadow-kodiak);
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
     letter-spacing: var(--letter-spacing-kodiak);
     z-index: var(--z-kodiak-title);
     line-height: 1;
@@ -88,34 +141,36 @@
 }
 
 .kodiak-description {
-    /* Same styling as .hero-box__description */
     position: absolute;
     top: var(--kodiak-description-top);
     right: var(--kodiak-description-right);
-    background: rgba(0, 0, 0, 0.85);
-    color: var(--cts-white);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
     padding: var(--kodiak-description-padding);
-    border-radius: var(--radius-medium);
+    border-radius: 12px;
     max-width: var(--kodiak-description-width);
     height: var(--kodiak-description-height);
     opacity: 0;
     transform: var(--kodiak-description-transform-hidden);
-    transition: var(--transition-cubic-slow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: var(--z-overlay);
 }
 
 .kodiak-description h3 {
     margin: 0 0 var(--spacing-sm) 0;
     font-size: 1.5rem;
-    color: var(--cts-green-hover);
-    font-weight: var(--font-weight-semibold);
+    color: var(--cts-green);
+    font-weight: 600;
+    letter-spacing: -0.3px;
 }
 
 .kodiak-description p {
     margin: 0 0 var(--spacing-md) 0;
-    font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--cts-white);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .kodiak-description p:last-child {
@@ -146,14 +201,13 @@
     min-height: var(--service-box-height) !important;
 }
 
-/* Refurbishment img positioning */
 /* Service-specific card positioning */
 .card--service:nth-child(4) .card__image {
     object-position: center 25%;
 }
 
 /* =============================================
-   SERVICE PAGE LAYOUT
+   SERVICE PAGE LAYOUT - SOPHISTICATED DARK
    ============================================= */
 
 .service-page {
@@ -161,15 +215,16 @@
     margin: 0 auto;
     padding: 0;
     margin-top: var(--navbar-height);
-    background: var(--cts-white);
-    box-shadow: var(--shadow-standard);
+    background: #000000;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
     min-height: calc(100vh - var(--navbar-height));
 }
 
 .service-nav {
     padding: var(--spacing-lg) var(--spacing-xl);
-    background: var(--cts-gray-light);
-    border-bottom: 1px solid #e0e0e0;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
 }
 
 .service-header {
@@ -181,14 +236,14 @@
     position: relative;
     height: 400px;
     overflow: hidden;
-    background: var(--cts-navy);
+    background: #000000;
 }
 
 .service-hero__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 .service-hero__overlay {
@@ -197,7 +252,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, var(--cts-green-overlay) 0%, rgba(30, 45, 59, 0.7) 100%);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(25, 100, 54, 0.4) 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -208,19 +263,20 @@
 
 .service-hero__title {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: var(--font-weight-bold);
-    color: var(--cts-white);
+    font-weight: 700;
+    color: #ffffff;
     margin: 0 0 var(--spacing-md) 0;
-    text-shadow: var(--text-shadow-strong);
-    letter-spacing: var(--letter-spacing-tight);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+    letter-spacing: -0.5px;
 }
 
 .service-hero__subtitle {
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.85);
     margin: 0;
     max-width: 600px;
-    line-height: 1.4;
+    line-height: 1.6;
+    font-weight: 400;
 }
 
 .service-content {
@@ -237,8 +293,10 @@
 }
 
 .service-overview h2 {
-    color: var(--cts-green);
+    color: #ffffff;
     font-size: var(--font-size-h2);
+    font-weight: 600;
+    letter-spacing: -0.3px;
     margin-bottom: var(--spacing-lg);
     position: relative;
 }
@@ -250,22 +308,25 @@
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 3px;
+    height: 2px;
     background: var(--cts-green);
     border-radius: 2px;
 }
 
 .service-overview p {
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: var(--cts-gray-dark);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
     margin: 0;
+    font-weight: 400;
 }
 
 .service-features h2 {
     text-align: center;
-    color: var(--cts-navy);
+    color: #ffffff;
     font-size: var(--font-size-h2);
+    font-weight: 600;
+    letter-spacing: -0.3px;
     margin-bottom: var(--spacing-xxl);
 }
 
@@ -277,15 +338,18 @@
 }
 
 .service-benefits {
-    background: linear-gradient(135deg, var(--cts-gray-light) 0%, #f0f4f7 100%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: var(--spacing-xxl);
-    border-radius: var(--radius-large);
-    border-left: 6px solid var(--cts-green);
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
 }
 
 .service-benefits h2 {
-    color: var(--cts-navy);
+    color: #ffffff;
     font-size: var(--font-size-h2);
+    font-weight: 600;
+    letter-spacing: -0.3px;
     margin-bottom: var(--spacing-xl);
     text-align: center;
 }
@@ -298,13 +362,15 @@
 }
 
 .service-cta {
-    background: var(--gradient-button);
-    color: var(--cts-white);
+    background: linear-gradient(135deg, rgba(25, 100, 54, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
+    border: 1px solid rgba(25, 100, 54, 0.3);
+    color: #ffffff;
     padding: var(--spacing-xxl);
-    border-radius: var(--radius-large);
+    border-radius: 16px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    backdrop-filter: blur(20px);
 }
 
 .service-cta::before {
@@ -314,7 +380,7 @@
     right: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
     animation: pulse 4s ease-in-out infinite;
 }
 
@@ -325,17 +391,20 @@
 
 .service-cta h2 {
     font-size: var(--font-size-h2);
+    font-weight: 600;
+    letter-spacing: -0.3px;
     margin: 0 0 var(--spacing-md) 0;
-    color: var(--cts-white);
+    color: #ffffff;
 }
 
 .service-cta p {
-    font-size: 1.1rem;
+    font-size: 1.0625rem;
     margin: 0 0 var(--spacing-xl) 0;
-    opacity: 0.95;
+    color: rgba(255, 255, 255, 0.85);
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
 }
 
 .cta-buttons {
@@ -347,48 +416,50 @@
 
 .service-cta .btn {
     min-width: 160px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .service-cta .btn--primary {
-    background: var(--cts-white);
-    color: var(--cts-green);
+    background: var(--cts-green);
+    color: #ffffff;
+    border: none;
 }
 
 .service-cta .btn--primary:hover {
-    background: #f0f0f0;
+    background: var(--cts-green-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 6px 20px rgba(25, 100, 54, 0.4);
 }
 
 .service-cta .btn--secondary {
-    background: transparent;
-    color: var(--cts-white);
-    border: 2px solid var(--cts-white);
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .service-cta .btn--secondary:hover {
-    background: var(--cts-white);
-    color: var(--cts-green);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
     transform: translateY(-2px);
 }
-
-/* =============================================
-   SERVICES-SPECIFIC CAROUSEL USAGE
-   ============================================= */
-
-.services-carousel {
-    /* Service-specific carousel container styles */
-    margin: var(--spacing-xl) 0;
-}
-
-
 
 /* =============================================
    RESPONSIVE DESIGN
    ============================================= */
 
 @media (max-width: 768px) {
+    #services {
+        padding: var(--spacing-xl) 1rem;
+    }
+    
+    #services h1 {
+        font-size: 2rem;
+    }
+    
+    .services-carousel {
+        width: 95%;
+    }
+    
     .services-container > .top-service-box,
     .services-container > .bottom-cards {
         width: 90%;

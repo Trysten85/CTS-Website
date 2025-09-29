@@ -1,0 +1,523 @@
+/* =============================================
+   RESPONSIVE.CSS - Mobile-First Responsive System
+   Save as: scripts/CSS/responsive.css
+   
+   Handles all responsive behavior and breakpoint logic
+   Mobile-first approach with progressive enhancement
+   ============================================= */
+
+/* =============================================
+   1. MOBILE-FIRST BASE STYLES (Default)
+   These styles apply to all devices, optimized for mobile
+   ============================================= */
+
+/* Base responsive behavior */
+html {
+    font-size: 16px; /* Base font size for rem calculations */
+}
+
+body {
+    /* Mobile-optimized line height and spacing */
+    line-height: 1.5;
+}
+
+/* Mobile-first container behavior - Full page width */
+.page-container,
+.page-container-half {
+    width: 100vw;
+    max-width: 100vw;
+    margin: 0;
+    padding: var(--spacing-lg) var(--spacing-sm);
+    padding-top: var(--navbar-height-mobile);
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+/* Mobile-first typography */
+h1 { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+h3 { font-size: clamp(1.2rem, 4vw, 1.5rem); }
+
+/* =============================================
+   2. RESPONSIVE UTILITY CLASSES
+   ============================================= */
+
+/* Visibility utilities */
+.mobile-only { display: block; }
+.tablet-only { display: none; }
+.desktop-only { display: none; }
+
+/* Spacing utilities for mobile */
+.mobile-spacing { 
+    margin: var(--spacing-sm) 0; 
+    padding: var(--spacing-sm);
+}
+
+/* Text alignment for mobile */
+.mobile-center { text-align: center; }
+.mobile-left { text-align: left; }
+
+/* =============================================
+   3. TABLET BREAKPOINT (768px and up)
+   ============================================= */
+
+@media (min-width: 768px) {
+    /* Typography scaling */
+    html {
+        font-size: 17px;
+    }
+    
+    h1 { font-size: clamp(2rem, 5vw, 3rem); }
+    h2 { font-size: clamp(1.6rem, 4vw, 2.5rem); }
+    h3 { font-size: clamp(1.3rem, 3vw, 1.75rem); }
+    
+    /* Container adjustments - Keep full page width */
+    .page-container,
+    .page-container-half {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding: var(--padding-container-mobile);
+        padding-top: var(--navbar-height);
+        box-sizing: border-box;
+        min-height: 100vh;
+    }
+    
+    /* Navbar adjustments */
+    .navbar {
+        height: var(--navbar-height);
+    }
+    
+    .navbar img[alt="Home"] {
+        height: var(--navbar-logo-size);
+        width: var(--navbar-logo-size);
+    }
+    
+    /* Services section tablet behavior */
+    #services {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .services-carousel {
+        width: var(--carousel-width-tablet);
+    }
+    
+    /* About section grid activation */
+    .about-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-xl);
+    }
+    
+    .about-card:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+    
+    /* Contact section two-column layout */
+    .contact-container {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-lg);
+    }
+    
+    /* Utility class adjustments */
+    .mobile-only { display: none; }
+    .tablet-only { display: block; }
+    .desktop-only { display: none; }
+    
+    /* Carousel navigation becomes visible */
+    .carousel__nav {
+        display: flex;
+    }
+    
+    /* Background gaps adjust */
+    .background-gap {
+        height: var(--background-gap-tablet);
+    }
+}
+
+/* =============================================
+   4. DESKTOP BREAKPOINT (1024px and up)
+   ============================================= */
+
+@media (min-width: 1024px) {
+    /* Typography scaling */
+    html {
+        font-size: 18px;
+    }
+    
+    /* Container system - Full page width maintained */
+    .page-container {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding: var(--padding-container);
+        padding-top: var(--navbar-height);
+        box-sizing: border-box;
+        min-height: 100vh;
+    }
+    
+    .page-container-half {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding: var(--padding-container);
+        padding-top: var(--navbar-height);
+        box-sizing: border-box;
+        min-height: 100vh;
+    }
+    
+    /* Services section desktop behavior */
+    .services-carousel {
+        width: var(--carousel-width-desktop);
+    }
+    
+    /* About section full three-column grid */
+    .about-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .about-card:nth-child(3) {
+        grid-column: auto;
+    }
+    
+    /* About heading left-aligned on desktop */
+    #about h1 {
+        text-align: left;
+    }
+    
+    /* Hero section desktop scaling */
+    .hero-section__logo {
+        max-width: 500px;
+        margin-bottom: 2.5rem;
+    }
+    
+    .hero-section__scroll-arrow {
+        left: 4rem;
+        bottom: 5rem;
+    }
+    
+    /* Contact section spacing */
+    .contact-container {
+        gap: var(--spacing-xl);
+    }
+    
+    /* Utility class adjustments */
+    .mobile-only { display: none; }
+    .tablet-only { display: none; }
+    .desktop-only { display: block; }
+    
+    /* Full background gaps */
+    .background-gap {
+        height: var(--background-gap);
+    }
+    
+    /* Carousel enhancements */
+    .carousel-nav-area {
+        opacity: 0; /* Hidden until hover */
+    }
+    
+    .carousel__wrapper:hover .carousel-nav-area {
+        opacity: 1;
+    }
+}
+
+/* =============================================
+   5. LARGE DESKTOP BREAKPOINT (1200px and up)
+   ============================================= */
+
+@media (min-width: 1200px) {
+    /* Typography scaling */
+    html {
+        font-size: 19px;
+    }
+    
+    /* Enhanced spacing for large screens */
+    .page-container {
+        padding: var(--spacing-xxl) var(--spacing-xl);
+        padding-top: 4.375rem;
+    }
+    
+    /* Larger carousel for big screens */
+    .services-carousel {
+        max-width: var(--carousel-max-width);
+    }
+    
+    /* Enhanced hero section */
+    .hero-section__logo {
+        max-width: 600px;
+        margin-bottom: 3rem;
+    }
+    
+    .hero-section__tagline {
+        font-size: 2.2rem;
+    }
+    
+    /* Contact section enhanced spacing */
+    .contact-container {
+        gap: var(--spacing-xxl);
+    }
+    
+    .contact-item {
+        padding: 2rem;
+    }
+    
+    .map-embed iframe {
+        height: 350px;
+    }
+}
+
+/* =============================================
+   6. EXTRA SMALL SCREENS (480px and below)
+   ============================================= */
+
+@media (max-width: 480px) {
+    /* Typography scaling down */
+    html {
+        font-size: 15px;
+    }
+    
+    /* Compact containers - Full page width maintained */
+    .page-container,
+    .page-container-half {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding: var(--spacing-lg) var(--spacing-sm);
+        padding-top: var(--navbar-height-mobile);
+        box-sizing: border-box;
+        min-height: 100vh;
+    }
+    
+    /* Navbar mobile optimization */
+    .navbar {
+        height: var(--navbar-height-mobile);
+    }
+    
+    .navbar img[alt="Home"] {
+        height: var(--navbar-logo-size-mobile);
+        width: var(--navbar-logo-size-mobile);
+    }
+    
+    .navbar a {
+        font-size: 14px;
+        padding: 8px;
+    }
+    
+    /* Compact spacing */
+    .section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    /* Hero section mobile */
+    .hero-section__logo {
+        max-width: 240px;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-section__scroll-arrow {
+        left: 1.5rem;
+        bottom: 2rem;
+    }
+    
+    /* Contact section mobile */
+    .contact-item {
+        padding: 0.75rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .map-embed iframe {
+        height: 200px;
+    }
+    
+    /* Compact background gaps */
+    .background-gap {
+        height: var(--background-gap-phone);
+    }
+    
+    /* Typography adjustments */
+    .section h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+    
+    .section h2 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
+    
+    /* Carousel mobile optimization */
+    .carousel-card {
+        height: var(--carousel-height-mobile);
+    }
+    
+    .carousel-card__content {
+        padding: var(--carousel-padding-mobile);
+    }
+    
+    .carousel__dot {
+        width: var(--carousel-dot-size-mobile);
+        height: var(--carousel-dot-size-mobile);
+        min-width: var(--carousel-dot-size-mobile);
+        min-height: var(--carousel-dot-size-mobile);
+    }
+    
+    .carousel__indicators {
+        gap: var(--carousel-indicators-gap-mobile);
+        margin-top: var(--spacing-md);
+    }
+    
+    /* Mobile carousel arrows */
+    .carousel-nav-arrow {
+        opacity: 0.7;
+        font-size: var(--carousel-arrow-font-size-mobile);
+    }
+    
+    .carousel-nav-arrow--prev {
+        left: var(--carousel-arrow-position-mobile);
+    }
+    
+    .carousel-nav-arrow--next {
+        right: var(--carousel-arrow-position-mobile);
+    }
+}
+
+/* =============================================
+   7. RESPONSIVE PERFORMANCE OPTIMIZATIONS
+   ============================================= */
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .page-container,
+    .page-container-half {
+        border: 2px solid;
+    }
+    
+    .about-card,
+    .contact-item {
+        border: 1px solid;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .hero-section__scroll-arrow,
+    .carousel__nav,
+    .carousel__indicators {
+        display: none !important;
+    }
+    
+    .page-container,
+    .page-container-half {
+        width: 100% !important;
+        box-shadow: none !important;
+        background: white !important;
+        color: black !important;
+    }
+    
+    .section h1,
+    .section h2,
+    .section p {
+        color: black !important;
+    }
+}
+
+/* =============================================
+   8. RESPONSIVE GRID UTILITIES
+   ============================================= */
+
+/* Grid system for responsive layouts */
+.responsive-grid {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+/* Mobile: 1 column */
+.responsive-grid {
+    grid-template-columns: 1fr;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+    .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+    .responsive-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-xl);
+    }
+}
+
+/* =============================================
+   9. RESPONSIVE SPACING UTILITIES
+   ============================================= */
+
+/* Mobile spacing */
+.spacing-mobile {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-sm);
+}
+
+/* Tablet spacing */
+@media (min-width: 768px) {
+    .spacing-responsive {
+        margin: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+}
+
+/* Desktop spacing */
+@media (min-width: 1024px) {
+    .spacing-responsive {
+        margin: var(--spacing-lg);
+        padding: var(--spacing-lg);
+    }
+}
+
+/* =============================================
+   10. RESPONSIVE DEBUGGING (Development Only)
+   Remove in production
+   ============================================= */
+
+/* Uncomment to see current breakpoint */
+/*
+body::before {
+    content: 'Mobile';
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: red;
+    color: white;
+    padding: 0.5rem;
+    z-index: 9999;
+    font-size: 12px;
+}
+
+@media (min-width: 768px) {
+    body::before { content: 'Tablet'; background: orange; }
+}
+
+@media (min-width: 1024px) {
+    body::before { content: 'Desktop'; background: green; }
+}
+
+@media (min-width: 1200px) {
+    body::before { content: 'Large Desktop'; background: blue; }
+}
+*/

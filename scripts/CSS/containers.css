@@ -1,0 +1,205 @@
+/* =============================================
+   CONTAINERS.CSS - Layout Container System
+   Save as: scripts/CSS/containers.css
+   
+   Handles all container layouts, widths, and positioning
+   NO section-specific styling, NO component styling
+   ============================================= */
+
+/* =============================================
+   1. BASE CONTAINER FOUNDATION
+   ============================================= */
+
+/* Universal box-sizing for predictable layouts */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Prevent horizontal overflow on all containers */
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* =============================================
+   2. MAIN CONTAINER SYSTEM
+   ============================================= */
+
+/* Primary container - Used by most sections */
+.page-container {
+    width: var(--container-main);
+    max-width: 100%;
+    margin: 0 auto;
+    padding: var(--padding-container);
+    padding-top: 4.375rem; /* Account for fixed navbar */
+    background: var(--cts-black);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Half-width container - Used by about section */
+.page-container-half {
+    width: var(--container-half);
+    max-width: 50vw;
+    margin: 0 0 0 auto; /* Right-aligned */
+    padding: var(--padding-container);
+    padding-top: 4.375rem;
+    background: var(--cts-black);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* =============================================
+   3. SPECIALTY CONTAINERS
+   ============================================= */
+
+/* Background gap spacer - Creates visual breaks */
+.background-gap {
+    height: var(--background-gap);
+    width: 100%;
+    max-width: 100vw;
+    background: transparent; /* Shows background image */
+}
+
+/* Full-width container - For hero sections */
+.container-full {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* Centered content container - For inner content */
+.container-centered {
+    max-width: var(--carousel-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    position: relative;
+}
+
+/* =============================================
+   4. BACKGROUND SYSTEM
+   ============================================= */
+
+/* Fixed background image system */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-background);
+    max-width: 100vw;
+}
+
+.background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =============================================
+   5. CONTAINER UTILITIES
+   ============================================= */
+
+/* Remove container padding */
+.container--no-padding {
+    padding: 0;
+}
+
+/* Add extra padding */
+.container--padded {
+    padding: var(--spacing-xxl) var(--spacing-xl);
+}
+
+/* Center content within container */
+.container--center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Full height container */
+.container--full-height {
+    min-height: 100vh;
+}
+
+/* =============================================
+   6. RESPONSIVE CONTAINER BEHAVIOR
+   ============================================= */
+
+/* Tablet adjustments */
+@media (max-width: 768px) {
+    .page-container,
+    .page-container-half {
+        width: var(--container-mobile);
+        max-width: 100%;
+        margin: 0 auto;
+        transform: none; /* Remove any transforms */
+        padding: var(--padding-container-mobile);
+        padding-top: 3rem;
+        box-sizing: border-box;
+    }
+    
+    .background-gap {
+        height: var(--background-gap-tablet);
+    }
+    
+    .container-centered {
+        padding: 0 var(--spacing-md);
+    }
+    
+    .container--padded {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+}
+
+/* Mobile phone adjustments */
+@media (max-width: 480px) {
+    .page-container,
+    .page-container-half {
+        width: var(--container-phone);
+        max-width: 100%;
+        padding: 1.5rem 0.75rem;
+        padding-top: 2rem;
+        box-sizing: border-box;
+    }
+    
+    .background-gap {
+        height: var(--background-gap-phone);
+    }
+    
+    .container-centered {
+        padding: 0 var(--spacing-sm);
+    }
+    
+    .container--padded {
+        padding: var(--spacing-lg) var(--spacing-sm);
+    }
+}
+
+/* =============================================
+   7. CONTAINER DEBUG UTILITIES (Development Only)
+   Remove in production
+   ============================================= */
+
+/* Uncomment for debugging container boundaries */
+/*
+.page-container {
+    outline: 2px solid red;
+}
+
+.page-container-half {
+    outline: 2px solid blue;
+}
+
+.container-centered {
+    outline: 2px solid green;
+}
+*/

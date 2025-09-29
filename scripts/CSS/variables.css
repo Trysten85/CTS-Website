@@ -1,35 +1,86 @@
+/* =============================================
+   VARIABLES.CSS - Design System Tokens
+   Clean organization of all design tokens
+   ============================================= */
+
 :root {
     /* ============================================= 
-       COLORS - Your Brand Palette 
+       COLORS - Brand Palette 
        ============================================= */
     
-    /* Primary Greens (I found 4 shades you use) */
-    --cts-green: #196436;                /* Main brand green */
-    --cts-green-hover: #22753d;          /* Hover state */
-    --cts-green-light: #2a8a47;          /* Lighter shade */
-    --cts-green-dark: #134028;           /* Circuit board traces color */
-    --cts-green-overlay: rgba(25, 100, 54, 0.9);  /* Service box overlay */
+    /* Primary Greens */
+    --cts-green: #196436;
+    --cts-green-hover: #22753d;
+    --cts-green-light: #2a8a47;
+    --cts-green-dark: #134028;
+    --cts-green-overlay: rgba(25, 100, 54, 0.9);
     
     /* Navy Blue */
-    --cts-navy: rgb(30, 45, 59);         /* Navbar background */
-    --cts-navy-hex: #1e2d3b;             /* Same color in hex */
+    --cts-navy: #1e2d3b;
+    --cts-navy-rgb: rgb(30, 45, 59);
     
-    /* Grays */
-    --cts-gray-light: #f8f9fa;           /* Light backgrounds */
-    --cts-gray-medium: #666;             /* Text */
-    --cts-gray-dark: #333;               /* Dark text */
-    --cts-gray-darker: #555;             /* Hover states */
-    --cts-gray-border: #ccc;             /* Border color */
-    
-    /* Basics */
+    /* Grayscale */
     --cts-white: #ffffff;
     --cts-black: #000000;
+    --cts-gray-light: #f8f9fa;
+    --cts-gray-medium: #666666;
+    --cts-gray-dark: #333333;
+    --cts-gray-darker: #555555;
+    --cts-gray-border: #cccccc;
     
     /* ============================================= 
-       LAYOUT MEASUREMENTS 
+       TYPOGRAPHY SYSTEM
        ============================================= */
     
-    /* Navbar */
+    /* Font Families */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-navbar: Verdana, sans-serif;
+    
+    /* Font Sizes - Fluid Typography */
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+    --font-size-smaller: 12px;
+    --font-size-h1: clamp(2rem, 5vw, 3rem);
+    --font-size-h2: clamp(1.5rem, 4vw, 2.5rem);
+    --font-size-h3: clamp(1.25rem, 3vw, 1.75rem);
+    --font-size-kodiak: clamp(2.5rem, 6vw, 4.5rem);
+    
+    /* Font Weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    
+    /* Letter Spacing */
+    --letter-spacing-tight: -0.5px;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.5px;
+    --letter-spacing-kodiak: 3px;
+    
+    /* ============================================= 
+       SPACING SYSTEM - Consistent Scale
+       ============================================= */
+    
+    --spacing-xs: 0.5rem;    /* 8px */
+    --spacing-sm: 1rem;      /* 16px */
+    --spacing-md: 1.5rem;    /* 24px */
+    --spacing-lg: 2rem;      /* 32px */
+    --spacing-xl: 3rem;      /* 48px */
+    --spacing-xxl: 4rem;     /* 64px */
+    
+    /* Component Padding */
+    --padding-button: 10px 20px;
+    --padding-button-lg: 12px 24px;
+    --padding-button-sm: 8px 16px;
+    --padding-container: 3rem 2rem;
+    --padding-container-mobile: 2rem 1rem;
+    
+    /* ============================================= 
+       LAYOUT DIMENSIONS
+       ============================================= */
+    
+    /* Navigation */
     --navbar-height: 60px;
     --navbar-height-mobile: 50px;
     --navbar-logo-size: 36px;
@@ -41,140 +92,87 @@
     --container-mobile: 90%;
     --container-phone: 95%;
     
-    /* Gaps and Sections */
+    /* Service Components */
+    --service-box-height: 10.25rem;
+    --service-box-height-mobile: 8rem;
+    --service-box-height-phone: 6rem;
+    
+    /* Background Gaps */
     --background-gap: 5rem;
     --background-gap-tablet: 2rem;
     --background-gap-phone: 1rem;
     
-    /* Service Boxes */
-    --service-box-height: 10.25rem;
-    --service-box-height-mobile: 8rem;
-    --service-box-height-phone: 6rem;
-    --kodiak-box-height: 35rem;
-
     /* ============================================= 
-       CAROUSEL SYSTEM VARIABLES
+       CAROUSEL SYSTEM
        ============================================= */
-
+    
     /* Carousel Dimensions */
-    --carousel-height-mobile: 60vh;
+    --carousel-width-desktop: 80%;
+    --carousel-width-tablet: 85%;
+    --carousel-width-mobile: 90%;
+    --carousel-max-width: 1200px;
     --carousel-height-desktop: 70vh;
+    --carousel-height-mobile: 60vh;
     --carousel-height-min: 350px;
     --carousel-height-max: 600px;
     --carousel-height-featured: 500px;
-
-    /* Carousel Width Control - ADJUST THESE TO CHANGE CAROUSEL WIDTH */
-    --carousel-width-desktop: 80%;        /* 80% of container width on desktop */
-    --carousel-width-tablet: 85%;         /* Slightly wider on tablets */
-    --carousel-width-mobile: 90%;         /* Almost full width on mobile */
-    --carousel-max-width: 1200px;         /* Never exceed this width */
-
+    
     /* Carousel Navigation */
     --carousel-dot-size: 12px;
     --carousel-dot-size-mobile: 10px;
     --carousel-arrow-size: 50px;
     --carousel-arrow-size-mobile: 40px;
     
-    /* Carousel Navigation Gradient Areas */
-    --carousel-nav-gradient-width: 120px;
-    --carousel-nav-gradient-width-mobile: 80px;
-    --carousel-nav-gradient-opacity: 0.6;
-    --carousel-nav-gradient-opacity-hover: 0.75;
-    --carousel-nav-gradient-opacity-mobile: 0.8;
+    /* Carousel Gradient Navigation */
+    --carousel-nav-gradient-width: 60px;
+    --carousel-nav-gradient-width-mobile: 50px;
+    --carousel-nav-gradient-opacity: 0.5;
+    --carousel-nav-gradient-opacity-hover: 0.65;
+    --carousel-nav-gradient-opacity-mobile: 0.7;
     --carousel-arrow-font-size: 3rem;
     --carousel-arrow-font-size-mobile: 2.5rem;
-    --carousel-arrow-position: 30px;
-    --carousel-arrow-position-mobile: 15px;
+    --carousel-arrow-position: 15px;
+    --carousel-arrow-position-mobile: 8px;
     --carousel-arrow-scale-hover: 1.3;
-
+    
     /* Carousel Spacing */
     --carousel-padding: 2rem;
     --carousel-padding-mobile: 1.5rem;
     --carousel-indicators-gap: 1rem;
     --carousel-indicators-gap-mobile: 0.8rem;
-
-    /* Carousel Overlays */
-    --carousel-overlay-gradient: linear-gradient(135deg, rgba(25, 100, 54, 0.85) 0%, rgba(30, 45, 59, 0.75) 100%);
-
+    
     /* ============================================= 
-       KODIAK SERVICE BOX SYSTEM
+       KODIAK COMPONENT SYSTEM
        ============================================= */
-
-    /* Kodiak Box Dimensions */
+    
+    /* Kodiak Box */
     --kodiak-box-height: 35rem;
     --kodiak-box-border-radius: 16px;
-
-    /* Kodiak Element Positioning */
+    
+    /* Kodiak Positioning */
     --kodiak-button-bottom: 20px;
     --kodiak-button-left: 20px;
     --kodiak-title-top: 33%;
     --kodiak-title-left: 20px;
     --kodiak-description-top: 1.25rem;
     --kodiak-description-right: 1.25rem;
-
+    
     /* Kodiak Description Box */
     --kodiak-description-width: 25rem;
     --kodiak-description-height: 25rem;
     --kodiak-description-padding: 2rem;
-
-    /* Kodiak Animation */
+    
+    /* Kodiak Animations */
     --kodiak-description-transform-hidden: translateX(1.25rem);
     --kodiak-description-transform-visible: translateX(0);
-
     
     /* ============================================= 
-       SPACING (You use these A LOT)
-       ============================================= */
-    
-    --spacing-xs: 0.5rem;      /* 8px */
-    --spacing-sm: 1rem;        /* 16px */
-    --spacing-md: 1.5rem;      /* 24px */
-    --spacing-lg: 2rem;        /* 32px */
-    --spacing-xl: 3rem;        /* 48px */
-    --spacing-xxl: 4rem;       /* 64px */
-    
-    /* Specific spacing you use */
-    --padding-button: 10px 20px;
-    --padding-button-lg: 12px 24px;
-    --padding-button-sm: 8px 16px;
-    --padding-container: 3rem 2rem;
-    --padding-container-mobile: 2rem 1rem;
-    
-    /* ============================================= 
-       TYPOGRAPHY
-       ============================================= */
-    
-    /* Font Families */
-    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-navbar: Verdana, sans-serif;
-    
-    /* Font Sizes */
-    --font-size-base: 16px;
-    --font-size-small: 14px;
-    --font-size-smaller: 12px;
-    --font-size-h1: 2.5rem;
-    --font-size-h2: 2rem;
-    --font-size-h3: 1.5rem;
-    --font-size-kodiak: 3rem;
-    
-    /* Font Weights */
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --font-weight-black: 900;
-    
-    /* Letter Spacing */
-    --letter-spacing-tight: -0.5px;
-    --letter-spacing-kodiak: 3px;
-    
-    /* ============================================= 
-       SHADOWS (You repeat these everywhere!)
+       SHADOWS - Consistent Depth System
        ============================================= */
     
     --shadow-navbar: 0 2px 10px rgba(0, 0, 0, 0.2);
-    --shadow-standard: 0 4px 10px rgba(0, 0, 0, 0.1);
     --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-standard: 0 4px 10px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 12px 30px rgba(0, 0, 0, 0.25);
     --shadow-button-hover: 0 8px 25px rgba(25, 100, 54, 0.4);
     --shadow-back-button: 0 6px 20px rgba(25, 100, 54, 0.4);
@@ -192,13 +190,14 @@
     --radius-large: 12px;
     --radius-xl: 16px;
     
-    --border-section: 3px solid rgb(30, 45, 59);
-    --border-feature: 4px solid #196436;
+    --border-section: 3px solid var(--cts-navy);
+    --border-feature: 4px solid var(--cts-green);
     
     /* ============================================= 
        TRANSITIONS & ANIMATIONS
        ============================================= */
     
+    /* Transition Presets */
     --transition-fast: all 0.3s ease;
     --transition-smooth: all 0.4s ease;
     --transition-slower: all 0.6s ease;
@@ -211,7 +210,7 @@
     --delay-text-reveal: 0.4s;
     
     /* ============================================= 
-       Z-INDEX LAYERS (Keep them organized!)
+       Z-INDEX LAYERS - Consistent Stacking
        ============================================= */
     
     --z-background: -1;
@@ -222,9 +221,19 @@
     --z-navbar: 1000;
     
     /* ============================================= 
-       GRADIENTS (Your button gradients)
+       GRADIENTS - Reusable Color Combinations
        ============================================= */
     
-    --gradient-button: linear-gradient(135deg, #196436, #22753d);
-    --gradient-button-hover: linear-gradient(135deg, #22753d, #2a8a47);
+    --gradient-button: linear-gradient(135deg, var(--cts-green), var(--cts-green-hover));
+    --gradient-button-hover: linear-gradient(135deg, var(--cts-green-hover), var(--cts-green-light));
+    --carousel-overlay-gradient: linear-gradient(135deg, rgba(25, 100, 54, 0.85) 0%, rgba(30, 45, 59, 0.75) 100%);
+    
+    /* ============================================= 
+       BREAKPOINTS - Consistent Media Query Values
+       ============================================= */
+    
+    --breakpoint-phone: 480px;
+    --breakpoint-tablet: 768px;
+    --breakpoint-desktop: 1024px;
+    --breakpoint-large: 1200px;
 }

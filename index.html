@@ -5,15 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTS Website</title>
     <link rel="icon" type="image/png" href="images/faviconClear.PNG">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- CSS Files - Clean Organization (ORDER MATTERS!) -->
-    <link rel="stylesheet" href="scripts/CSS/variables.css">    <!-- 1st: Design tokens -->
-    <link rel="stylesheet" href="scripts/CSS/components.css">   <!-- 2nd: Reusable components -->
-    <link rel="stylesheet" href="scripts/CSS/layout.css">       <!-- 3rd: Page structure -->
-    <link rel="stylesheet" href="scripts/CSS/navbar.css">       <!-- 4th: Navigation -->
-    <link rel="stylesheet" href="scripts/CSS/services.css">     <!-- 5th: Service-specific -->
-    <link rel="stylesheet" href="scripts/CSS/animations.css">   <!-- 6th: Animations -->
+    <!-- Single CSS import -->
+    <link rel="stylesheet" href="scripts/CSS/main.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -30,39 +24,42 @@
         </ul>
     </nav>
 
+    <!-- Background Image -->
     <div class="background-image">
         <img src="images/background.avif" alt="Background">
     </div>
 
-    
-        <section id="home">
-            <div class="homeLogo">
-                <img src="images/logo.png" alt="Logo Image" style="max-width: 100%; height: auto;">
-            </div>
-        </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-section__background"></div>
+        <div class="hero-section__overlay"></div>
+        
+        <div class="hero-section__content">
+            <img src="images/logo.png" alt="CTS Logo" class="hero-section__logo">
+            <p class="hero-section__tagline">Innovation in Cylinder Testing</p>
+        </div>
+        
+        <a href="#services" class="hero-section__scroll-arrow" aria-label="Scroll to services">
+            <span class="scroll-arrow__icon">↓</span>
+            <span class="scroll-arrow__text">Services</span>
+        </a>
+    </section>
 
+    <!-- Services Section -->
     <div class="page-container">
-        <!-- Sections -->
-
-
         <section id="services">
             <h1>Services</h1>
             
-            <!-- Mobile-First Services Carousel using Components -->
             <div class="carousel services-carousel">
-                <!-- Carousel Container -->
                 <div class="carousel__wrapper">
-                    <!-- Clickable Gradient Navigation Areas (NEW!) -->
                     <div class="carousel-nav-area carousel-nav-area--prev" onclick="prevSlide()"></div>
                     <div class="carousel-nav-area carousel-nav-area--next" onclick="nextSlide()"></div>
                     
-                    <!-- Arrow Symbols (NEW - replaces old buttons!) -->
                     <div class="carousel-nav-arrow carousel-nav-arrow--prev">‹</div>
                     <div class="carousel-nav-arrow carousel-nav-arrow--next">›</div>
                     
-                    <!-- Service Cards -->
                     <div class="carousel__slides">
-                        <!-- Slide 1: Kodiak (Featured) -->
+                        <!-- Slide 1: Kodiak -->
                         <div class="carousel__slide">
                             <div class="carousel-card carousel-card--featured">
                                 <img src="images/kodiak.jpg" alt="Kodiak Equipment" class="carousel-card__image">
@@ -156,7 +153,6 @@
                     </div>
                 </div>
                 
-                <!-- Navigation Dots -->
                 <div class="carousel__indicators">
                     <button class="carousel__dot active" onclick="goToSlide(0)" aria-label="Go to Kodiak"></button>
                     <button class="carousel__dot" onclick="goToSlide(1)" aria-label="Go to Testing"></button>
@@ -164,46 +160,47 @@
                     <button class="carousel__dot" onclick="goToSlide(3)" aria-label="Go to Inspection"></button>
                     <button class="carousel__dot" onclick="goToSlide(4)" aria-label="Go to Refurbishment"></button>
                 </div>
-                
-                <!-- OLD NAVIGATION REMOVED - Using gradient nav now! -->
-                <!-- <button class="carousel__nav carousel__nav--prev" onclick="prevSlide()">‹</button> -->
-                <!-- <button class="carousel__nav carousel__nav--next" onclick="nextSlide()">›</button> -->
-            </div>
-        </section>
             </div>
         </section>
     </div>
-    
-    <!-- Background gap - no container -->
-    <div class="background-gap"></div>
 
-    <div class="page-container-half">
+    <!-- About Section -->
+    <div class="page-container">
         <section id="about">
             <h1>About Us</h1>
-            <p>Cylinder Testing Solutions is dedicated to comprehensive cylinder services and innovative testing solutions. We specialize in cylinder retesting, refurbishment, and sales for both steel and aluminum cylinders across industrial and medical applications.</p>
             
-            <h2>Our Solutions</h2>
-            <p>We provide automated equipment specifically designed for high-volume medical cylinder testing, delivering efficiency and precision for demanding operational environments.</p>
-            
-            <h2>Partnership Approach</h2>
-            <p>At CTS, we believe in true partnerships with our customers. We provide innovative products backed by readily available customer service and ongoing support - not just a sale followed by endless additional costs. Our commitment extends beyond the initial purchase to ensure your long-term success.</p>
+            <div class="about-cards">
+                <div class="about-card">
+                    <span class="about-card__icon">🏢</span>
+                    <h2>Who We Are</h2>
+                    <p>Cylinder Testing Solutions is dedicated to comprehensive cylinder services and innovative testing solutions. We specialize in cylinder retesting, refurbishment, and sales for both steel and aluminum cylinders across industrial and medical applications.</p>
+                </div>
+                
+                <div class="about-card">
+                    <span class="about-card__icon">⚙️</span>
+                    <h2>Our Solutions</h2>
+                    <p>We provide automated equipment specifically designed for high-volume medical cylinder testing, delivering efficiency and precision for demanding operational environments.</p>
+                </div>
+                
+                <div class="about-card">
+                    <span class="about-card__icon">🤝</span>
+                    <h2>Partnership Approach</h2>
+                    <p>At CTS, we believe in true partnerships with our customers. We provide innovative products backed by readily available customer service and ongoing support - not just a sale followed by endless additional costs. Our commitment extends beyond the initial purchase to ensure your long-term success.</p>
+                </div>
+            </div>
         </section>
     </div>
-    
-    <!-- Background gap - no container -->
-    <div class="background-gap"></div>
-    
+
+    <!-- Contact Section -->
     <div class="page-container">
         <section id="contact">
             <h1>Contact Us</h1>
             <div class="contact-container">
-                <!-- Contact Information -->
                 <div class="contact-info">
                     <h2>Get in Touch</h2>
                     <div class="contact-item">
                         <h3>Address</h3>
-                        <p>123 Industrial Way<br>
-                        Your City, State 12345</p>
+                        <p>123 Industrial Way<br>Your City, State 12345</p>
                     </div>
                     <div class="contact-item">
                         <h3>Phone</h3>
@@ -221,28 +218,21 @@
                     </div>
                 </div>
                 
-                <!-- Google Maps -->
                 <div class="map-container">
                     <h2>Find Us</h2>
                     <div class="map-embed">
-                        <!-- Replace the src with your actual business location --
-                        <iframe 
-                            width="100%" 
-                            height="300" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe> -->
+                        <div style="height: 300px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.6);">
+                            Map will be embedded here
+                        </div>
                     </div>
                     <p class="map-note">Click map for directions and larger view</p>
                 </div>
             </div>
         </section>
-        
-        <!-- Link to the JavaScript -->
-        <script src="scripts/JS/navbar.js"></script>
-        <script src="scripts/JS/carousel.js"></script>
     </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/JS/navbar.js"></script>
+    <script src="scripts/JS/carousel.js"></script>
 </body>
 </html>

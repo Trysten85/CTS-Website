@@ -1,0 +1,74 @@
+/* =============================================
+   MAIN.CSS - Master CSS Import System
+   Save as: scripts/CSS/main.css
+   
+   This file orchestrates the loading order of all CSS files.
+   The order is critical for proper CSS cascade behavior.
+   ============================================= */
+
+/* =============================================
+   1. FOUNDATION LAYER - Load First
+   Base styles that everything else builds upon
+   ============================================= */
+
+/* CSS Variables - Must load before everything else */
+@import url('variables.css');
+
+/* Browser normalization and base typography */
+@import url('reset.css'); /* We'll create this */
+
+/* Font imports and text styling */
+@import url('typography.css'); /* We'll extract this */
+
+/* =============================================
+   2. LAYOUT LAYER - Structure & Positioning
+   How elements are positioned and structured
+   ============================================= */
+
+/* Container systems, grids, and page structure */
+@import url('layout.css'); /* Our cleaned-up version */
+
+/* Navigation-specific layouts */
+@import url('navbar.css'); /* Existing file */
+
+/* =============================================
+   3. COMPONENTS LAYER - Reusable UI Elements
+   Independent components that work anywhere
+   ============================================= */
+
+/* Button variants and states */
+@import url('components.css'); /* Our existing components file */
+
+/* Service-specific layouts and carousels */
+@import url('services.css'); /* Existing services file */
+
+/* =============================================
+   4. PAGES LAYER - Page-Specific Customizations
+   Specialized styling for individual pages
+   ============================================= */
+
+/* Kodiak page specializations */
+@import url('kodiak.css'); /* Existing Kodiak file */
+
+/* =============================================
+   5. UTILITIES LAYER - Animations & Helpers
+   Final layer for animations and utility classes
+   ============================================= */
+
+/* All animations, transitions, and hover effects */
+@import url('animations.css'); /* Our reorganized animations */
+
+/* =============================================
+   WHY THIS ORDER MATTERS:
+   
+   1. Variables first - defines design tokens for everything else
+   2. Reset second - normalizes browser differences  
+   3. Typography third - sets base text styles
+   4. Layout fourth - creates page structure
+   5. Components fifth - adds reusable UI pieces
+   6. Pages sixth - customizes specific views
+   7. Animations last - adds motion without breaking layout
+   
+   This follows the CSS Specificity pyramid and prevents
+   cascade conflicts that cause unexpected styling issues.
+   ============================================= */

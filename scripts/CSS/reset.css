@@ -1,0 +1,149 @@
+/* =============================================
+   RESET.CSS - Browser Normalization
+   Save as: scripts/CSS/reset.css
+   
+   Ensures consistent behavior across all browsers
+   ============================================= */
+
+/* =============================================
+   1. UNIVERSAL RESET
+   ============================================= */
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =============================================
+   2. HTML & BODY FOUNDATION
+   ============================================= */
+
+html {
+    line-height: 1.15; /* Improve text rendering */
+    -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* =============================================
+   3. TYPOGRAPHY RESET
+   ============================================= */
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+p, blockquote, ul, ol, dl, dd {
+    margin: 0;
+}
+
+/* =============================================
+   4. LIST RESET
+   ============================================= */
+
+ul, ol {
+    list-style: none;
+}
+
+/* =============================================
+   5. LINK RESET
+   ============================================= */
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =============================================
+   6. FORM RESET
+   ============================================= */
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button, [type="button"], [type="reset"], [type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+/* =============================================
+   7. MEDIA RESET
+   ============================================= */
+
+img, video, canvas, audio, iframe, embed, object {
+    display: block;
+    max-width: 100%;
+}
+
+img, video {
+    height: auto;
+}
+
+/* =============================================
+   8. TABLE RESET
+   ============================================= */
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* =============================================
+   9. ACCESSIBILITY IMPROVEMENTS
+   ============================================= */
+
+/* Focus outline for keyboard navigation */
+:focus {
+    outline: 2px solid var(--cts-green, #196436);
+    outline-offset: 2px;
+}
+
+/* Hide focus outline for mouse users, keep for keyboard */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Ensure interactive elements are accessible */
+button, a, input, select, textarea, [tabindex] {
+    touch-action: manipulation;
+}
+
+/* =============================================
+   10. SMOOTH SCROLLING BASE
+   ============================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
