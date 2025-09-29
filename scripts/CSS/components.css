@@ -330,6 +330,131 @@
     }
 }
 
+/* =============================================
+   CAROUSEL GRADIENT NAVIGATION AREAS
+   Reusable gradient navigation for any carousel
+   ============================================= */
+
+/* Clickable gradient navigation areas */
+.carousel-nav-area {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: var(--carousel-nav-gradient-width);
+    z-index: 100;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.carousel-nav-area--prev {
+    left: 0;
+    background: linear-gradient(to right, rgba(25, 100, 54, var(--carousel-nav-gradient-opacity)), transparent);
+    border-radius: var(--radius-large) 0 0 var(--radius-large);
+}
+
+.carousel-nav-area--next {
+    right: 0;
+    background: linear-gradient(to left, rgba(25, 100, 54, var(--carousel-nav-gradient-opacity)), transparent);
+    border-radius: 0 var(--radius-large) var(--radius-large) 0;
+}
+
+/* Show gradient areas on carousel hover */
+.carousel-container:hover .carousel-nav-area,
+.carousel__wrapper:hover .carousel-nav-area {
+    opacity: 1;
+}
+
+/* Brighten gradient on direct hover */
+.carousel-nav-area--prev:hover {
+    background: linear-gradient(to right, rgba(25, 100, 54, var(--carousel-nav-gradient-opacity-hover)), transparent);
+}
+
+.carousel-nav-area--next:hover {
+    background: linear-gradient(to left, rgba(25, 100, 54, var(--carousel-nav-gradient-opacity-hover)), transparent);
+}
+
+/* Arrow symbols inside gradient areas */
+.carousel-nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    transition: all 0.6s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--carousel-arrow-font-size);
+    font-weight: bold;
+    color: var(--cts-white);
+    z-index: 101;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem;
+    pointer-events: none;
+    opacity: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.carousel-nav-arrow--prev {
+    left: var(--carousel-arrow-position);
+}
+
+.carousel-nav-arrow--next {
+    right: var(--carousel-arrow-position);
+}
+
+/* Show arrows when carousel is hovered */
+.carousel-container:hover .carousel-nav-arrow,
+.carousel__wrapper:hover .carousel-nav-arrow {
+    opacity: 1;
+}
+
+/* Scale up arrow when hovering gradient area */
+.carousel-nav-area--prev:hover ~ .carousel-nav-arrow--prev {
+    transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-nav-area--next:hover ~ .carousel-nav-arrow--next {
+    transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* =============================================
+   CAROUSEL GRADIENT NAV - MOBILE
+   ============================================= */
+
+@media (max-width: 767px) {
+    .carousel-nav-area {
+        width: var(--carousel-nav-gradient-width-mobile);
+        opacity: var(--carousel-nav-gradient-opacity-mobile);
+    }
+    
+    .carousel-nav-arrow {
+        opacity: 0.7;
+        font-size: var(--carousel-arrow-font-size-mobile);
+    }
+    
+    .carousel-nav-arrow--prev {
+        left: var(--carousel-arrow-position-mobile);
+    }
+    
+    .carousel-nav-arrow--next {
+        right: var(--carousel-arrow-position-mobile);
+    }
+    
+    .carousel-nav-area:active ~ .carousel-nav-arrow--prev,
+    .carousel-nav-area:active ~ .carousel-nav-arrow--next {
+        opacity: 1;
+        transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
+    }
+}
+
 /* Mobile Optimizations */
 @media (max-width: 767px) {
     .carousel-card {

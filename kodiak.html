@@ -12,364 +12,8 @@
     <link rel="stylesheet" href="scripts/CSS/components.css">
     <link rel="stylesheet" href="scripts/CSS/navbar.css">
     <link rel="stylesheet" href="scripts/CSS/layout.css">
-    <link rel="stylesheet" href="scripts/CSS/services.css">
     <link rel="stylesheet" href="scripts/CSS/animations.css">
-    
-    <style>
-        .kodiak-page {
-            margin-top: var(--navbar-height);
-            background: var(--cts-white);
-            min-height: calc(100vh - var(--navbar-height));
-        }
-        
-        .kodiak-hero {
-            height: 100vh;
-            min-height: 600px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .kodiak-hero__background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('images/kodiak.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-        .kodiak-hero__overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--cts-green-overlay) 0%, rgba(30, 45, 59, 0.7) 100%);
-            z-index: 2;
-        }
-        
-        .kodiak-carousel {
-            position: relative;
-            z-index: 10;
-            max-width: 1200px;
-            width: 90%;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .carousel-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--cts-white);
-        }
-        
-        .carousel-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: var(--font-weight-black);
-            letter-spacing: var(--letter-spacing-kodiak);
-            margin: 0 0 1rem 0;
-            text-shadow: var(--text-shadow-kodiak);
-        }
-        
-        .carousel-subtitle {
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            font-weight: var(--font-weight-medium);
-            margin: 0;
-            opacity: 0.95;
-        }
-        
-        .carousel-container {
-            position: relative;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: var(--radius-large);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            min-height: 400px;
-            max-height: 60vh;
-        }
-        
-        .carousel-content {
-            position: relative;
-            height: 100%;
-        }
-        
-        .carousel-slide {
-            display: none;
-            padding: 2rem;
-            animation: fadeInScale 0.6s ease;
-            overflow-y: auto;
-            max-height: 55vh;
-        }
-        
-        .carousel-slide.active {
-            display: block;
-        }
-        
-        .slide-title {
-            color: var(--cts-green);
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: var(--font-weight-bold);
-            margin: 0 0 1rem 0;
-            text-align: center;
-        }
-        
-        .slide-subtitle {
-            color: var(--cts-gray-dark);
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            text-align: center;
-            margin: 0 0 3rem 0;
-            line-height: 1.6;
-        }
-        
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--cts-white);
-            border: 2px solid var(--cts-green);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--cts-green);
-            z-index: 20;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-        
-        .carousel-nav:hover {
-            background: var(--cts-green);
-            color: var(--cts-white);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .carousel-nav--prev {
-            left: 20px;
-        }
-        
-        .carousel-nav--next {
-            right: 20px;
-        }
-        
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-            padding: 1rem;
-        }
-        
-        .carousel-indicator {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .carousel-indicator.active {
-            background: var(--cts-white);
-            transform: scale(1.3);
-        }
-        
-        .slide-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .slide-card {
-            background: var(--cts-white);
-            padding: 2rem;
-            border-radius: var(--radius-medium);
-            box-shadow: var(--shadow-card);
-            text-align: center;
-            transition: var(--transition-smooth);
-            border: 2px solid transparent;
-        }
-        
-        .slide-card:hover {
-            border-color: var(--cts-green);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .slide-card__icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .slide-card h3 {
-            color: var(--cts-green);
-            margin: 0 0 1rem 0;
-            font-size: 1.3rem;
-        }
-        
-        .slide-card p {
-            color: var(--cts-gray-medium);
-            margin: 0;
-            line-height: 1.6;
-        }
-        
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .comparison-card {
-            padding: 2rem;
-            border-radius: var(--radius-medium);
-            position: relative;
-        }
-        
-        .comparison-card--manual {
-            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
-            border-left: 6px solid #f44336;
-        }
-        
-        .comparison-card--kodiak {
-            background: linear-gradient(135deg, var(--cts-gray-light) 0%, #e8f5e8 100%);
-            border-left: 6px solid var(--cts-green);
-        }
-        
-        .comparison-card h3 {
-            margin: 0 0 1rem 0;
-            font-size: 1.5rem;
-        }
-        
-        .comparison-card--manual h3 {
-            color: #c62828;
-        }
-        
-        .comparison-card--kodiak h3 {
-            color: var(--cts-green);
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .stat-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--cts-white);
-            border-radius: var(--radius-medium);
-            box-shadow: var(--shadow-card);
-            border: 2px solid transparent;
-            transition: var(--transition-smooth);
-        }
-        
-        .stat-card:hover {
-            border-color: var(--cts-green);
-            transform: translateY(-4px);
-        }
-        
-        .stat-card__number {
-            font-size: 2.5rem;
-            font-weight: var(--font-weight-black);
-            color: var(--cts-green);
-            display: block;
-            line-height: 1;
-        }
-        
-        .stat-card__label {
-            font-size: 0.9rem;
-            color: var(--cts-gray-dark);
-            margin-top: 0.5rem;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .carousel-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-            
-            .carousel-nav--prev {
-                left: 10px;
-            }
-            
-            .carousel-nav--next {
-                right: 10px;
-            }
-            
-            .comparison-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .kodiak-carousel {
-                width: 95%;
-                padding: 0.5rem;
-                height: 90vh;
-            }
-            
-            .carousel-slide {
-                padding: 1rem;
-            }
-            
-            .slide-grid {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-            
-            .carousel-header {
-                margin-bottom: 1rem;
-            }
-            
-            .carousel-title {
-                font-size: clamp(2rem, 8vw, 3rem);
-            }
-            
-            .carousel-subtitle {
-                font-size: clamp(1rem, 3vw, 1.2rem);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="scripts/CSS/kodiak.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -401,9 +45,13 @@
                 
                 <!-- Carousel -->
                 <div class="carousel-container">
-                    <!-- Navigation Arrows -->
-                    <button class="carousel-nav carousel-nav--prev" onclick="prevSlide()">‹</button>
-                    <button class="carousel-nav carousel-nav--next" onclick="nextSlide()">›</button>
+                    <!-- Clickable Gradient Navigation Areas -->
+                    <div class="carousel-nav-area carousel-nav-area--prev" onclick="prevSlide()"></div>
+                    <div class="carousel-nav-area carousel-nav-area--next" onclick="nextSlide()"></div>
+                    
+                    <!-- Navigation Arrows (visual only) -->
+                    <div class="carousel-nav carousel-nav--prev">‹</div>
+                    <div class="carousel-nav carousel-nav--next">›</div>
                     
                     <!-- Carousel Content -->
                     <div class="carousel-content">
@@ -468,7 +116,7 @@
                             <div class="comparison-grid">
                                 <div class="comparison-card comparison-card--manual">
                                     <h3>❌ Manual Process</h3>
-                                    <ul style="margin: 0; padding-left: 1.5rem;">
+                                    <ul>
                                         <li>Requires trained operators</li>
                                         <li>Manual data entry errors</li>
                                         <li>Inconsistent processing times</li>
@@ -479,7 +127,7 @@
                                 </div>
                                 <div class="comparison-card comparison-card--kodiak">
                                     <h3>✅ Kodiak Automation</h3>
-                                    <ul style="margin: 0; padding-left: 1.5rem;">
+                                    <ul>
                                         <li>Zero operator requirements</li>
                                         <li>Automatic data capture</li>
                                         <li>Consistent, predictable timing</li>
@@ -574,46 +222,7 @@
         </div>
     </div>
 
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const indicators = document.querySelectorAll('.carousel-indicator');
-        const totalSlides = slides.length;
-        
-        function showSlide(index) {
-            // Hide all slides
-            slides.forEach(slide => slide.classList.remove('active'));
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-            
-            // Show current slide
-            slides[index].classList.add('active');
-            indicators[index].classList.add('active');
-            
-            currentSlide = index;
-        }
-        
-        function nextSlide() {
-            const next = (currentSlide + 1) % totalSlides;
-            showSlide(next);
-        }
-        
-        function prevSlide() {
-            const prev = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(prev);
-        }
-        
-        function goToSlide(index) {
-            showSlide(index);
-        }
-        
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'ArrowRight') nextSlide();
-        });
-        
-        // Auto-advance (optional - uncomment to enable)
-        // setInterval(nextSlide, 8000);
-    </script>
+    <!-- Carousel JavaScript -->
+    <script src="scripts/JS/carousel.js"></script>
 </body>
 </html>

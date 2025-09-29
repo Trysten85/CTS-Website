@@ -74,6 +74,18 @@
     --carousel-dot-size-mobile: 10px;
     --carousel-arrow-size: 50px;
     --carousel-arrow-size-mobile: 40px;
+    
+    /* Carousel Navigation Gradient Areas */
+    --carousel-nav-gradient-width: 120px;
+    --carousel-nav-gradient-width-mobile: 80px;
+    --carousel-nav-gradient-opacity: 0.6;
+    --carousel-nav-gradient-opacity-hover: 0.75;
+    --carousel-nav-gradient-opacity-mobile: 0.8;
+    --carousel-arrow-font-size: 3rem;
+    --carousel-arrow-font-size-mobile: 2.5rem;
+    --carousel-arrow-position: 30px;
+    --carousel-arrow-position-mobile: 15px;
+    --carousel-arrow-scale-hover: 1.3;
 
     /* Carousel Spacing */
     --carousel-padding: 2rem;
