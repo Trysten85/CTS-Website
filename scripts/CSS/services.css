@@ -4,8 +4,38 @@
    ============================================= */
 
 /* =============================================
-   SERVICES SECTION LAYOUT
+   SERVICES CAROUSEL WIDTH CONTROL
+   Add this to your services.css
    ============================================= */
+
+/* Services section container */
+#services {
+    margin: 0 -2rem;
+    padding: var(--spacing-xl) 2rem;
+    margin-bottom: var(--spacing-xxl);
+    border-bottom: none;
+    background: var(--cts-white);
+    display: flex;
+    flex-direction: column; /* Stack header and carousel vertically */
+}
+
+/* Services header - aligned left, only as wide as the text */
+#services h1 {
+    text-align: left;
+    margin-bottom: var(--spacing-lg);
+    align-self: flex-start; /* Keep header at the left */
+    display: inline-block; /* Make h1 only as wide as its text content */
+}
+
+/* Services-specific carousel container - centered */
+.services-carousel {
+    width: var(--carousel-width-desktop, 80%);
+    max-width: var(--carousel-max-width, 1200px);
+    align-self: center; /* Center the carousel within flex container */
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+}
+
 
 .services-container {
     display: flex;
@@ -19,22 +49,7 @@
     width: 70%;
 }
 
-/* Services section background with circuit traces */
-#services {
-    margin: 0 -2rem;
-    padding: var(--spacing-xl) 2rem;
-    margin-bottom: var(--spacing-xxl);
-    border-bottom: none;
-    background: var(--cts-white);
-    background-image: 
-        url("data:image/svg+xml,%3Csvg width='900' height='450' viewBox='0 0 900 450' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M0,180 L120,180 L120,80 L280,80 L280,150 L420,150 L420,50 L580,50 L580,120 L720,120'/%3E%3Ccircle cx='120' cy='80' r='8' fill='%23134028'/%3E%3Ccircle cx='280' cy='150' r='8' fill='%23134028'/%3E%3Ccircle cx='580' cy='120' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg width='900' height='450' viewBox='0 0 900 450' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M900,250 L780,250 L780,150 L620,150 L620,220 L480,220 L480,120 L320,120 L320,190 L180,190'/%3E%3Ccircle cx='780' cy='150' r='8' fill='%23134028'/%3E%3Ccircle cx='620' cy='220' r='8' fill='%23134028'/%3E%3Ccircle cx='320' cy='190' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg width='700' height='650' viewBox='0 0 700 650' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M380,0 L380,90 L280,90 L280,180 L450,180 L450,270 L320,270 L320,360 L480,360 L480,450'/%3E%3Ccircle cx='280' cy='180' r='8' fill='%23134028'/%3E%3Ccircle cx='450' cy='270' r='8' fill='%23134028'/%3E%3Ccircle cx='480' cy='360' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E"),
-        url("data:image/svg+xml,%3Csvg width='800' height='400' viewBox='0 0 800 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23134028' stroke-width='5' opacity='0.8'%3E%3Cpath d='M0,350 L100,350 L100,280 L200,280 L200,320 L350,320 L350,250 L450,250 L450,300 L600,300'/%3E%3Ccircle cx='100' cy='280' r='8' fill='%23134028'/%3E%3Ccircle cx='200' cy='320' r='8' fill='%23134028'/%3E%3Ccircle cx='450' cy='300' r='8' fill='%23134028'/%3E%3C/g%3E%3C/svg%3E");
-    background-position: left 30%, right 70%, 30% top, left bottom;
-    background-repeat: no-repeat;
-    background-size: 60% 45%, 60% 45%, 45% 55%, 50% 40%;
-}
+
 
 /* In your services.css, make it more specific: */
 .carousel-slide .slide-grid {

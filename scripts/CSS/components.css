@@ -230,22 +230,27 @@
     right: var(--spacing-lg);
 }
 
-/* Carousel Indicators */
+/* Carousel Indicators - FIXED FOR PERFECT CIRCLES */
 .carousel__indicators {
     display: flex;
     justify-content: center;
     gap: var(--carousel-indicators-gap);
     margin-top: var(--spacing-lg);
+    align-items: center; /* Ensure dots align properly */
 }
 
 .carousel__dot {
     width: var(--carousel-dot-size);
     height: var(--carousel-dot-size);
+    min-width: var(--carousel-dot-size); /* Prevent squishing */
+    min-height: var(--carousel-dot-size); /* Prevent squishing */
     border-radius: 50%;
     border: 2px solid var(--cts-green);
     background: transparent;
     cursor: pointer;
     transition: var(--transition-fast);
+    flex-shrink: 0; /* Prevent flex from shrinking the dots */
+    padding: 0; /* Remove any default button padding */
 }
 
 .carousel__dot.active {
@@ -343,6 +348,8 @@
     .carousel__dot {
         width: var(--carousel-dot-size-mobile);
         height: var(--carousel-dot-size-mobile);
+        min-width: var(--carousel-dot-size-mobile);
+        min-height: var(--carousel-dot-size-mobile);
     }
 }
 
@@ -532,31 +539,21 @@
     }
     
     .card--service {
-    flex: 1;
-    height: var(--service-box-height) !important; /* Force the height */
-    min-height: var(--service-box-height); /* Backup enforcement */
-    max-height: var(--service-box-height); /* Prevent growing */
-    position: relative;
-    overflow: hidden;
+        flex: 1;
+        height: var(--service-box-height) !important;
+        min-height: var(--service-box-height);
+        max-height: var(--service-box-height);
+        position: relative;
+        overflow: hidden;
     }
 
     .card--service .card__image {
-    width: 100%;
-    height: 100%; /* Fill the forced container */
-    object-fit: cover; /* Crop to fit perfectly */
-    object-position: center; /* Center the crop */
-    display: block;
-}
-    
-    /*.hero-box__description {
-        opacity: 1; 
-        transform: none;
-        position: relative; 
-        background: rgba(0, 0, 0, 0.9);
-        margin-top: var(--spacing-sm);
-        max-width: none;
-        height: auto; 
-    } */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
 } 
 
 @media (max-width: 480px) {

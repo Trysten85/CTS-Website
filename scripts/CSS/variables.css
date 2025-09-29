@@ -36,8 +36,8 @@
     --navbar-logo-size-mobile: 30px;
     
     /* Containers */
-    --container-main: 70vw;
-    --container-half: 38rem;
+    --container-main: 100%;
+    --container-half: 50vw;
     --container-mobile: 90%;
     --container-phone: 95%;
     
@@ -52,36 +52,41 @@
     --service-box-height-phone: 6rem;
     --kodiak-box-height: 35rem;
 
-/* ============================================= 
-   CAROUSEL SYSTEM VARIABLES
-   ============================================= */
-
-/* Carousel Dimensions */
---carousel-height-mobile: 60vh;
---carousel-height-desktop: 70vh;
---carousel-height-min: 350px;
---carousel-height-max: 600px;
---carousel-height-featured: 500px;
-
-/* Carousel Navigation */
---carousel-dot-size: 12px;
---carousel-dot-size-mobile: 10px;
---carousel-arrow-size: 50px;
---carousel-arrow-size-mobile: 40px;
-
-/* Carousel Spacing */
---carousel-padding: 2rem;
---carousel-padding-mobile: 1.5rem;
---carousel-indicators-gap: 1rem;
---carousel-indicators-gap-mobile: 0.8rem;
-
-/* Carousel Overlays */
---carousel-overlay-gradient: linear-gradient(135deg, rgba(25, 100, 54, 0.85) 0%, rgba(30, 45, 59, 0.75) 100%);
-
-    
     /* ============================================= 
-   KODIAK SERVICE BOX SYSTEM
-   ============================================= */
+       CAROUSEL SYSTEM VARIABLES
+       ============================================= */
+
+    /* Carousel Dimensions */
+    --carousel-height-mobile: 60vh;
+    --carousel-height-desktop: 70vh;
+    --carousel-height-min: 350px;
+    --carousel-height-max: 600px;
+    --carousel-height-featured: 500px;
+
+    /* Carousel Width Control - ADJUST THESE TO CHANGE CAROUSEL WIDTH */
+    --carousel-width-desktop: 80%;        /* 80% of container width on desktop */
+    --carousel-width-tablet: 85%;         /* Slightly wider on tablets */
+    --carousel-width-mobile: 90%;         /* Almost full width on mobile */
+    --carousel-max-width: 1200px;         /* Never exceed this width */
+
+    /* Carousel Navigation */
+    --carousel-dot-size: 12px;
+    --carousel-dot-size-mobile: 10px;
+    --carousel-arrow-size: 50px;
+    --carousel-arrow-size-mobile: 40px;
+
+    /* Carousel Spacing */
+    --carousel-padding: 2rem;
+    --carousel-padding-mobile: 1.5rem;
+    --carousel-indicators-gap: 1rem;
+    --carousel-indicators-gap-mobile: 0.8rem;
+
+    /* Carousel Overlays */
+    --carousel-overlay-gradient: linear-gradient(135deg, rgba(25, 100, 54, 0.85) 0%, rgba(30, 45, 59, 0.75) 100%);
+
+    /* ============================================= 
+       KODIAK SERVICE BOX SYSTEM
+       ============================================= */
 
     /* Kodiak Box Dimensions */
     --kodiak-box-height: 35rem;
