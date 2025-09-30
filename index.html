@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTS Website</title>
+    <title>CTS - Cylinder Testing Solutions</title>
     <link rel="icon" type="image/png" href="images/faviconClear.PNG">
     
-    <!-- Single CSS import -->
+    <!-- Single CSS Import - Complete Design System -->
     <link rel="stylesheet" href="scripts/CSS/main.css">
 </head>
 <body>
@@ -22,6 +22,11 @@
             <li><a href="#" data-section="about">About</a></li>
             <li><a href="#" data-section="contact">Contact</a></li>
         </ul>
+        
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            🌙
+        </button>
     </nav>
 
     <!-- Background Image -->
@@ -45,8 +50,10 @@
         </a>
     </section>
 
-    <!-- Services Section -->
+    <!-- Single Page Container for All Sections -->
     <div class="page-container">
+        
+        <!-- Services Section -->
         <section id="services">
             <h1>Services</h1>
             
@@ -162,10 +169,8 @@
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- About Section -->
-    <div class="page-container">
+        <!-- About Section -->
         <section id="about">
             <h1>About Us</h1>
             
@@ -189,10 +194,8 @@
                 </div>
             </div>
         </section>
-    </div>
 
-    <!-- Contact Section -->
-    <div class="page-container">
+        <!-- Contact Section -->
         <section id="contact">
             <h1>Contact Us</h1>
             <div class="contact-container">
@@ -229,9 +232,11 @@
                 </div>
             </div>
         </section>
+        
     </div>
 
     <!-- JavaScript -->
+    <script src="scripts/JS/theme-toggle.js"></script>
     <script src="scripts/JS/navbar.js"></script>
     <script src="scripts/JS/carousel.js"></script>
 </body>

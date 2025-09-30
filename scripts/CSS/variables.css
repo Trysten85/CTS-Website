@@ -1,11 +1,20 @@
 /* =============================================
-   VARIABLES.CSS - Design System Tokens
-   Clean organization of all design tokens
+   VARIABLES.CSS - Complete Design System
+   
+   THEME SWITCHING INSTRUCTIONS:
+   To switch between light and dark mode:
+   1. Comment out the active mode section below
+   2. Uncomment the desired mode section
+   3. Save - entire site updates automatically!
+   
+   Future: Add data-theme="light" or data-theme="dark" 
+   to <html> tag for user preference switching
    ============================================= */
 
 :root {
     /* ============================================= 
-       COLORS - Brand Palette 
+       BRAND COLORS - Never Change These
+       Core brand identity colors
        ============================================= */
     
     /* Primary Greens */
@@ -19,7 +28,7 @@
     --cts-navy: #1e2d3b;
     --cts-navy-rgb: rgb(30, 45, 59);
     
-    /* Grayscale */
+    /* Grayscale Palette */
     --cts-white: #ffffff;
     --cts-black: #000000;
     --cts-gray-light: #f8f9fa;
@@ -27,11 +36,75 @@
     --cts-gray-dark: #333333;
     --cts-gray-darker: #555555;
     --cts-gray-border: #cccccc;
+}
+
+/* =============================================
+   LIGHT MODE - CURRENTLY ACTIVE
+   Comment out this section to disable
+   ============================================= */
+:root {
+    /* Background Colors */
+    --bg-body: #ffffff;                      /* Body background - solid white */
+    --bg-page: #ffffff;                      /* Page container background */
+    --bg-section: transparent;               /* Section backgrounds (inherit from page) */
+    --bg-card-dark: rgba(0, 0, 0, 0.9);    /* Dark frosted glass cards (About section) */
+    --bg-card-light: rgba(255, 255, 255, 0.6); /* Light frosted cards */
+    --bg-contact-item: rgba(255, 255, 255, 0.6); /* Contact info cards */
     
-    /* ============================================= 
-       TYPOGRAPHY SYSTEM
-       ============================================= */
+    /* Text Colors */
+    --text-primary: #1e2d3b;                 /* Main headings - dark navy */
+    --text-secondary: rgba(255, 255, 255, 0.85)               /* Body text - dark gray */
+    --text-tertiary: #666666;                /* Subtle text - medium gray */
+    --text-on-dark: #ffffff;                 /* Text on dark backgrounds - white */
+    --text-on-dark-secondary: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
     
+    /* Border Colors */
+    --border-light: rgba(0, 0, 0, 0.1);     /* Light borders */
+    --border-section: rgba(0, 0, 0, 0.1);   /* Section dividers */
+    --border-card-dark: rgba(255, 255, 255, 0.2); /* Borders on dark cards */
+    --border-card-light: rgba(0, 0, 0, 0.1); /* Borders on light cards */
+    
+    /* Component Specific */
+    --navbar-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    --carousel-dot-border: rgba(0, 0, 0, 0.3); /* Carousel navigation dots */
+    --carousel-dot-active: #1e2d3b;          /* Active dot color */
+}
+
+/* =============================================
+   DARK MODE - UNCOMMENT TO ACTIVATE
+   Comment out Light Mode section above first
+   ============================================= */
+/*
+:root {
+    --bg-body: #0a0a0a;
+    --bg-page: rgba(0, 0, 0, 0.95);
+    --bg-section: transparent;
+    --bg-card-dark: rgba(0, 0, 0, 0.85);
+    --bg-card-light: rgba(0, 0, 0, 0.6);
+    --bg-contact-item: rgba(255, 255, 255, 0.08);
+    
+    --text-primary: #ffffff;
+    --text-secondary: rgba(255, 255, 255, 0.85);
+    --text-tertiary: rgba(255, 255, 255, 0.6);
+    --text-on-dark: #ffffff;
+    --text-on-dark-secondary: rgba(255, 255, 255, 0.95);
+    
+    --border-light: rgba(255, 255, 255, 0.1);
+    --border-section: rgba(255, 255, 255, 0.1);
+    --border-card-dark: rgba(255, 255, 255, 0.2);
+    --border-card-light: rgba(255, 255, 255, 0.1);
+    
+    --navbar-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    --carousel-dot-border: rgba(255, 255, 255, 0.3);
+    --carousel-dot-active: #ffffff;
+}
+*/
+
+/* =============================================
+   TYPOGRAPHY SYSTEM
+   Font settings - same for all themes
+   ============================================= */
+:root {
     /* Font Families */
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     --font-navbar: Verdana, sans-serif;
@@ -57,11 +130,13 @@
     --letter-spacing-normal: 0;
     --letter-spacing-wide: 0.5px;
     --letter-spacing-kodiak: 3px;
-    
-    /* ============================================= 
-       SPACING SYSTEM - Consistent Scale
-       ============================================= */
-    
+}
+
+/* =============================================
+   SPACING SYSTEM
+   Consistent spacing scale - same for all themes
+   ============================================= */
+:root {
     --spacing-xs: 0.5rem;    /* 8px */
     --spacing-sm: 1rem;      /* 16px */
     --spacing-md: 1.5rem;    /* 24px */
@@ -75,11 +150,13 @@
     --padding-button-sm: 8px 16px;
     --padding-container: 3rem 2rem;
     --padding-container-mobile: 2rem 1rem;
-    
-    /* ============================================= 
-       LAYOUT DIMENSIONS
-       ============================================= */
-    
+}
+
+/* =============================================
+   LAYOUT DIMENSIONS
+   Size and spacing values - same for all themes
+   ============================================= */
+:root {
     /* Navigation */
     --navbar-height: 60px;
     --navbar-height-mobile: 50px;
@@ -101,11 +178,13 @@
     --background-gap: 5rem;
     --background-gap-tablet: 2rem;
     --background-gap-phone: 1rem;
-    
-    /* ============================================= 
-       CAROUSEL SYSTEM
-       ============================================= */
-    
+}
+
+/* =============================================
+   CAROUSEL SYSTEM
+   All carousel-related dimensions
+   ============================================= */
+:root {
     /* Carousel Dimensions */
     --carousel-width-desktop: 80%;
     --carousel-width-tablet: 85%;
@@ -140,11 +219,13 @@
     --carousel-padding-mobile: 1.5rem;
     --carousel-indicators-gap: 1rem;
     --carousel-indicators-gap-mobile: 0.8rem;
-    
-    /* ============================================= 
-       KODIAK COMPONENT SYSTEM
-       ============================================= */
-    
+}
+
+/* =============================================
+   KODIAK COMPONENT SYSTEM
+   Kodiak page specific variables
+   ============================================= */
+:root {
     /* Kodiak Box */
     --kodiak-box-height: 35rem;
     --kodiak-box-border-radius: 16px;
@@ -165,11 +246,13 @@
     /* Kodiak Animations */
     --kodiak-description-transform-hidden: translateX(1.25rem);
     --kodiak-description-transform-visible: translateX(0);
-    
-    /* ============================================= 
-       SHADOWS - Consistent Depth System
-       ============================================= */
-    
+}
+
+/* =============================================
+   SHADOWS
+   Depth system - adjust for theme if needed
+   ============================================= */
+:root {
     --shadow-navbar: 0 2px 10px rgba(0, 0, 0, 0.2);
     --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-standard: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -180,23 +263,28 @@
     /* Text Shadows */
     --text-shadow-strong: 2px 2px 4px rgba(0, 0, 0, 0.8);
     --text-shadow-kodiak: 3px 3px 6px rgba(0, 0, 0, 0.8);
-    
-    /* ============================================= 
-       BORDERS & RADIUS
-       ============================================= */
-    
+}
+
+/* =============================================
+   BORDERS & RADIUS
+   Border styling - same for all themes
+   ============================================= */
+:root {
     --radius-small: 5px;
     --radius-medium: 8px;
     --radius-large: 12px;
     --radius-xl: 16px;
     
-    --border-section: 3px solid var(--cts-navy);
-    --border-feature: 4px solid var(--cts-green);
-    
-    /* ============================================= 
-       TRANSITIONS & ANIMATIONS
-       ============================================= */
-    
+    /* Semantic borders using theme colors */
+    --border-section-width: 3px solid var(--cts-navy);
+    --border-feature-width: 4px solid var(--cts-green);
+}
+
+/* =============================================
+   TRANSITIONS & ANIMATIONS
+   Animation timing - same for all themes
+   ============================================= */
+:root {
     /* Transition Presets */
     --transition-fast: all 0.3s ease;
     --transition-smooth: all 0.4s ease;
@@ -208,32 +296,58 @@
     
     /* Animation Delays */
     --delay-text-reveal: 0.4s;
-    
-    /* ============================================= 
-       Z-INDEX LAYERS - Consistent Stacking
-       ============================================= */
-    
+}
+
+/* =============================================
+   Z-INDEX LAYERS
+   Stacking context - same for all themes
+   ============================================= */
+:root {
     --z-background: -1;
     --z-base: 1;
     --z-overlay: 5;
     --z-kodiak-title: 8;
     --z-hover: 10;
     --z-navbar: 1000;
-    
-    /* ============================================= 
-       GRADIENTS - Reusable Color Combinations
-       ============================================= */
-    
+}
+
+/* =============================================
+   GRADIENTS
+   Reusable gradient combinations
+   ============================================= */
+:root {
     --gradient-button: linear-gradient(135deg, var(--cts-green), var(--cts-green-hover));
     --gradient-button-hover: linear-gradient(135deg, var(--cts-green-hover), var(--cts-green-light));
     --carousel-overlay-gradient: linear-gradient(135deg, rgba(25, 100, 54, 0.85) 0%, rgba(30, 45, 59, 0.75) 100%);
-    
-    /* ============================================= 
-       BREAKPOINTS - Consistent Media Query Values
-       ============================================= */
-    
+}
+
+/* =============================================
+   BREAKPOINTS
+   Media query reference values
+   ============================================= */
+:root {
     --breakpoint-phone: 480px;
     --breakpoint-tablet: 768px;
     --breakpoint-desktop: 1024px;
     --breakpoint-large: 1200px;
 }
+
+/* =============================================
+   FUTURE: AUTOMATIC THEME SWITCHING
+   
+   Uncomment when ready to implement user preference:
+   
+   [data-theme="light"] {
+     -- use light mode variables --
+   }
+   
+   [data-theme="dark"] {
+     -- use dark mode variables --
+   }
+   
+   @media (prefers-color-scheme: dark) {
+     :root {
+       -- automatically use dark mode if user prefers --
+     }
+   }
+   ============================================= */

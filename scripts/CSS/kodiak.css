@@ -1,31 +1,36 @@
 /* =============================================
-   KODIAK.CSS - Kodiak Page Specific Styles
-   Save as: scripts/CSS/kodiak.css
+   KODIAK.CSS - Kodiak Page Layouts ONLY
+   NO animations, NO hover effects, NO transitions
+   Pure layout and structure for Kodiak page
    ============================================= */
 
 /* =============================================
    PAGE LAYOUT - NO SCROLL FIT
    ============================================= */
 
-/* Prevent body scroll on Kodiak page */
 body:has(.kodiak-page) {
     overflow: hidden;
     height: 100vh;
 }
 
 .kodiak-page {
-    margin-top: var(--navbar-height);
+    margin-top: 0;
+    padding-top: var(--navbar-height);
     background: var(--cts-white);
-    height: calc(100vh - var(--navbar-height)); /* Exact height */
-    max-height: calc(100vh - var(--navbar-height)); /* Don't exceed */
-    overflow: hidden; /* Prevent page scroll */
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .kodiak-hero {
     height: 100vh;
-    min-height: 100vh; /* Changed from 600px to 100vh */
-    max-height: 100vh; /* Prevent exceeding viewport */
-    position: relative;
+    min-height: 100vh;
+    max-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -55,7 +60,7 @@ body:has(.kodiak-page) {
 }
 
 /* =============================================
-   CAROUSEL CONTAINER - TALLER & COMPACT
+   CAROUSEL CONTAINER - LIGHT MODE DEFAULT
    ============================================= */
 
 .kodiak-carousel {
@@ -63,7 +68,7 @@ body:has(.kodiak-page) {
     z-index: 10;
     max-width: 1200px;
     width: 90%;
-    max-height: 85vh; /* Reduced from 90vh to ensure it fits */
+    max-height: 85vh;
     margin: 0 auto;
     padding: 0;
     display: flex;
@@ -71,7 +76,6 @@ body:has(.kodiak-page) {
     gap: 0;
 }
 
-/* Header - Reduced spacing and smaller fonts */
 .carousel-header {
     text-align: center;
     margin-bottom: 1.5rem;
@@ -95,17 +99,14 @@ body:has(.kodiak-page) {
     opacity: 0.95;
 }
 
-/* Carousel Container - Fits content exactly */
 .carousel-container {
     position: relative;
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
     border-radius: var(--radius-large);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* Removed flex: 1 so it doesn't stretch */
-    /* Let content determine height */
 }
 
 .carousel-content {
@@ -113,20 +114,17 @@ body:has(.kodiak-page) {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    /* Removed flex: 1 so content determines height */
 }
 
 /* =============================================
-   CAROUSEL SLIDES - COMPACT CONTENT
+   CAROUSEL SLIDES - LIGHT MODE DEFAULT
    ============================================= */
 
 .carousel-slide {
     display: none;
-    padding: 1.5rem 2.5rem; /* More side padding - was 1.5rem all around */
-    animation: fadeInScale 0.6s ease;
+    padding: 1.5rem 2.5rem;
     overflow-y: auto;
-    /* Removed flex: 1 so content determines height */
-    max-height: 65vh; /* Limit height so it fits on screen */
+    max-height: 65vh;
 }
 
 .carousel-slide.active {
@@ -143,7 +141,7 @@ body:has(.kodiak-page) {
 }
 
 .slide-subtitle {
-    color: var(--cts-gray-dark);
+    color: #333333;
     font-size: clamp(0.9rem, 1.8vw, 1.1rem);
     text-align: center;
     margin: 0 0 1.5rem 0;
@@ -151,18 +149,12 @@ body:has(.kodiak-page) {
 }
 
 /* =============================================
-   CAROUSEL NAVIGATION
+   CAROUSEL NAVIGATION - POSITIONING ONLY
    ============================================= */
 
-/* =============================================
-   CAROUSEL NAVIGATION - USES COMPONENTS
-   ============================================= */
-
-/* Kodiak-specific overrides for carousel navigation if needed */
-/* All base styles are now in components.css */
-
-/* Kodiak uses .carousel-nav instead of .carousel-nav-arrow for legacy support */
-.carousel-container .carousel-nav {
+.carousel-nav,
+.carousel-nav--prev,
+.carousel-nav--next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -171,7 +163,6 @@ body:has(.kodiak-page) {
     width: auto;
     height: auto;
     cursor: pointer;
-    transition: all 0.6s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -183,13 +174,8 @@ body:has(.kodiak-page) {
     padding: 0.5rem;
     pointer-events: none;
     opacity: 0;
-    filter: blur(0.5px); /* Subtle blur to soften edges */
-    -webkit-font-smoothing: antialiased; /* Smoother font rendering */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-}
-
-.carousel-container:hover .carousel-nav {
-    opacity: 1;
 }
 
 .carousel-nav--prev {
@@ -200,25 +186,13 @@ body:has(.kodiak-page) {
     right: var(--carousel-arrow-position);
 }
 
-/* Scale up arrow when hovering gradient */
-.carousel-nav-area--prev:hover ~ .carousel-nav--prev {
-    transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.carousel-nav-area--next:hover ~ .carousel-nav--next {
-    transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-/* Carousel Indicators - Compact */
 .carousel-indicators {
     display: flex;
     justify-content: center;
     gap: 0.8rem;
-    padding: 0.5rem 1rem; /* Reduced top/bottom padding */
+    padding: 0.5rem 1rem;
     flex-shrink: 0;
-    background: transparent; /* Ensure no white background */
+    background: transparent;
 }
 
 .carousel-indicator {
@@ -229,7 +203,6 @@ body:has(.kodiak-page) {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: all 0.3s ease;
     flex-shrink: 0;
     padding: 0;
 }
@@ -240,7 +213,7 @@ body:has(.kodiak-page) {
 }
 
 /* =============================================
-   SLIDE CONTENT GRIDS - COMPACT
+   SLIDE CONTENT GRIDS - LIGHT MODE DEFAULT
    ============================================= */
 
 .slide-grid {
@@ -251,42 +224,44 @@ body:has(.kodiak-page) {
 }
 
 .slide-card {
-    background: var(--cts-white);
+    background: #ffffff;
     padding: 1.2rem;
     border-radius: var(--radius-medium);
     box-shadow: var(--shadow-card);
-    text-align: center;
-    transition: var(--transition-smooth);
-    border: 2px solid transparent;
-}
-
-.slide-card:hover {
-    border-color: var(--cts-green);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
 .slide-card__icon {
     font-size: 2.5rem;
     margin-bottom: 0.8rem;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(25, 100, 54, 0.15), rgba(25, 100, 54, 0.05));
+    border-radius: 12px;
+    border: 1px solid rgba(25, 100, 54, 0.2);
 }
 
 .slide-card h3 {
-    color: var(--cts-green);
+    color: var(--cts-navy);
     margin: 0 0 0.8rem 0;
     font-size: 1.2rem;
 }
 
 .slide-card p {
-    color: var(--cts-gray-medium);
+    color: #333333;
     margin: 0;
     line-height: 1.5;
     font-size: 0.95rem;
 }
 
 /* =============================================
-   COMPARISON GRID - COMPACT
+   COMPARISON GRID - LIGHT MODE DEFAULT
    ============================================= */
 
 .comparison-grid {
@@ -336,7 +311,7 @@ body:has(.kodiak-page) {
 }
 
 /* =============================================
-   STATS GRID - COMPACT
+   STATS GRID - LIGHT MODE DEFAULT
    ============================================= */
 
 .stats-grid {
@@ -349,16 +324,12 @@ body:has(.kodiak-page) {
 .stat-card {
     text-align: center;
     padding: 1.2rem;
-    background: var(--cts-white);
+    background: #ffffff;
     border-radius: var(--radius-medium);
     box-shadow: var(--shadow-card);
-    border: 2px solid transparent;
-    transition: var(--transition-smooth);
-}
-
-.stat-card:hover {
-    border-color: var(--cts-green);
-    transform: translateY(-4px);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
 .stat-card__number {
@@ -371,12 +342,12 @@ body:has(.kodiak-page) {
 
 .stat-card__label {
     font-size: 0.85rem;
-    color: var(--cts-gray-dark);
+    color: #333333;
     margin-top: 0.5rem;
 }
 
 /* =============================================
-   CTA BUTTONS - COMPACT
+   CTA BUTTONS - LAYOUT ONLY
    ============================================= */
 
 .cta-buttons {
@@ -388,22 +359,57 @@ body:has(.kodiak-page) {
 }
 
 /* =============================================
-   ANIMATIONS
+   DARK MODE OVERRIDES
    ============================================= */
 
-@keyframes fadeInScale {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+body.dark-mode .carousel-container {
+    background: #000000;
+}
+
+body.dark-mode .carousel-title {
+    color: #ffffff;
+}
+
+body.dark-mode .carousel-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+body.dark-mode .slide-title {
+    color: #ffffff;
+}
+
+body.dark-mode .slide-subtitle {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+body.dark-mode .slide-card {
+    background: var(--bg-card-dark);
+    border: 2px solid var(--border-card-dark);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+body.dark-mode .slide-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .slide-card p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+body.dark-mode .stat-card {
+    background: var(--bg-card-dark);
+    border: 2px solid var(--border-card-dark);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+body.dark-mode .stat-card__label {
+    color: rgba(255, 255, 255, 0.95);
 }
 
 /* =============================================
-   MOBILE RESPONSIVE
+   MOBILE RESPONSIVE - LAYOUT ADJUSTMENTS ONLY
    ============================================= */
 
 @media (max-width: 768px) {
@@ -422,25 +428,6 @@ body:has(.kodiak-page) {
     
     .carousel-subtitle {
         font-size: clamp(0.9rem, 3vw, 1.1rem);
-    }
-    
-    /* Mobile: Always show green gradients */
-    .carousel-container::before,
-    .carousel-container::after {
-        opacity: 0.8; /* Always visible on mobile */
-        width: 80px; /* Slightly narrower on mobile */
-    }
-    
-    /* Mobile: Always show arrows but semi-transparent */
-    .carousel-nav {
-        opacity: 0.7; /* Semi-transparent to not obstruct */
-        font-size: 2.5rem; /* Slightly smaller on mobile */
-    }
-    
-    /* Full opacity when tapped */
-    .carousel-nav:active {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.3);
     }
     
     .carousel-nav--prev {

@@ -1,88 +1,63 @@
 /* =============================================
-   SERVICES.CSS - Service-Specific Layouts
-   UPDATED: Apple-inspired sophisticated dark theme
+   SERVICES.CSS - Service-Specific Styling
+   FOCUSED: Only service-related layouts and components
+   NOT: General layouts, carousel base styles, or animations
    ============================================= */
 
 /* =============================================
-   SERVICES SECTION - SOPHISTICATED DARK THEME
+   1. HOME PAGE - SERVICES SECTION ENHANCEMENTS
+   Base structure is in sections.css, this adds styling
    ============================================= */
 
+/* Services section dark theme enhancements */
 #services {
-    margin: 0;
-    padding: var(--spacing-xxl) 2rem;
-    background: #000000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
+    /* Base layout from sections.css */
+    /* Adding dark theme specifics here */
 }
 
-/* Services header - crisp white text, left aligned */
-#services h1 {
-    text-align: left;
-    margin-bottom: var(--spacing-xl);
-    align-self: flex-start;
-    display: inline-block;
-    color: #ffffff;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    font-size: clamp(2rem, 5vw, 3rem);
-    position: relative;
-    z-index: 1;
-}
-
-/* Animated underline - inherited from layout.css */
-#services h1::after {
-    margin: 1rem 0 0;
-}
-
-/* Services carousel container - centered */
-.services-carousel {
-    width: var(--carousel-width-desktop, 80%);
-    max-width: var(--carousel-max-width, 1200px);
-    align-self: center;
-    margin-top: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
-    position: relative;
-    z-index: 1;
-}
-
-/* Carousel wrapper - glass morphism effect */
+/* Services carousel wrapper - glass morphism */
 .services-carousel .carousel__wrapper {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(20px);
-    overflow: hidden;
 }
 
-/* Carousel cards stay vibrant for contrast */
-.carousel-card {
-    position: relative;
-    overflow: hidden;
-}
-
-/* Refined carousel dots */
+/* Refined carousel dots for services */
 .services-carousel .carousel__dot {
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid var(--cts-navy);
     background: transparent;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .services-carousel .carousel__dot.active {
-    background: #ffffff;
-    border-color: #ffffff;
+    background: var(--cts-navy);
+    border-color: var(--cts-navy);
     transform: scale(1.2);
 }
 
 .services-carousel .carousel__dot:hover {
+    background: rgba(30, 45, 59, 0.3);
+    border-color: var(--cts-navy);
+}
+
+/* Dark mode overrides for services carousel */
+body.dark-mode .services-carousel .carousel__dot {
+    border: 2px solid #ffffff;
+}
+
+body.dark-mode .services-carousel .carousel__dot.active {
+    background: #ffffff;
+    border-color: #ffffff;
+}
+
+body.dark-mode .services-carousel .carousel__dot:hover {
     background: rgba(255, 255, 255, 0.5);
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Subtle green accent line at bottom */
+/* Subtle green accent line at carousel bottom */
 .services-carousel .carousel__wrapper::after {
     content: '';
     position: absolute;
@@ -98,116 +73,8 @@
 }
 
 /* =============================================
-   LEGACY STYLES (Keep for compatibility)
-   ============================================= */
-
-.services-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2.5rem;
-}
-
-.services-container > .top-service-box,
-.services-container > .bottom-cards {
-    width: 70%;
-}
-
-.carousel-slide .slide-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
-}
-
-/* =============================================
-   KODIAK BOX - Using Hero Box Component
-   ============================================= */
-
-/* Legacy class mapping - glass morphism applied */
-.kodiak-title {
-    position: absolute;
-    top: var(--kodiak-title-top);
-    left: var(--kodiak-title-left);
-    font-family: var(--font-primary);
-    font-size: var(--font-size-kodiak);
-    font-weight: var(--font-weight-black);
-    color: #ffffff;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-    letter-spacing: var(--letter-spacing-kodiak);
-    z-index: var(--z-kodiak-title);
-    line-height: 1;
-    transform: translateY(-50%);
-}
-
-.kodiak-description {
-    position: absolute;
-    top: var(--kodiak-description-top);
-    right: var(--kodiak-description-right);
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: #ffffff;
-    padding: var(--kodiak-description-padding);
-    border-radius: 12px;
-    max-width: var(--kodiak-description-width);
-    height: var(--kodiak-description-height);
-    opacity: 0;
-    transform: var(--kodiak-description-transform-hidden);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: var(--z-overlay);
-}
-
-.kodiak-description h3 {
-    margin: 0 0 var(--spacing-sm) 0;
-    font-size: 1.5rem;
-    color: var(--cts-green);
-    font-weight: 600;
-    letter-spacing: -0.3px;
-}
-
-.kodiak-description p {
-    margin: 0 0 var(--spacing-md) 0;
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-}
-
-.kodiak-description p:last-child {
-    margin-bottom: 0;
-}
-
-.top-service-box:hover .kodiak-description {
-    opacity: 1;
-    transform: var(--kodiak-description-transform-visible);
-}
-
-/* =============================================
-   BOTTOM SERVICE CARDS LAYOUT
-   ============================================= */
-
-.bottom-cards {
-    display: flex;
-    gap: var(--spacing-lg);
-    align-items: flex-start;
-}
-
-/* Cylinder Solutions img positioning */
-.card--service .card__image {
-    object-fit: cover !important;
-    height: 100% !important;
-    width: 100% !important;
-    object-position: center !important;
-    min-height: var(--service-box-height) !important;
-}
-
-/* Service-specific card positioning */
-.card--service:nth-child(4) .card__image {
-    object-position: center 25%;
-}
-
-/* =============================================
-   SERVICE PAGE LAYOUT - SOPHISTICATED DARK
+   2. SERVICE DETAIL PAGES - Structure
+   Individual service page layouts (testing, maintenance, etc.)
    ============================================= */
 
 .service-page {
@@ -220,12 +87,18 @@
     min-height: calc(100vh - var(--navbar-height));
 }
 
+/* Service page navigation bar */
 .service-nav {
     padding: var(--spacing-lg) var(--spacing-xl);
     background: rgba(255, 255, 255, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(20px);
 }
+
+/* =============================================
+   3. SERVICE HERO SECTION
+   Large header image with title overlay
+   ============================================= */
 
 .service-header {
     position: relative;
@@ -279,6 +152,11 @@
     font-weight: 400;
 }
 
+/* =============================================
+   4. SERVICE CONTENT SECTIONS
+   Main content area layouts
+   ============================================= */
+
 .service-content {
     padding: var(--spacing-xxl) var(--spacing-xl);
     display: flex;
@@ -286,6 +164,7 @@
     gap: var(--spacing-xxl);
 }
 
+/* Service overview section */
 .service-overview {
     text-align: center;
     max-width: 800px;
@@ -321,6 +200,7 @@
     font-weight: 400;
 }
 
+/* Service features section */
 .service-features h2 {
     text-align: center;
     color: #ffffff;
@@ -336,6 +216,10 @@
     gap: var(--spacing-lg);
     margin-top: var(--spacing-lg);
 }
+
+/* =============================================
+   5. SERVICE BENEFITS SECTION
+   ============================================= */
 
 .service-benefits {
     background: rgba(255, 255, 255, 0.05);
@@ -360,6 +244,10 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
+/* =============================================
+   6. SERVICE CALL TO ACTION
+   ============================================= */
 
 .service-cta {
     background: linear-gradient(135deg, rgba(25, 100, 54, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
@@ -444,7 +332,7 @@
 }
 
 /* =============================================
-   RESPONSIVE DESIGN
+   7. RESPONSIVE ADJUSTMENTS
    ============================================= */
 
 @media (max-width: 768px) {
@@ -458,21 +346,6 @@
     
     .services-carousel {
         width: 95%;
-    }
-    
-    .services-container > .top-service-box,
-    .services-container > .bottom-cards {
-        width: 90%;
-    }
-    
-    .bottom-cards {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .card--service {
-        width: 100%;
-        max-width: 300px;
     }
     
     .service-page {

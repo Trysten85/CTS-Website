@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTS - Kodiak: Revolutionary Automation</title>
     <link rel="icon" type="image/png" href="images/favicon.PNG">
-
     
-    <!-- CSS Files in correct order -->
+    <!-- Single CSS Import - Complete Design System -->
     <link rel="stylesheet" href="scripts/CSS/main.css">
 </head>
 <body>
@@ -19,6 +18,11 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
+        
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            🌙
+        </button>
     </nav>
 
     <div class="kodiak-page">
@@ -219,5 +223,6 @@
 
     <!-- Carousel JavaScript -->
     <script src="scripts/JS/carousel.js"></script>
+    <script src="scripts/JS/theme-toggle.js"></script>
 </body>
 </html>

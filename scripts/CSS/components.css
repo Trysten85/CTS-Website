@@ -1,13 +1,14 @@
 /* =============================================
    COMPONENTS.CSS - Reusable UI Components
-   Add this to your existing components.css
+   FOCUSED: Pure reusable components that work anywhere
+   NOT: Page-specific layouts, animations, or positioning
    ============================================= */
 
 /* =============================================
-   BUTTON COMPONENTS
+   1. BUTTON SYSTEM - All Button Variants
    ============================================= */
 
-/* Base button styles - ALL buttons get this */
+/* Base button - Foundation for all buttons */
 .btn {
     display: inline-block;
     padding: var(--padding-button, 10px 20px);
@@ -21,17 +22,15 @@
     transition: var(--transition-fast, all 0.3s ease);
     text-align: center;
     line-height: 1.4;
+    position: relative;
+    overflow: hidden;
 }
 
+/* Button variants */
 .btn--primary {
     background: linear-gradient(135deg, var(--cts-green), var(--cts-green-hover));
     color: var(--cts-white);
     box-shadow: var(--shadow-card, 0 4px 6px rgba(0, 0, 0, 0.1));
-}
-
-.btn--primary:hover {
-    background: linear-gradient(135deg, var(--cts-green-hover), var(--cts-green-light));
-    box-shadow: var(--shadow-button-hover, 0 8px 25px rgba(25, 100, 54, 0.4));
 }
 
 .btn--secondary {
@@ -40,21 +39,12 @@
     box-shadow: var(--shadow-card, 0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
-.btn--secondary:hover {
-    background: var(--cts-gray-darker, #555);
-    transform: translateY(-2px);
-}
-
 .btn--back {
     background: var(--cts-gray-dark, #333);
     color: var(--cts-white);
 }
 
-.btn--back:hover {
-    background: var(--cts-gray-darker, #555);
-    transform: translateY(-2px);
-}
-
+/* Button sizes */
 .btn--large {
     padding: var(--padding-button-lg, 12px 24px);
     font-size: 18px;
@@ -71,105 +61,7 @@
 }
 
 /* =============================================
-   HERO BOX COMPONENT (Reusable Featured Box)
-   Usage: Large featured content box with overlay elements
-   ============================================= */
-
-.hero-box {
-    width: 100%;
-    height: var(--kodiak-box-height);
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--cts-gray-light);
-    border-radius: var(--kodiak-box-border-radius);
-    box-shadow: var(--shadow-card);
-    position: relative;
-    z-index: var(--z-base);
-    transition: var(--transition-smooth);
-    cursor: pointer;
-}
-
-.hero-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-    display: block;
-}
-
-.hero-box:hover {
-    z-index: var(--z-hover);
-}
-
-/* Hero box main title */
-.hero-box__title {
-    position: absolute;
-    top: var(--kodiak-title-top);
-    left: var(--kodiak-title-left);
-    font-family: var(--font-primary);
-    font-size: var(--font-size-kodiak);
-    font-weight: var(--font-weight-black);
-    color: var(--cts-white);
-    text-shadow: var(--text-shadow-kodiak);
-    letter-spacing: var(--letter-spacing-kodiak);
-    z-index: var(--z-kodiak-title);
-    line-height: 1;
-    transform: translateY(-50%);
-}
-
-/* Hero box description overlay */
-.hero-box__description {
-    position: absolute;
-    top: var(--kodiak-description-top);
-    right: var(--kodiak-description-right);
-    background: rgba(0, 0, 0, 0.85);
-    color: var(--cts-white);
-    padding: var(--kodiak-description-padding);
-    border-radius: var(--radius-medium);
-    max-width: var(--kodiak-description-width);
-    height: var(--kodiak-description-height);
-    opacity: 0;
-    transform: var(--kodiak-description-transform-hidden);
-    transition: var(--transition-cubic-slow);
-    z-index: var(--z-overlay);
-}
-
-.hero-box:hover .hero-box__description {
-    opacity: 1;
-    transform: var(--kodiak-description-transform-visible);
-}
-
-/* Hero box description content styling */
-.hero-box__description h3 {
-    margin: 0 0 var(--spacing-sm) 0;
-    font-size: 1.5rem;
-    color: var(--cts-green-hover);
-    font-weight: var(--font-weight-semibold);
-}
-
-.hero-box__description p {
-    margin: 0 0 var(--spacing-md) 0;
-    font-size: 1.125rem;
-    line-height: 1.5;
-    color: var(--cts-white);
-}
-
-.hero-box__description p:last-child {
-    margin-bottom: 0;
-}
-
-/* Hero box button positioning */
-.hero-box .btn--hero-position {
-    position: absolute;
-    bottom: var(--kodiak-button-bottom);
-    left: var(--kodiak-button-left);
-    right: auto;
-    z-index: 10;
-}
-
-/* =============================================
-   CAROUSEL COMPONENT SYSTEM
+   2. CAROUSEL SYSTEM - Complete Carousel Component
    ============================================= */
 
 /* Base carousel container */
@@ -196,7 +88,7 @@
     position: relative;
 }
 
-/* Carousel Navigation */
+/* Carousel Navigation Arrows */
 .carousel__nav {
     position: absolute;
     top: 50%;
@@ -208,18 +100,13 @@
     border-radius: 50%;
     cursor: pointer;
     transition: var(--transition-fast);
-    display: none; /* Hidden on mobile */
+    display: none;
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
     font-weight: bold;
     color: var(--cts-green);
     z-index: 10;
-}
-
-.carousel__nav:hover {
-    background: var(--cts-green);
-    color: var(--cts-white);
 }
 
 .carousel__nav--prev {
@@ -230,36 +117,41 @@
     right: var(--spacing-lg);
 }
 
-/* Carousel Indicators - FIXED FOR PERFECT CIRCLES */
+/* Carousel Indicators (dots) */
 .carousel__indicators {
     display: flex;
     justify-content: center;
     gap: var(--carousel-indicators-gap);
     margin-top: var(--spacing-lg);
-    align-items: center; /* Ensure dots align properly */
+    align-items: center;
 }
 
 .carousel__dot {
     width: var(--carousel-dot-size);
     height: var(--carousel-dot-size);
-    min-width: var(--carousel-dot-size); /* Prevent squishing */
-    min-height: var(--carousel-dot-size); /* Prevent squishing */
+    min-width: var(--carousel-dot-size);
+    min-height: var(--carousel-dot-size);
     border-radius: 50%;
-    border: 2px solid var(--cts-green);
+    border: 2px solid var(--cts-navy);
     background: transparent;
     cursor: pointer;
     transition: var(--transition-fast);
-    flex-shrink: 0; /* Prevent flex from shrinking the dots */
-    padding: 0; /* Remove any default button padding */
+    flex-shrink: 0;
+    padding: 0;
 }
 
 .carousel__dot.active {
-    background: var(--cts-green);
+    background: var(--cts-navy);
     transform: scale(1.2);
 }
 
-.carousel__dot:hover {
-    background: var(--cts-green-hover);
+/* Dark mode - white dots */
+body.dark-mode .carousel__dot {
+    border: 2px solid #ffffff;
+}
+
+body.dark-mode .carousel__dot.active {
+    background: #ffffff;
 }
 
 /* Carousel Card Component */
@@ -318,30 +210,18 @@
     opacity: 0.9;
 }
 
-/* Carousel Variants */
+/* Carousel card variant */
 .carousel-card--featured {
     min-height: var(--carousel-height-featured);
 }
 
-/* Desktop Enhancement */
-@media (min-width: 768px) {
-    .carousel__nav {
-        display: flex;
-    }
-}
-
-/* =============================================
-   CAROUSEL GRADIENT NAVIGATION AREAS
-   Reusable gradient navigation for any carousel
-   ============================================= */
-
-/* Clickable gradient navigation areas */
+/* Carousel Gradient Navigation Areas */
 .carousel-nav-area {
     position: absolute;
     top: 0;
     bottom: 0;
     width: var(--carousel-nav-gradient-width);
-    z-index: 5; /* Lower z-index so cards can be hovered */
+    z-index: 5;
     cursor: pointer;
     opacity: 0;
     transition: opacity 0.6s ease;
@@ -359,22 +239,7 @@
     border-radius: 0 var(--radius-large) var(--radius-large) 0;
 }
 
-/* Show gradient areas on carousel hover */
-.carousel-container:hover .carousel-nav-area,
-.carousel__wrapper:hover .carousel-nav-area {
-    opacity: 1;
-}
-
-/* Brighten gradient on direct hover */
-.carousel-nav-area--prev:hover {
-    background: linear-gradient(to right, rgba(25, 100, 54, var(--carousel-nav-gradient-opacity-hover)), transparent);
-}
-
-.carousel-nav-area--next:hover {
-    background: linear-gradient(to left, rgba(25, 100, 54, var(--carousel-nav-gradient-opacity-hover)), transparent);
-}
-
-/* Arrow symbols inside gradient areas */
+/* Carousel arrow symbols */
 .carousel-nav-arrow {
     position: absolute;
     top: 50%;
@@ -396,8 +261,6 @@
     padding: 0.5rem;
     pointer-events: none;
     opacity: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 .carousel-nav-arrow--prev {
@@ -408,78 +271,8 @@
     right: var(--carousel-arrow-position);
 }
 
-/* Show arrows when carousel is hovered */
-.carousel-container:hover .carousel-nav-arrow,
-.carousel__wrapper:hover .carousel-nav-arrow {
-    opacity: 1;
-}
-
-/* Scale up arrow when hovering gradient area */
-.carousel-nav-area--prev:hover ~ .carousel-nav-arrow--prev {
-    transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.carousel-nav-area--next:hover ~ .carousel-nav-arrow--next {
-    transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
 /* =============================================
-   CAROUSEL GRADIENT NAV - MOBILE
-   ============================================= */
-
-@media (max-width: 767px) {
-    .carousel-nav-area {
-        width: var(--carousel-nav-gradient-width-mobile);
-        opacity: var(--carousel-nav-gradient-opacity-mobile);
-    }
-    
-    .carousel-nav-arrow {
-        opacity: 0.7;
-        font-size: var(--carousel-arrow-font-size-mobile);
-    }
-    
-    .carousel-nav-arrow--prev {
-        left: var(--carousel-arrow-position-mobile);
-    }
-    
-    .carousel-nav-arrow--next {
-        right: var(--carousel-arrow-position-mobile);
-    }
-    
-    .carousel-nav-area:active ~ .carousel-nav-arrow--prev,
-    .carousel-nav-area:active ~ .carousel-nav-arrow--next {
-        opacity: 1;
-        transform: translateY(-50%) scale(var(--carousel-arrow-scale-hover));
-    }
-}
-
-/* Mobile Optimizations */
-@media (max-width: 767px) {
-    .carousel-card {
-        height: var(--carousel-height-mobile);
-    }
-    
-    .carousel-card__overlay {
-        padding: var(--carousel-padding-mobile);
-    }
-    
-    .carousel__indicators {
-        gap: var(--carousel-indicators-gap-mobile);
-        margin-top: var(--spacing-md);
-    }
-    
-    .carousel__dot {
-        width: var(--carousel-dot-size-mobile);
-        height: var(--carousel-dot-size-mobile);
-        min-width: var(--carousel-dot-size-mobile);
-        min-height: var(--carousel-dot-size-mobile);
-    }
-}
-
-/* =============================================
-   CARD COMPONENTS
+   3. CARD COMPONENTS - Generic Cards
    ============================================= */
 
 .card {
@@ -489,13 +282,6 @@
     box-shadow: var(--shadow-card, 0 4px 6px rgba(0, 0, 0, 0.1));
     overflow: hidden;
     transition: var(--transition-smooth, all 0.4s ease);
-}
-
-.card:hover {
-    transform: none;
-    box-shadow: var(--shadow-hover, 0 12px 30px rgba(0, 0, 0, 0.25));
-    cursor: pointer;
-    z-index: 10;
 }
 
 .card__image {
@@ -526,7 +312,7 @@
     color: var(--cts-gray-medium, #666);
 }
 
-/* Service card specific styling */
+/* Service card variant */
 .card--service {
     flex: 1;
     height: var(--service-box-height, 10.25rem);
@@ -556,13 +342,8 @@
     line-height: 1.4;
 }
 
-.card--service:hover .card__description {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 /* =============================================
-   FEATURE CARDS (Used by service pages)
+   4. FEATURE CARDS - For Service Pages
    ============================================= */
 
 .feature-card {
@@ -598,8 +379,13 @@
 }
 
 /* =============================================
-   BENEFITS LIST (Used by service pages)
+   5. BENEFITS LIST - Checkmark List Component
    ============================================= */
+
+.benefits-list {
+    display: grid;
+    gap: var(--spacing-md);
+}
 
 .benefit-item {
     display: flex;
@@ -630,7 +416,7 @@
 }
 
 /* =============================================
-   UTILITY CLASSES
+   6. UTILITY CLASSES - Spacing & Display
    ============================================= */
 
 .u-mt-sm { margin-top: var(--spacing-sm, 1rem); }
@@ -649,9 +435,66 @@
 .u-inline-block { display: inline-block; }
 
 /* =============================================
-   RESPONSIVE ADJUSTMENTS
+   7. RESPONSIVE COMPONENT ADJUSTMENTS
    ============================================= */
 
+/* Desktop - Show carousel arrows */
+@media (min-width: 768px) {
+    .carousel__nav {
+        display: flex;
+    }
+    
+    .carousel__wrapper:hover .carousel-nav-area {
+        opacity: 1;
+    }
+    
+    .carousel__wrapper:hover .carousel-nav-arrow {
+        opacity: 1;
+    }
+}
+
+/* Mobile - Carousel optimizations */
+@media (max-width: 767px) {
+    .carousel-card {
+        height: var(--carousel-height-mobile);
+    }
+    
+    .carousel-card__overlay {
+        padding: var(--carousel-padding-mobile);
+    }
+    
+    .carousel__indicators {
+        gap: var(--carousel-indicators-gap-mobile);
+        margin-top: var(--spacing-md);
+    }
+    
+    .carousel__dot {
+        width: var(--carousel-dot-size-mobile);
+        height: var(--carousel-dot-size-mobile);
+        min-width: var(--carousel-dot-size-mobile);
+        min-height: var(--carousel-dot-size-mobile);
+    }
+    
+    .carousel-nav-area {
+        width: var(--carousel-nav-gradient-width-mobile);
+        opacity: var(--carousel-nav-gradient-opacity-mobile);
+    }
+    
+    .carousel-nav-arrow {
+        opacity: 0.7;
+        font-size: var(--carousel-arrow-font-size-mobile);
+    }
+    
+    .carousel-nav-arrow--prev {
+        left: var(--carousel-arrow-position-mobile);
+    }
+    
+    .carousel-nav-arrow--next {
+        right: var(--carousel-arrow-position-mobile);
+    }
+}
+
+/* Tablet and mobile - Button adjustments */
 @media (max-width: 768px) {
     .btn {
         padding: 8px 16px;
@@ -664,23 +507,13 @@
     }
     
     .card--service {
-        flex: 1;
         height: var(--service-box-height) !important;
         min-height: var(--service-box-height);
         max-height: var(--service-box-height);
-        position: relative;
-        overflow: hidden;
     }
+}
 
-    .card--service .card__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
-        display: block;
-    }
-} 
-
+/* Phone - Compact layouts */
 @media (max-width: 480px) {
     .card--service {
         height: var(--service-box-height-phone, 6rem);
@@ -688,5 +521,9 @@
     
     .card__title {
         font-size: 0.9rem;
+    }
+    
+    .feature-card {
+        padding: var(--spacing-lg);
     }
 }

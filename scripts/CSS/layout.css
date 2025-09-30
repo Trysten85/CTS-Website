@@ -1,14 +1,12 @@
 /* =============================================
    LAYOUT.CSS - Page Structure and Layout Only
-   Reorganized for clarity and maintainability
-   NO animations, NO component styling, NO hover effects
+   CLEAN - Background image VISIBLE
    ============================================= */
 
 /* =============================================
    1. GLOBAL LAYOUT SETUP
    ============================================= */
 
-/* Box-sizing reset - prevents overflow issues */
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -21,11 +19,7 @@ html {
 
 body {
     font-family: var(--font-primary);
-    background-image: url('images/cylinders1.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: var(--bg-body);
     margin: 0;
     padding: 0;
     width: 100%;
@@ -34,7 +28,7 @@ body {
 }
 
 /* =============================================
-   2. CONTAINER SYSTEM - Apple-inspired dark theme
+   2. CONTAINER SYSTEM
    ============================================= */
 
 .page-container {
@@ -43,8 +37,7 @@ body {
     margin: 0 auto;
     padding: var(--padding-container);
     padding-top: 4.375rem;
-    background: #000000;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    background: var(--bg-page);
     box-sizing: border-box;
     overflow-x: hidden;
     position: relative;
@@ -56,8 +49,7 @@ body {
     margin: 0 0 0 auto;
     padding: var(--padding-container);
     padding-top: 4.375rem;
-    background: #000000;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    background: var(--bg-page);
     box-sizing: border-box;
     overflow-x: hidden;
     position: relative;
@@ -70,7 +62,7 @@ body {
 }
 
 /* =============================================
-   3. BACKGROUND SYSTEM
+   3. BACKGROUND SYSTEM - VISIBLE
    ============================================= */
 
 .background-image {
@@ -90,13 +82,12 @@ body {
 }
 
 /* =============================================
-   4. SECTION LAYOUTS - Structure Only
+   4. SECTION LAYOUTS
    ============================================= */
 
-/* Base section structure */
 .section {
     padding: var(--spacing-xxl) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-section);
     margin: 0 -2rem;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -106,40 +97,33 @@ body {
     z-index: 1;
 }
 
-/* Section typography - basic styles only */
-.section h1,
-#about h1,
-#contact h1,
-#services h1 {
-    color: #ffffff;
+.section h1 {
+    color: var(--text-primary);
     font-weight: 700;
     letter-spacing: -0.5px;
     margin-bottom: 1.5rem;
 }
 
-.section h2,
-#about h2,
-#contact h2 {
-    color: #ffffff;
+.section h2 {
+    color: var(--text-primary);
     font-weight: 600;
     letter-spacing: -0.3px;
     margin-bottom: 1rem;
 }
 
-.section p,
-#about p {
-    color: rgba(255, 255, 255, 0.85);
+.section p {
+    color: var(--text-secondary);
     line-height: 1.6;
     font-size: 1.0625rem;
     font-weight: 400;
 }
 
 /* =============================================
-   5. HOME SECTION LAYOUT
+   5. HOME SECTION
    ============================================= */
 
 #home {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-section);
     margin: 0 -2rem;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -147,20 +131,8 @@ body {
     box-sizing: border-box;
 }
 
-.homeLogo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: var(--spacing-lg);
-    max-width: 100%;
-}
-
-.homeLogo img {
-    max-width: 100%;
-    height: auto;
-}
-
 /* =============================================
-   6. HERO SECTION LAYOUT - Structure Only
+   6. HERO SECTION
    ============================================= */
 
 .hero-section {
@@ -172,19 +144,11 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    background: transparent;
 }
 
 .hero-section__background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../images/background.avif');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
+    display: none;
 }
 
 .hero-section__overlay {
@@ -194,7 +158,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, var(--cts-green-overlay) 0%, rgba(30, 45, 59, 0.8) 100%);
-    z-index: 3;
+    z-index: 2;
 }
 
 .hero-section__content {
@@ -249,14 +213,14 @@ body {
 }
 
 /* =============================================
-   7. SERVICES SECTION LAYOUT
+   7. SERVICES SECTION
    ============================================= */
 
 #services {
     margin: 0;
     padding: var(--spacing-xxl) 2rem;
-    background: #000000;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border-bottom: 1px solid var(--border-section);
     display: flex;
     flex-direction: column;
     position: relative;
@@ -284,18 +248,19 @@ body {
 }
 
 /* =============================================
-   8. ABOUT SECTION LAYOUT
+   8. ABOUT SECTION - LIGHT MODE DEFAULT
    ============================================= */
 
 #about {
     padding: var(--spacing-xxl) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--border-section);
 }
 
 #about h1 {
     text-align: center;
     margin-bottom: var(--spacing-xl);
     font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--text-primary);
 }
 
 .about-cards {
@@ -307,12 +272,12 @@ body {
 
 .about-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     padding: 2.5rem;
-    backdrop-filter: blur(20px);
     overflow: hidden;
+    box-shadow: var(--shadow-card);
 }
 
 .about-card__icon {
@@ -323,39 +288,37 @@ body {
     justify-content: center;
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, rgba(25, 100, 54, 0.2), rgba(25, 100, 54, 0.05));
+    background: linear-gradient(135deg, rgba(25, 100, 54, 0.15), rgba(25, 100, 54, 0.05));
     border-radius: 16px;
-    border: 1px solid rgba(25, 100, 54, 0.3);
-    position: relative;
-    z-index: 1;
+    border: 1px solid rgba(25, 100, 54, 0.2);
 }
 
 .about-card h2 {
-    color: #ffffff;
+    color: var(--cts-navy);
     font-size: 1.75rem;
     font-weight: 600;
     letter-spacing: -0.3px;
     margin: 0 0 1rem 0;
-    position: relative;
-    z-index: 1;
 }
 
 .about-card p {
-    color: rgba(255, 255, 255, 0.85);
+    color: #333333;
     line-height: 1.7;
     font-size: 1.0625rem;
     margin: 0;
     font-weight: 400;
-    position: relative;
-    z-index: 1;
 }
 
 /* =============================================
-   9. CONTACT SECTION LAYOUT
+   9. CONTACT SECTION
    ============================================= */
 
 #contact {
     padding: var(--spacing-xxl) 0;
+}
+
+#contact h1 {
+    color: var(--text-primary);
 }
 
 .contact-container {
@@ -374,7 +337,7 @@ body {
 }
 
 .contact-info h2 {
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: var(--spacing-lg);
     font-weight: 600;
     letter-spacing: -0.3px;
@@ -383,11 +346,13 @@ body {
 .contact-item {
     margin-bottom: var(--spacing-lg);
     padding: 1.75rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: #ffffff;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
-    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
 }
 
 .contact-item h3 {
@@ -400,7 +365,7 @@ body {
 
 .contact-item p {
     margin: 0;
-    color: rgba(255, 255, 255, 0.85);
+    color: #333333;
     line-height: 1.6;
     font-size: 1rem;
 }
@@ -413,7 +378,7 @@ body {
 }
 
 .map-container h2 {
-    color: #ffffff;
+    color: var(--text-primary);
     margin-bottom: var(--spacing-md);
     font-weight: 600;
     letter-spacing: -0.3px;
@@ -422,10 +387,10 @@ body {
 .map-embed {
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     margin-bottom: var(--spacing-sm);
     max-width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-card-light);
 }
 
 .map-embed iframe {
@@ -436,7 +401,7 @@ body {
 
 .map-note {
     font-size: 0.8125rem;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-tertiary);
     text-align: center;
     margin: 0;
     font-style: italic;
@@ -444,20 +409,77 @@ body {
 }
 
 /* =============================================
-   10. RESPONSIVE LAYOUT ADJUSTMENTS
+   10. DARK MODE OVERRIDES
+   Only changes page container and text colors
    ============================================= */
 
-/* Tablet and smaller screens */
+body.dark-mode .page-container {
+    background: #000000;
+}
+
+body.dark-mode .section h1,
+body.dark-mode #services h1,
+body.dark-mode #about h1,
+body.dark-mode #contact h1 {
+    color: #ffffff;
+}
+
+body.dark-mode .section h2,
+body.dark-mode #contact h2,
+body.dark-mode .contact-info h2,
+body.dark-mode .map-container h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .section p {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Dark mode - About cards */
+body.dark-mode .about-card {
+    background: var(--bg-card-dark);
+    border: 1px solid var(--border-card-dark);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+body.dark-mode .about-card__icon {
+    background: linear-gradient(135deg, rgba(25, 100, 54, 0.3), rgba(25, 100, 54, 0.1));
+    border: 1px solid rgba(25, 100, 54, 0.4);
+}
+
+body.dark-mode .about-card h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .about-card p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Dark mode - Contact cards */
+body.dark-mode .contact-item {
+    background: var(--bg-card-dark);
+    border: 1px solid var(--border-card-dark);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+
+body.dark-mode .contact-item p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* =============================================
+   11. RESPONSIVE LAYOUT ADJUSTMENTS
+   ============================================= */
+
 @media (max-width: 768px) {
     .page-container,
     .page-container-half {
         width: var(--container-mobile);
         max-width: 100%;
         margin: 0 auto;
-        transform: none;
         padding: var(--padding-container-mobile);
         padding-top: 3rem;
-        box-sizing: border-box;
     }
     
     .background-gap {
@@ -482,21 +504,9 @@ body {
         margin-bottom: 2rem;
     }
     
-    .hero-section__tagline {
-        font-size: 2rem;
-    }
-    
     .hero-section__scroll-arrow {
         left: 3rem;
         bottom: 4rem;
-    }
-    
-    .scroll-arrow__icon {
-        font-size: 3rem;
-    }
-    
-    .scroll-arrow__text {
-        font-size: 1rem;
     }
     
     #services {
@@ -512,7 +522,6 @@ body {
     }
 }
 
-/* Tablet and up - About cards responsive */
 @media (min-width: 768px) {
     .about-cards {
         display: grid;
@@ -526,11 +535,9 @@ body {
     }
 }
 
-/* Desktop - About cards and alignments */
 @media (min-width: 1024px) {
     .about-cards {
         grid-template-columns: repeat(3, 1fr);
-        gap: var(--spacing-xl);
     }
     
     .about-card:nth-child(3) {
@@ -546,25 +553,18 @@ body {
         margin-bottom: 2.5rem;
     }
     
-    .hero-section__tagline {
-        font-size: 2.5rem;
-    }
-    
     .hero-section__scroll-arrow {
         left: 4rem;
         bottom: 5rem;
     }
 }
 
-/* Phone screens */
 @media (max-width: 480px) {
     .page-container,
     .page-container-half {
         width: var(--container-phone);
-        max-width: 100%;
         padding: 1.5rem 0.75rem;
         padding-top: 2rem;
-        box-sizing: border-box;
     }
     
     .section h1 {
