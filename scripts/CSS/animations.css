@@ -854,7 +854,83 @@ body.dark-mode .slide-card:hover h3 {
 }
 
 /* =============================================
-   15. RESPONSIVE ANIMATION ADJUSTMENTS
+   15. ANIMATED TOGGLE BUTTON SYSTEM
+   Reusable animated button component
+   ============================================= */
+
+/* Base animated toggle button - reusable anywhere */
+.animated-toggle {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    overflow: hidden;
+}
+
+/* Background hover effect */
+.animated-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Disable background hover during click animation */
+.animated-toggle.changing:hover {
+    background: transparent; /* Keep background stable during click */
+}
+
+/* Inner icon container */
+.animated-toggle-icon {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease; /* Slowed down from 0.3s */
+}
+
+/* Hover animation - DISABLED */
+/* .animated-toggle:hover .animated-toggle-icon {
+    transform: rotate(360deg);
+} */
+
+/* CLICK SEQUENCE: Just rising animation */
+.animated-toggle.changing .animated-toggle-icon {
+    animation: justRise 0.6s ease-in-out; /* Simple rise only */
+}
+
+@keyframes justRise {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-12px); /* Peak rise + icon change */
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(0); /* Fall back down */
+        opacity: 1;
+    }
+}
+
+/* Dark/Light mode color variants */
+body.dark-mode .animated-toggle {
+    color: white;
+    border-color: white;
+}
+
+body.light-mode .animated-toggle {
+    color: white;
+    border-color: white;
+}
+
+/* =============================================
+   16. RESPONSIVE ANIMATION ADJUSTMENTS
    ============================================= */
 
 @media (max-width: 768px) {
@@ -914,7 +990,7 @@ body.dark-mode .slide-card:hover h3 {
 }
 
 /* =============================================
-   15. SCROLL ANIMATIONS (Future Enhancement)
+   17. SCROLL ANIMATIONS (Future Enhancement)
    ============================================= */
 
 .scroll-reveal {

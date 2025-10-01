@@ -1,22 +1,22 @@
 // Theme Toggle Functionality
-// Toggles between light and dark mode
+// Works with reusable animated-toggle component
 
-// Check for saved theme preference or default to light mode
 const currentTheme = localStorage.getItem('theme') || 'light-mode';
 document.body.classList.add(currentTheme);
 
-// Update button icon based on current theme
 function updateToggleIcon() {
-    const toggleBtn = document.getElementById('theme-toggle');
+    const toggleIcon = document.querySelector('.animated-toggle-icon');
     if (document.body.classList.contains('dark-mode')) {
-        toggleBtn.textContent = '☀️'; // Sun for dark mode (click to go light)
+        toggleIcon.textContent = '☀️';
     } else {
-        toggleBtn.textContent = '🌙'; // Moon for light mode (click to go dark)
+        toggleIcon.textContent = '🌙';
     }
 }
 
-// Toggle theme function
 function toggleTheme() {
+    const toggleBtn = document.getElementById('theme-toggle');
+    
+    // Change theme and icon immediately when clicked
     if (document.body.classList.contains('light-mode')) {
         document.body.classList.remove('light-mode');
         document.body.classList.add('dark-mode');
@@ -27,7 +27,14 @@ function toggleTheme() {
         localStorage.setItem('theme', 'light-mode');
     }
     updateToggleIcon();
+    
+    // Start animation after theme change
+    toggleBtn.classList.add('changing');
+    
+    // Remove animation class when complete
+    setTimeout(() => {
+        toggleBtn.classList.remove('changing');
+    }, 600); // Full animation duration
 }
 
-// Initialize icon on page load
 document.addEventListener('DOMContentLoaded', updateToggleIcon);
