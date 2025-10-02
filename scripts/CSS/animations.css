@@ -909,11 +909,11 @@ body.dark-mode .slide-card:hover h3 {
         opacity: 1;
     }
     50% {
-        transform: translateY(-12px); /* Peak rise + icon change */
+        transform: translateY(-12px); /* Peak rise - emoji changes HERE */
         opacity: 0.3;
     }
     100% {
-        transform: translateY(0); /* Fall back down */
+        transform: translateY(0); /* Fall back down with NEW emoji */
         opacity: 1;
     }
 }
