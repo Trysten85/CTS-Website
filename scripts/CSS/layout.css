@@ -1,5 +1,5 @@
 /* =============================================
-   LAYOUT.CSS - Page Structure and Layout Only
+   LAYOUT.CSS - Page Structure and Layout + Service Layouts
    CLEAN - Background image VISIBLE
    ============================================= */
 
@@ -28,7 +28,7 @@ body {
 }
 
 /* =============================================
-   2. CONTAINER SYSTEM
+   2. PAGE sCONTAINER SYSTEM
    ============================================= */
 
 .page-container {
@@ -409,7 +409,55 @@ body {
 }
 
 /* =============================================
-   10. DARK MODE OVERRIDES
+   10. SERVICE PAGE LAYOUTS - Added from services.css
+   ============================================= */
+
+.service-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0;
+    margin-top: var(--navbar-height);
+    background: var(--cts-black);
+    box-shadow: var(--shadow-hover);
+    min-height: calc(100vh - var(--navbar-height));
+}
+
+.service-content {
+    padding: var(--spacing-xxl) var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxl);
+}
+
+.service-nav {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+}
+
+/* =============================================
+   11. SERVICE FEATURES GRID - Added from services.css
+   ============================================= */
+
+.service-features h2 {
+    text-align: center;
+    color: var(--text-primary);
+    font-size: var(--font-size-h2);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-tight);
+    margin-bottom: var(--spacing-xxl);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+/* =============================================
+   12. DARK MODE OVERRIDES
    Only changes page container and text colors
    ============================================= */
 
@@ -469,7 +517,7 @@ body.dark-mode .contact-item p {
 }
 
 /* =============================================
-   11. RESPONSIVE LAYOUT ADJUSTMENTS
+   13. RESPONSIVE LAYOUT ADJUSTMENTS
    ============================================= */
 
 @media (max-width: 768px) {
@@ -519,6 +567,22 @@ body.dark-mode .contact-item p {
     
     .services-carousel {
         width: 95%;
+    }
+    
+    /* Service page mobile adjustments */
+    .service-page {
+        margin-top: var(--navbar-height-mobile);
+    }
+    
+    .service-nav,
+    .service-content {
+        padding-left: var(--spacing-md);
+        padding-right: var(--spacing-md);
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
     }
 }
 
@@ -594,5 +658,16 @@ body.dark-mode .contact-item p {
     .hero-section__scroll-arrow {
         left: 1.5rem;
         bottom: 2rem;
+    }
+    
+    /* Service page phone adjustments */
+    .service-nav,
+    .service-content {
+        padding-left: var(--spacing-sm);
+        padding-right: var(--spacing-sm);
+    }
+    
+    .service-content {
+        gap: var(--spacing-xl);
     }
 }

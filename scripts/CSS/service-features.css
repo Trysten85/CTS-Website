@@ -1,19 +1,21 @@
 /* =============================================
-   KODIAK.CSS - Kodiak Page Layouts ONLY
-   NO animations, NO hover effects, NO transitions
-   Pure layout and structure for Kodiak page
+   SERVICE-FEATURES.CSS - Full-Screen Service Carousel System
+   Save as: scripts/CSS/service-features.css
+   
+   Reusable full-screen carousel layout for ALL service pages
+   Works with: testing.html, steel.html, refurbishment.html, sales.html, kodiak.html
    ============================================= */
 
 /* =============================================
    PAGE LAYOUT - NO SCROLL FIT
    ============================================= */
 
-body:has(.kodiak-page) {
+body:has(.service-feature-page) {
     overflow: hidden;
     height: 100vh;
 }
 
-.kodiak-page {
+.service-feature-page {
     margin-top: 0;
     padding-top: var(--navbar-height);
     background: var(--cts-white);
@@ -23,7 +25,7 @@ body:has(.kodiak-page) {
     box-sizing: border-box;
 }
 
-.kodiak-hero {
+.service-feature-hero {
     height: 100vh;
     min-height: 100vh;
     max-height: 100vh;
@@ -37,33 +39,54 @@ body:has(.kodiak-page) {
     justify-content: center;
 }
 
-.kodiak-hero__background {
+.service-feature-hero__background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../images/kodiak.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.kodiak-hero__overlay {
+/* Background images for each service */
+.service-feature-hero--kodiak .service-feature-hero__background {
+    background-image: url('../../images/kodiak.jpg');
+}
+
+.service-feature-hero--testing .service-feature-hero__background {
+    background-image: url('../../images/cylindersCart.jpg');
+}
+
+.service-feature-hero--steel .service-feature-hero__background {
+    background-image: url('../../images/cylinderTesting.jpg');
+}
+
+.service-feature-hero--refurbishment .service-feature-hero__background {
+    background-image: url('../../images/refirbCylinders.webp');
+}
+
+.service-feature-hero--sales .service-feature-hero__background {
+    background-image: url('../../images/cylinders1.jpg');
+}
+
+
+.service-feature-hero__overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, var(--cts-green-overlay) 0%, rgba(30, 45, 59, 0.7) 100%);
-    z-index: 2;
+    z-index: 1;
 }
 
 /* =============================================
    CAROUSEL CONTAINER - LIGHT MODE DEFAULT
    ============================================= */
 
-.kodiak-carousel {
+.service-feature-carousel {
     position: relative;
     z-index: 10;
     max-width: 1200px;
@@ -413,7 +436,7 @@ body.dark-mode .stat-card__label {
    ============================================= */
 
 @media (max-width: 768px) {
-    .kodiak-carousel {
+    .service-feature-carousel {
         width: 95%;
         height: 95vh;
     }

@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTS - Refurbishment Services</title>
     <link rel="icon" type="image/png" href="images/favicon.PNG">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Single CSS Import - Complete Design System -->
     <link rel="stylesheet" href="scripts/CSS/main.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <ul>
             <li>
@@ -20,21 +22,177 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
+        
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle animated-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="animated-toggle-icon">🌙</span>
+        </button>
     </nav>
 
-    <div class="page-container">
-        <section>
-            <h1>Refurbishment Services</h1>
-            <p>Complete cylinder restoration and refurbishment to extend equipment life.</p>
+    <div class="service-feature-page">
+        <!-- Full-screen Hero with Carousel -->
+        <div class="service-feature-hero service-feature-hero--refurbishment">
+            <!-- Background Image -->
+            <div class="service-feature-hero__background"></div>
             
-            <h2>Our Refurbishment Services</h2>
-            <p><strong>Complete Restoration:</strong> Full cylinder restoration to original specifications and performance standards.</p>
-            <p><strong>Component Refurbishment:</strong> Individual component restoration and replacement with quality materials.</p>
-            <p><strong>Surface Treatment:</strong> Professional surface preparation, coating, and finishing services.</p>
-            <p><strong>Performance Testing:</strong> Comprehensive testing to ensure refurbished equipment meets all specifications.</p>
+            <!-- Green Overlay -->
+            <div class="service-feature-hero__overlay"></div>
             
-            <a href="index.html#services" class="btn btn--back">← Back to Services</a>
-        </section>
+            <!-- Carousel Container -->
+            <div class="service-feature-carousel">
+                <!-- Header -->
+                <div class="carousel-header">
+                    <h1 class="carousel-title">REFURBISHMENT</h1>
+                    <p class="carousel-subtitle">Complete cylinder restoration and refurbishment to extend equipment life</p>
+                </div>
+                
+                <!-- Carousel -->
+                <div class="carousel-container">
+                    <!-- Clickable Gradient Navigation Areas -->
+                    <div class="carousel-nav-area carousel-nav-area--prev" onclick="prevSlide()"></div>
+                    <div class="carousel-nav-area carousel-nav-area--next" onclick="nextSlide()"></div>
+                    
+                    <!-- Navigation Arrows (visual only) -->
+                    <div class="carousel-nav carousel-nav--prev">‹</div>
+                    <div class="carousel-nav carousel-nav--next">›</div>
+                    
+                    <!-- Carousel Content -->
+                    <div class="carousel-content">
+                        <!-- Slide 1: Overview -->
+                        <div class="carousel-slide active">
+                            <h2 class="slide-title">Complete Cylinder Restoration</h2>
+                            <p class="slide-subtitle">Professional refurbishment services that restore cylinders to original specifications and extend operational life.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔄</div>
+                                    <h3>Complete Restoration</h3>
+                                    <p>Full cylinder restoration to original specifications and performance standards.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">⚙️</div>
+                                    <h3>Component Refurbishment</h3>
+                                    <p>Individual component restoration and replacement with quality materials.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🎨</div>
+                                    <h3>Surface Treatment</h3>
+                                    <p>Professional surface preparation, coating, and finishing services.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Refurbishment Process -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Our Refurbishment Process</h2>
+                            <p class="slide-subtitle">Systematic approach to cylinder restoration ensuring quality and reliability at every step.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔍</div>
+                                    <h3>1. Initial Assessment</h3>
+                                    <p>Comprehensive inspection to determine refurbishment requirements and feasibility.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🧹</div>
+                                    <h3>2. Cleaning & Prep</h3>
+                                    <p>Thorough cleaning and preparation of all cylinder components and surfaces.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔧</div>
+                                    <h3>3. Restoration Work</h3>
+                                    <p>Expert restoration including repairs, component replacement, and surface treatment.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">✅</div>
+                                    <h3>4. Testing & Certification</h3>
+                                    <p>Complete testing to verify restoration meets all specifications and standards.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Services Offered -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Refurbishment Services</h2>
+                            <p class="slide-subtitle">Comprehensive range of restoration and refurbishment capabilities for all cylinder types.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🛠️</div>
+                                    <h3>Structural Repair</h3>
+                                    <p>Expert repair of structural damage and wear to restore cylinder integrity.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🎯</div>
+                                    <h3>Thread Restoration</h3>
+                                    <p>Precision thread repair and restoration for proper valve fitting and sealing.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">💎</div>
+                                    <h3>Surface Finishing</h3>
+                                    <p>Professional coating, painting, and finishing to protect and restore appearance.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔩</div>
+                                    <h3>Valve Refurbishment</h3>
+                                    <p>Complete valve restoration including cleaning, repair, and replacement.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Benefits -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Why Choose Refurbishment</h2>
+                            <p class="slide-subtitle">Cost-effective solution that extends cylinder life while maintaining safety and performance standards.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">💰</div>
+                                    <h3>Cost Savings</h3>
+                                    <p>Significant savings compared to purchasing new cylinders without compromising quality.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">♻️</div>
+                                    <h3>Sustainable Choice</h3>
+                                    <p>Environmentally responsible option that reduces waste and resource consumption.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">⚡</div>
+                                    <h3>Extended Lifespan</h3>
+                                    <p>Professional refurbishment extends operational life and maintains performance.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🛡️</div>
+                                    <h3>Quality Guarantee</h3>
+                                    <p>Refurbished cylinders meet original specifications with full warranty coverage.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cta-buttons">
+                                <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">
+                                    Request Assessment
+                                </button>
+                                <button onclick="window.location.href='index.html#services'" class="btn btn--secondary btn--large">
+                                    View All Services
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/JS/theme-toggle.js"></script>
+    <script src="scripts/JS/carousel.js"></script>
 </body>
 </html>

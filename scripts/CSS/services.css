@@ -1,7 +1,9 @@
 /* =============================================
-   SERVICES.CSS - Service-Specific Styling
-   FOCUSED: Only service-related layouts and components
-   NOT: General layouts, carousel base styles, or animations
+   SERVICES.CSS - Home Page Services Section ONLY
+   Save as: scripts/CSS/services.css
+   
+   Contains ONLY home page services carousel styling
+   All service page components moved to components.css
    ============================================= */
 
 /* =============================================
@@ -28,7 +30,7 @@
 .services-carousel .carousel__dot {
     border: 2px solid var(--cts-navy);
     background: transparent;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: var(--transition-fast);
 }
 
 .services-carousel .carousel__dot.active {
@@ -44,12 +46,12 @@
 
 /* Dark mode overrides for services carousel */
 body.dark-mode .services-carousel .carousel__dot {
-    border: 2px solid #ffffff;
+    border: 2px solid var(--cts-white);
 }
 
 body.dark-mode .services-carousel .carousel__dot.active {
-    background: #ffffff;
-    border-color: #ffffff;
+    background: var(--cts-white);
+    border-color: var(--cts-white);
 }
 
 body.dark-mode .services-carousel .carousel__dot:hover {
@@ -73,266 +75,7 @@ body.dark-mode .services-carousel .carousel__dot:hover {
 }
 
 /* =============================================
-   2. SERVICE DETAIL PAGES - Structure
-   Individual service page layouts (testing, maintenance, etc.)
-   ============================================= */
-
-.service-page {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0;
-    margin-top: var(--navbar-height);
-    background: #000000;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-    min-height: calc(100vh - var(--navbar-height));
-}
-
-/* Service page navigation bar */
-.service-nav {
-    padding: var(--spacing-lg) var(--spacing-xl);
-    background: rgba(255, 255, 255, 0.05);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-}
-
-/* =============================================
-   3. SERVICE HERO SECTION
-   Large header image with title overlay
-   ============================================= */
-
-.service-header {
-    position: relative;
-    margin-bottom: 0;
-}
-
-.service-hero {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
-    background: #000000;
-}
-
-.service-hero__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-}
-
-.service-hero__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(25, 100, 54, 0.4) 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: var(--spacing-xl);
-}
-
-.service-hero__title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    color: #ffffff;
-    margin: 0 0 var(--spacing-md) 0;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-    letter-spacing: -0.5px;
-}
-
-.service-hero__subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-    max-width: 600px;
-    line-height: 1.6;
-    font-weight: 400;
-}
-
-/* =============================================
-   4. SERVICE CONTENT SECTIONS
-   Main content area layouts
-   ============================================= */
-
-.service-content {
-    padding: var(--spacing-xxl) var(--spacing-xl);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xxl);
-}
-
-/* Service overview section */
-.service-overview {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.service-overview h2 {
-    color: #ffffff;
-    font-size: var(--font-size-h2);
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin-bottom: var(--spacing-lg);
-    position: relative;
-}
-
-.service-overview h2::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background: var(--cts-green);
-    border-radius: 2px;
-}
-
-.service-overview p {
-    font-size: 1.0625rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0;
-    font-weight: 400;
-}
-
-/* Service features section */
-.service-features h2 {
-    text-align: center;
-    color: #ffffff;
-    font-size: var(--font-size-h2);
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin-bottom: var(--spacing-xxl);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-lg);
-}
-
-/* =============================================
-   5. SERVICE BENEFITS SECTION
-   ============================================= */
-
-.service-benefits {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: var(--spacing-xxl);
-    border-radius: 16px;
-    backdrop-filter: blur(20px);
-}
-
-.service-benefits h2 {
-    color: #ffffff;
-    font-size: var(--font-size-h2);
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin-bottom: var(--spacing-xl);
-    text-align: center;
-}
-
-.benefits-list {
-    display: grid;
-    gap: var(--spacing-md);
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* =============================================
-   6. SERVICE CALL TO ACTION
-   ============================================= */
-
-.service-cta {
-    background: linear-gradient(135deg, rgba(25, 100, 54, 0.2) 0%, rgba(0, 0, 0, 0.4) 100%);
-    border: 1px solid rgba(25, 100, 54, 0.3);
-    color: #ffffff;
-    padding: var(--spacing-xxl);
-    border-radius: 16px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    backdrop-filter: blur(20px);
-}
-
-.service-cta::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-    animation: pulse 4s ease-in-out infinite;
-}
-
-.cta-content {
-    position: relative;
-    z-index: 2;
-}
-
-.service-cta h2 {
-    font-size: var(--font-size-h2);
-    font-weight: 600;
-    letter-spacing: -0.3px;
-    margin: 0 0 var(--spacing-md) 0;
-    color: #ffffff;
-}
-
-.service-cta p {
-    font-size: 1.0625rem;
-    margin: 0 0 var(--spacing-xl) 0;
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-.cta-buttons {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.service-cta .btn {
-    min-width: 160px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.service-cta .btn--primary {
-    background: var(--cts-green);
-    color: #ffffff;
-    border: none;
-}
-
-.service-cta .btn--primary:hover {
-    background: var(--cts-green-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(25, 100, 54, 0.4);
-}
-
-.service-cta .btn--secondary {
-    background: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.service-cta .btn--secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.4);
-    transform: translateY(-2px);
-}
-
-/* =============================================
-   7. RESPONSIVE ADJUSTMENTS
+   2. RESPONSIVE ADJUSTMENTS - HOME SERVICES ONLY
    ============================================= */
 
 @media (max-width: 768px) {
@@ -346,64 +89,5 @@ body.dark-mode .services-carousel .carousel__dot:hover {
     
     .services-carousel {
         width: 95%;
-    }
-    
-    .service-page {
-        margin-top: var(--navbar-height-mobile);
-    }
-    
-    .service-nav,
-    .service-content {
-        padding-left: var(--spacing-md);
-        padding-right: var(--spacing-md);
-    }
-    
-    .service-hero {
-        height: 300px;
-    }
-    
-    .service-hero__overlay {
-        padding: var(--spacing-lg);
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-    
-    .service-benefits,
-    .service-cta {
-        padding: var(--spacing-lg);
-    }
-    
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .cta-buttons .btn {
-        width: 100%;
-        max-width: 280px;
-    }
-}
-
-@media (max-width: 480px) {
-    .service-nav,
-    .service-content {
-        padding-left: var(--spacing-sm);
-        padding-right: var(--spacing-sm);
-    }
-    
-    .service-content {
-        gap: var(--spacing-xl);
-    }
-    
-    .service-hero {
-        height: 250px;
-    }
-    
-    .service-benefits,
-    .service-cta {
-        padding: var(--spacing-md);
     }
 }

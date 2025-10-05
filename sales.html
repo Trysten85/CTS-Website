@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTS - Inspection Services</title>
+    <title>CTS - Cylinder Solutions</title>
     <link rel="icon" type="image/png" href="images/favicon.PNG">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Single CSS Import - Complete Design System -->
     <link rel="stylesheet" href="scripts/CSS/main.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <ul>
             <li>
@@ -20,21 +22,177 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
+        
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle animated-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="animated-toggle-icon">🌙</span>
+        </button>
     </nav>
 
-    <div class="page-container">
-        <section>
-            <h1>Inspection Services</h1>
-            <p>Thorough inspection and certification services to ensure safety and compliance.</p>
+    <div class="service-feature-page">
+        <!-- Full-screen Hero with Carousel -->
+        <div class="service-feature-hero service-feature-hero--sales">
+            <!-- Background Image -->
+            <div class="service-feature-hero__background"></div>
             
-            <h2>Our Inspection Services</h2>
-            <p><strong>Safety Inspections:</strong> Comprehensive safety evaluations to ensure compliance with industry standards.</p>
-            <p><strong>Regulatory Compliance:</strong> Inspections to meet all regulatory requirements and certifications.</p>
-            <p><strong>Quality Assurance:</strong> Detailed quality checks to ensure optimal performance and reliability.</p>
-            <p><strong>Documentation:</strong> Complete inspection reports and certification documentation for your records.</p>
-            <a href="index.html#services" class="back-button">← Back to Services</a>
-
-        </section>
+            <!-- Green Overlay -->
+            <div class="service-feature-hero__overlay"></div>
+            
+            <!-- Carousel Container -->
+            <div class="service-feature-carousel">
+                <!-- Header -->
+                <div class="carousel-header">
+                    <h1 class="carousel-title">CYLINDER SOLUTIONS</h1>
+                    <p class="carousel-subtitle">Browse our inventory, place an order, or get a quote for all your cylinder needs</p>
+                </div>
+                
+                <!-- Carousel -->
+                <div class="carousel-container">
+                    <!-- Clickable Gradient Navigation Areas -->
+                    <div class="carousel-nav-area carousel-nav-area--prev" onclick="prevSlide()"></div>
+                    <div class="carousel-nav-area carousel-nav-area--next" onclick="nextSlide()"></div>
+                    
+                    <!-- Navigation Arrows (visual only) -->
+                    <div class="carousel-nav carousel-nav--prev">‹</div>
+                    <div class="carousel-nav carousel-nav--next">›</div>
+                    
+                    <!-- Carousel Content -->
+                    <div class="carousel-content">
+                        <!-- Slide 1: Overview -->
+                        <div class="carousel-slide active">
+                            <h2 class="slide-title">Complete Cylinder Solutions</h2>
+                            <p class="slide-subtitle">Comprehensive inventory of cylinders for medical, industrial, and specialty applications.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🏥</div>
+                                    <h3>Medical Cylinders</h3>
+                                    <p>High-purity medical-grade cylinders for healthcare and emergency services.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🏭</div>
+                                    <h3>Industrial Cylinders</h3>
+                                    <p>Durable industrial cylinders for manufacturing and production environments.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔬</div>
+                                    <h3>Specialty Solutions</h3>
+                                    <p>Custom cylinders for unique applications and specific requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Product Range -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Our Product Range</h2>
+                            <p class="slide-subtitle">Extensive selection of cylinders in various sizes, materials, and configurations.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">⚙️</div>
+                                    <h3>Aluminum Cylinders</h3>
+                                    <p>Lightweight, corrosion-resistant aluminum cylinders for portable applications.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔩</div>
+                                    <h3>Steel Cylinders</h3>
+                                    <p>Heavy-duty steel cylinders for demanding industrial and commercial use.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📏</div>
+                                    <h3>Multiple Sizes</h3>
+                                    <p>Complete range of sizes from portable to large-capacity industrial cylinders.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🎯</div>
+                                    <h3>Custom Options</h3>
+                                    <p>Tailored solutions including custom sizes, valves, and specifications.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Ordering Process -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Simple Ordering Process</h2>
+                            <p class="slide-subtitle">Easy steps to get the cylinders needed for operations.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔍</div>
+                                    <h3>1. Browse Inventory</h3>
+                                    <p>Explore our extensive catalog of available cylinders and specifications.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">💬</div>
+                                    <h3>2. Consultation</h3>
+                                    <p>Speak with experts to determine the best solution for specific needs.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📋</div>
+                                    <h3>3. Get Quote</h3>
+                                    <p>Receive detailed pricing and availability information for selected products.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">✅</div>
+                                    <h3>4. Place Order</h3>
+                                    <p>Complete the order with fast processing and reliable delivery.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Benefits & Support -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Why Choose CTS</h2>
+                            <p class="slide-subtitle">Industry expertise and comprehensive support for all cylinder needs.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📦</div>
+                                    <h3>Large Inventory</h3>
+                                    <p>Extensive stock of cylinders for immediate availability and fast delivery.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">✅</div>
+                                    <h3>Quality Assurance</h3>
+                                    <p>All cylinders tested and certified to meet industry safety standards.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">💰</div>
+                                    <h3>Competitive Pricing</h3>
+                                    <p>Fair, transparent pricing with volume discounts for large orders.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🤝</div>
+                                    <h3>Expert Support</h3>
+                                    <p>Knowledgeable team providing guidance on selection and specifications.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cta-buttons">
+                                <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">
+                                    Request Quote
+                                </button>
+                                <button onclick="window.location.href='index.html#services'" class="btn btn--secondary btn--large">
+                                    View All Services
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/JS/theme-toggle.js"></script>
+    <script src="scripts/JS/carousel.js"></script>
 </body>
 </html>

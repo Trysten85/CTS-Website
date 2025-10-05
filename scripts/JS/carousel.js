@@ -1,12 +1,12 @@
 // =============================================
 // CAROUSEL.JS - Universal Carousel Component
-// Supports both services carousel and Kodiak carousel
+// Supports both services carousel and service feature pages
 // Save as: scripts/JS/carousel.js
 // =============================================
 
 // Detect which carousel type is on the page
 let isServicesPage = false;
-let isKodiakPage = false;
+let isServiceFeaturePage = false;
 
 // Shared carousel state
 let currentSlide = 0;
@@ -19,14 +19,14 @@ let slidesContainer = null;
 document.addEventListener('DOMContentLoaded', function() {
     // Check which type of page we're on
     isServicesPage = document.querySelector('.services-carousel') !== null;
-    isKodiakPage = document.querySelector('.kodiak-carousel') !== null;
+    isServiceFeaturePage = document.querySelector('.service-feature-carousel') !== null;
     
     if (isServicesPage) {
         initializeServicesCarousel();
     }
     
-    if (isKodiakPage) {
-        initializeKodiakCarousel();
+    if (isServiceFeaturePage) {
+        initializeServiceFeatureCarousel();
     }
 });
 
@@ -126,29 +126,29 @@ window.addEventListener('resize', function() {
 });
 
 // =============================================
-// KODIAK CAROUSEL (kodiak.html)
+// SERVICE FEATURE CAROUSEL (all service pages)
 // =============================================
 
-function initializeKodiakCarousel() {
-    // Get carousel elements for Kodiak
-    slides = document.querySelectorAll('.kodiak-carousel .carousel-slide');
-    indicators = document.querySelectorAll('.kodiak-carousel .carousel-indicator');
+function initializeServiceFeatureCarousel() {
+    // Get carousel elements for service feature pages
+    slides = document.querySelectorAll('.service-feature-carousel .carousel-slide');
+    indicators = document.querySelectorAll('.service-feature-carousel .carousel-indicator');
     totalSlides = slides.length;
     
-    // Exit if no Kodiak carousel found
+    // Exit if no carousel found
     if (totalSlides === 0) {
-        console.log('No Kodiak carousel found');
+        console.log('No service feature carousel found');
         return;
     }
     
     // Set up keyboard navigation
     setupKeyboardNavigation();
     
-    console.log(`Kodiak carousel initialized with ${totalSlides} slides`);
+    console.log(`Service feature carousel initialized with ${totalSlides} slides`);
 }
 
-// Update Kodiak carousel (show/hide slides)
-function updateKodiakCarousel() {
+// Update service feature carousel (show/hide slides)
+function updateServiceFeatureCarousel() {
     // Hide all slides
     slides.forEach(slide => slide.classList.remove('active'));
     indicators.forEach(indicator => indicator.classList.remove('active'));
@@ -171,8 +171,8 @@ function goToSlide(index) {
     
     if (isServicesPage) {
         updateServicesCarousel();
-    } else if (isKodiakPage) {
-        updateKodiakCarousel();
+    } else if (isServiceFeaturePage) {
+        updateServiceFeatureCarousel();
     }
 }
 
@@ -182,8 +182,8 @@ function nextSlide() {
     
     if (isServicesPage) {
         updateServicesCarousel();
-    } else if (isKodiakPage) {
-        updateKodiakCarousel();
+    } else if (isServiceFeaturePage) {
+        updateServiceFeatureCarousel();
     }
 }
 
@@ -193,12 +193,12 @@ function prevSlide() {
     
     if (isServicesPage) {
         updateServicesCarousel();
-    } else if (isKodiakPage) {
-        updateKodiakCarousel();
+    } else if (isServiceFeaturePage) {
+        updateServiceFeatureCarousel();
     }
 }
 
-// Alias for Kodiak compatibility
+// Alias for compatibility
 function showSlide(index) {
     goToSlide(index);
 }
@@ -251,7 +251,7 @@ function setupAutoAdvance(interval = 8000) {
     startAutoAdvance();
     
     // Pause on hover (desktop)
-    const carousel = document.querySelector('.carousel, .kodiak-carousel');
+    const carousel = document.querySelector('.carousel, .service-feature-carousel');
     if (carousel) {
         carousel.addEventListener('mouseenter', stopAutoAdvance);
         carousel.addEventListener('mouseleave', startAutoAdvance);

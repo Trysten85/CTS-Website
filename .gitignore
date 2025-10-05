@@ -1,0 +1,35 @@
+# =============================================
+# .gitignore - Files to exclude from Git
+# =============================================
+
+# Private Configuration Files
+
+# API Keys and Secrets
+*.key
+*.secret
+.env
+.env.local
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Backup Files
+*.bak
+*.backup

@@ -3,110 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTS - Maintenance Services</title>
+    <title>CTS - Steel Solutions</title>
     <link rel="icon" type="image/png" href="images/favicon.PNG">
     
-    <!-- Single CSS Import -->
+    <!-- Single CSS Import - Complete Design System -->
     <link rel="stylesheet" href="scripts/CSS/main.css">
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="navbar">
         <ul>
-            <li><a href="index.html"><img src="images/faviconClear.PNG" alt="Home"></a></li>
+            <li>
+                <a href="index.html">
+                    <img src="images/faviconClear.PNG" alt="Home">
+                </a>
+            </li>
             <li><a href="index.html#services">Services</a></li>
             <li><a href="index.html#about">About</a></li>
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
+        
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle animated-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+            <span class="animated-toggle-icon">🌙</span>
+        </button>
     </nav>
 
-    <div class="page-container">
-        <div class="service-page">
-            <div class="service-header">
-                <div class="service-hero">
-                    <img src="images/cylinderTesting.jpg" alt="Maintenance Services" class="service-hero__image">
-                    <div class="service-hero__overlay">
-                        <h1 class="service-hero__title">Maintenance Services</h1>
-                        <p class="service-hero__subtitle">Complete maintenance solutions for optimal equipment performance</p>
+    <div class="service-feature-page">
+        <!-- Full-screen Hero with Carousel -->
+        <div class="service-feature-hero service-feature-hero--steel">
+            <!-- Background Image -->
+            <div class="service-feature-hero__background"></div>
+            
+            <!-- Green Overlay -->
+            <div class="service-feature-hero__overlay"></div>
+            
+            <!-- Carousel Container -->
+            <div class="service-feature-carousel">
+                <!-- Header -->
+                <div class="carousel-header">
+                    <h1 class="carousel-title">STEEL SOLUTIONS</h1>
+                    <p class="carousel-subtitle">New and refurbished steel cylinders for demanding industrial applications</p>
+                </div>
+                
+                <!-- Carousel -->
+                <div class="carousel-container">
+                    <!-- Clickable Gradient Navigation Areas -->
+                    <div class="carousel-nav-area carousel-nav-area--prev" onclick="prevSlide()"></div>
+                    <div class="carousel-nav-area carousel-nav-area--next" onclick="nextSlide()"></div>
+                    
+                    <!-- Navigation Arrows (visual only) -->
+                    <div class="carousel-nav carousel-nav--prev">‹</div>
+                    <div class="carousel-nav carousel-nav--next">›</div>
+                    
+                    <!-- Carousel Content -->
+                    <div class="carousel-content">
+                        <!-- Slide 1: Overview -->
+                        <div class="carousel-slide active">
+                            <h2 class="slide-title">Comprehensive Steel Cylinder Solutions</h2>
+                            <p class="slide-subtitle">Both new and expertly refurbished cylinders for industrial applications, all meeting rigorous safety standards.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔧</div>
+                                    <h3>New Steel Cylinders</h3>
+                                    <p>Brand new cylinders manufactured to the highest industry standards with full certification.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">♻️</div>
+                                    <h3>Refurbished Cylinders</h3>
+                                    <p>Expertly restored cylinders that meet original specifications while providing cost-effective solutions.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">⚙️</div>
+                                    <h3>Custom Solutions</h3>
+                                    <p>Tailored cylinder solutions designed to meet specific industrial requirements.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Product Range -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Our Steel Cylinder Range</h2>
+                            <p class="slide-subtitle">Extensive inventory of steel cylinders for diverse industrial applications and requirements.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🏭</div>
+                                    <h3>Industrial Grade</h3>
+                                    <p>Heavy-duty steel cylinders for demanding industrial environments and applications.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔬</div>
+                                    <h3>Medical Grade</h3>
+                                    <p>High-purity steel cylinders meeting strict medical and healthcare standards.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🚀</div>
+                                    <h3>Specialty Applications</h3>
+                                    <p>Custom cylinders for unique requirements and specialized industrial uses.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📏</div>
+                                    <h3>Various Sizes</h3>
+                                    <p>Complete range of sizes and capacities to meet any operational need.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Quality Assurance -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Quality & Safety Standards</h2>
+                            <p class="slide-subtitle">Every cylinder undergoes rigorous testing and quality control to ensure safety and performance.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">✅</div>
+                                    <h3>Full Certification</h3>
+                                    <p>Complete documentation and certification for all regulatory requirements.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔍</div>
+                                    <h3>Rigorous Testing</h3>
+                                    <p>Comprehensive testing protocols ensure every cylinder meets specifications.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📋</div>
+                                    <h3>Quality Control</h3>
+                                    <p>Multi-point inspection process guarantees consistent quality and reliability.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🛡️</div>
+                                    <h3>Warranty Protection</h3>
+                                    <p>Comprehensive warranties for peace of mind and long-term reliability.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Benefits & Support -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Why Choose Our Steel Solutions</h2>
+                            <p class="slide-subtitle">Industry expertise and comprehensive support for all steel cylinder needs.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">💰</div>
+                                    <h3>Cost-Effective</h3>
+                                    <p>Competitive pricing on both new and refurbished cylinder options.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📞</div>
+                                    <h3>Expert Support</h3>
+                                    <p>Technical consultation and ongoing support for all cylinder solutions.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🚚</div>
+                                    <h3>Fast Delivery</h3>
+                                    <p>Efficient logistics and delivery to minimize downtime and delays.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔄</div>
+                                    <h3>Ongoing Service</h3>
+                                    <p>Complete lifecycle support including testing, refurbishment, and replacement.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cta-buttons">
+                                <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">
+                                    Get a Quote
+                                </button>
+                                <button onclick="window.location.href='index.html#services'" class="btn btn--secondary btn--large">
+                                    View All Services
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="service-content">
-                <section class="service-overview">
-                    <h2>Service Overview</h2>
-                    <p>Our comprehensive maintenance services ensure your cylinder equipment operates at peak performance. We provide preventive maintenance, emergency repairs, and scheduled service programs tailored to your operational needs.</p>
-                </section>
-
-                <section class="service-features">
-                    <h2>Our Maintenance Services</h2>
-                    <div class="features-grid">
-                        <div class="feature-card">
-                            <div class="feature-card__icon">🔧</div>
-                            <h3>Preventive Maintenance</h3>
-                            <p>Regular scheduled maintenance to prevent equipment failures and extend operational life.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-card__icon">🚨</div>
-                            <h3>Emergency Repairs</h3>
-                            <p>24/7 emergency response for critical equipment failures and urgent repair needs.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-card__icon">⚙️</div>
-                            <h3>Component Replacement</h3>
-                            <p>Professional replacement of worn or damaged components with certified parts.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="feature-card__icon">📈</div>
-                            <h3>Performance Optimization</h3>
-                            <p>Fine-tuning and calibration services to optimize equipment performance and efficiency.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="service-benefits">
-                    <h2>Why Choose Our Maintenance Services</h2>
-                    <div class="benefits-list">
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Certified technicians with extensive industry experience</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Comprehensive maintenance programs tailored to your needs</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Use of genuine parts and quality materials</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Detailed maintenance records and reporting</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Competitive pricing and flexible service contracts</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="service-cta">
-                    <div class="cta-content">
-                        <h2>Ready to Get Started?</h2>
-                        <p>Contact us today to learn more about our maintenance services and create a custom service plan for your facility.</p>
-                        <div class="cta-buttons">
-                            <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">Get a Quote</button>
-                            <button onclick="window.location.href='index.html#services'" class="btn btn--secondary btn--large">View All Services</button>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="service-nav">
-                    <button onclick="window.location.href='index.html#services'" class="btn btn--back">← Back to Services</button>
+                
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(3)"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="scripts/JS/navbar.js"></script>
+    <!-- JavaScript -->
+    <script src="scripts/JS/theme-toggle.js"></script>
+    <script src="scripts/JS/carousel.js"></script>
 </body>
 </html>

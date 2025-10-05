@@ -29,118 +29,170 @@
         </button>
     </nav>
 
-    <!-- Service Page Container -->
-    <div class="page-container">
-        <div class="service-page">
+    <div class="service-feature-page">
+        <!-- Full-screen Hero with Carousel -->
+        <div class="service-feature-hero service-feature-hero--testing">
+            <!-- Background Image -->
+            <div class="service-feature-hero__background"></div>
             
-            <!-- Hero Section -->
-            <div class="service-header">
-                <div class="service-hero">
-                    <img src="images/cylindersCart.jpg" alt="Cylinder Testing" class="service-hero__image">
-                    <div class="service-hero__overlay">
-                        <h1 class="service-hero__title">Cylinder Testing Services</h1>
-                        <p class="service-hero__subtitle">Professional testing with state-of-the-art equipment and certified technicians</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Content -->
-            <div class="service-content">
-                
-                <!-- Overview Section -->
-                <section class="service-overview">
-                    <h2>Service Overview</h2>
-                    <p>Our comprehensive cylinder testing services utilize state-of-the-art equipment and certified technicians to ensure your cylinders meet all safety standards and regulatory requirements. We provide thorough testing and certification for all cylinder types.</p>
-                </section>
-
-                <!-- Features Grid -->
-                <section class="service-features">
-                    <h2>Our Testing Services</h2>
-                    <div class="features-grid">
-                        
-                        <div class="feature-card">
-                            <div class="feature-card__icon">💧</div>
-                            <h3>Hydrostatic Testing</h3>
-                            <p>Pressure testing to verify cylinder integrity and safety under operational conditions, ensuring compliance with industry standards.</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-card__icon">👁️</div>
-                            <h3>Visual Inspection</h3>
-                            <p>Thorough visual examination for defects, damage, and compliance with safety standards using advanced inspection techniques.</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-card__icon">🔍</div>
-                            <h3>Leak Testing</h3>
-                            <p>Precision leak detection to ensure cylinder sealing integrity and safety using advanced testing equipment.</p>
-                        </div>
-                        
-                        <div class="feature-card">
-                            <div class="feature-card__icon">📜</div>
-                            <h3>Certification</h3>
-                            <p>Official certification and documentation for regulatory compliance and safety assurance with complete traceability.</p>
-                        </div>
-                        
-                    </div>
-                </section>
-
-                <!-- Benefits Section -->
-                <section class="service-benefits">
-                    <h2>Why Choose Our Testing Services</h2>
-                    <div class="benefits-list">
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Certified technicians with extensive industry experience</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>State-of-the-art testing equipment for accurate results</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Full compliance with DOT and industry regulations</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Fast turnaround times without compromising quality</span>
-                        </div>
-                        <div class="benefit-item">
-                            <span class="benefit-item__check">✓</span>
-                            <span>Detailed testing reports and documentation</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Call to Action -->
-                <section class="service-cta">
-                    <div class="cta-content">
-                        <h2>Ready to Get Started?</h2>
-                        <p>Contact us today to schedule your cylinder testing services and ensure your equipment meets all safety standards.</p>
-                        <div class="cta-buttons">
-                            <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">
-                                Get a Quote
-                            </button>
-                            <button onclick="window.location.href='index.html#services'" class="btn btn--secondary btn--large">
-                                View All Services
-                            </button>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Back Navigation -->
-                <div class="service-nav">
-                    <button onclick="window.location.href='index.html#services'" class="btn btn--back">
-                        ← Back to Services
-                    </button>
+            <!-- Green Overlay -->
+            <div class="service-feature-hero__overlay"></div>
+            
+            <!-- Carousel Container -->
+            <div class="service-feature-carousel">
+                <!-- Header -->
+                <div class="carousel-header">
+                    <h1 class="carousel-title">CYLINDER TESTING</h1>
+                    <p class="carousel-subtitle">Professional testing with state-of-the-art equipment and certified technicians</p>
                 </div>
                 
+                <!-- Carousel -->
+                <div class="carousel-container">
+                    <!-- Clickable Gradient Navigation Areas -->
+                    <div class="carousel-nav-area carousel-nav-area--prev" onclick="prevSlide()"></div>
+                    <div class="carousel-nav-area carousel-nav-area--next" onclick="nextSlide()"></div>
+                    
+                    <!-- Navigation Arrows (visual only) -->
+                    <div class="carousel-nav carousel-nav--prev">‹</div>
+                    <div class="carousel-nav carousel-nav--next">›</div>
+                    
+                    <!-- Carousel Content -->
+                    <div class="carousel-content">
+                        <!-- Slide 1: Overview -->
+                        <div class="carousel-slide active">
+                            <h2 class="slide-title">Comprehensive Testing Services</h2>
+                            <p class="slide-subtitle">State-of-the-art equipment and certified technicians ensure cylinders meet all safety standards and regulatory requirements.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔊</div>
+                                    <h3>Ultrasonic Examination</h3>
+                                    <p>High-frequency sound waves to detect flaws and measure thickness, analyzing cylinder integrity.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">👁️</div>
+                                    <h3>Visual Inspection</h3>
+                                    <p>Thorough examination for defects, damage, and compliance with safety standards.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔍</div>
+                                    <h3>Leak Testing</h3>
+                                    <p>Precision leak detection to ensure cylinder sealing integrity and safety.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 2: Testing Services -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Advanced Testing Capabilities</h2>
+                            <p class="slide-subtitle">Complete range of testing services to meet all regulatory requirements and ensure maximum safety.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📜</div>
+                                    <h3>Certification</h3>
+                                    <p>Official certification and documentation for regulatory compliance with complete traceability.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🔬</div>
+                                    <h3>Material Analysis</h3>
+                                    <p>Advanced material testing to verify cylinder composition and structural integrity.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">⚙️</div>
+                                    <h3>Valve Testing</h3>
+                                    <p>Complete valve inspection and testing for proper function and safety compliance.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📊</div>
+                                    <h3>Performance Testing</h3>
+                                    <p>Comprehensive performance evaluation to ensure optimal cylinder operation.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 3: Benefits -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Why Choose Our Testing Services</h2>
+                            <p class="slide-subtitle">Industry-leading expertise and equipment for reliable, accurate testing results.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">👨‍🔬</div>
+                                    <h3>Certified Technicians</h3>
+                                    <p>Experienced professionals with extensive industry certifications and training.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🏭</div>
+                                    <h3>State-of-the-Art Equipment</h3>
+                                    <p>Latest testing technology for precise, reliable results every time.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">✅</div>
+                                    <h3>DOT Compliance</h3>
+                                    <p>Full compliance with all Department of Transportation and industry regulations.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">⚡</div>
+                                    <h3>Fast Turnaround</h3>
+                                    <p>Quick service without compromising quality or accuracy.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slide 4: Process -->
+                        <div class="carousel-slide">
+                            <h2 class="slide-title">Our Testing Process</h2>
+                            <p class="slide-subtitle">Systematic approach ensuring comprehensive testing and accurate results.</p>
+                            
+                            <div class="slide-grid">
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📋</div>
+                                    <h3>1. Initial Inspection</h3>
+                                    <p>Comprehensive visual examination and documentation of cylinder condition.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🧪</div>
+                                    <h3>2. Testing Phase</h3>
+                                    <p>Execute all required tests using certified equipment and procedures.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">📝</div>
+                                    <h3>3. Documentation</h3>
+                                    <p>Detailed test reports with complete traceability and certification.</p>
+                                </div>
+                                <div class="slide-card">
+                                    <div class="slide-card__icon">🏷️</div>
+                                    <h3>4. Certification & Marking</h3>
+                                    <p>Official certification and proper marking for regulatory compliance.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="cta-buttons">
+                                <button onclick="window.location.href='index.html#contact'" class="btn btn--primary btn--large">
+                                    Schedule Testing
+                                </button>
+                                <button onclick="window.location.href='index.html#services'" class="btn btn--secondary btn--large">
+                                    View All Services
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    <div class="carousel-indicator active" onclick="goToSlide(0)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(1)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(2)"></div>
+                    <div class="carousel-indicator" onclick="goToSlide(3)"></div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- JavaScript -->
     <script src="scripts/JS/theme-toggle.js"></script>
-    <script src="scripts/JS/navbar.js"></script>
+    <script src="scripts/JS/carousel.js"></script>
 </body>
 </html>
