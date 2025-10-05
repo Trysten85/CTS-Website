@@ -92,3 +92,28 @@ body {
 #contact {
     padding: 20px 0;
 }
+
+/* Prevent navbar overflow on small screens */
+@media (max-width: 768px) {
+    .navbar {
+        overflow-x: auto; /* Allow scrolling if needed */
+    }
+    
+    .navbar ul {
+        justify-content: flex-start; /* Align left instead of center */
+        flex-wrap: nowrap;
+        min-width: min-content;
+    }
+}
+
+/* Very small screens - aggressive shrinking */
+@media (max-width: 480px) {
+    .navbar li {
+        margin: 0 5px !important;
+    }
+    
+    .navbar a {
+        padding: 6px 6px !important;
+    }
+    
+}

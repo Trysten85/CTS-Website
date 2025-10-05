@@ -389,6 +389,17 @@ body.dark-mode .about-card:hover h2 {
     background-clip: text;
 }
 
+/* Allows text selection - pseudo-elements shouldn't block */
+.about-card::before,
+.about-card::after {
+    pointer-events: none;
+}
+
+.contact-item::before,
+.contact-item::after {
+    pointer-events: none;
+}
+
 /* Dark mode: lighter gradient */
 body.dark-mode .contact-item:hover h3 {
     background: linear-gradient(135deg, var(--cts-green-light), var(--cts-green));
@@ -1025,3 +1036,4 @@ body.light-mode .animated-toggle {
     opacity: 1;
     transform: translateX(0);
 }
+

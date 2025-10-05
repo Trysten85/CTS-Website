@@ -586,6 +586,8 @@ body.dark-mode .contact-item p {
     }
 }
 
+
+
 @media (min-width: 768px) {
     .about-cards {
         display: grid;

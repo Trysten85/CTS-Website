@@ -11,16 +11,10 @@
    Base structure is in sections.css, this adds styling
    ============================================= */
 
-/* Services section dark theme enhancements */
-#services {
-    /* Base layout from sections.css */
-    /* Adding dark theme specifics here */
-}
-
 /* Services carousel wrapper - glass morphism */
 .services-carousel .carousel__wrapper {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    border: none;
     border-radius: 16px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(20px);
