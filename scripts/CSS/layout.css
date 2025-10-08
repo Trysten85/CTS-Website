@@ -167,23 +167,32 @@ body {
     text-align: center;
     padding: 2rem 1rem;
     max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Ensure everything centers */
 }
 
 .hero-section__logo {
-    max-width: 280px;
+    max-width: 5000px;
     width: 80%;
     height: auto;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto; /* Center and add bottom margin */
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    display: block; /* Ensure it's block-level */
 }
 
 .hero-section__tagline {
-    font-size: clamp(1.2rem, 4vw, 1.8rem);
-    font-weight: var(--font-weight-medium);
-    color: var(--cts-white);
-    margin: 0;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-    letter-spacing: 0.5px;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    font-weight: var(--font-weight-normal);
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 auto; /* Center it */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    max-width: 600px;
+    line-height: 1.6;
+    text-align: center; /* Ensure text is centered */
+    padding: 0; /* Remove any padding that might offset it */
 }
 
 .hero-section__scroll-arrow {
@@ -248,12 +257,17 @@ body {
 }
 
 /* =============================================
-   8. ABOUT SECTION - LIGHT MODE DEFAULT
+   8. SECTIONS - LIGHT MODE DEFAULT
    ============================================= */
 
+/* Ensure sections take at least full viewport height */
 #about {
+    min-height: 100vh;
     padding: var(--spacing-xxl) 0;
     border-bottom: 1px solid var(--border-section);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #about h1 {
@@ -314,9 +328,12 @@ body {
    ============================================= */
 
 #contact {
+    min-height: 100vh;
     padding: var(--spacing-xxl) 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
 #contact h1 {
     color: var(--text-primary);
 }
@@ -671,5 +688,28 @@ body.dark-mode .contact-item p {
     
     .service-content {
         gap: var(--spacing-xl);
+    }
+}
+
+/* Mobile - Reduce padding and make sections fit better */
+@media (max-width: 768px) {
+    #about,
+    #contact {
+        min-height: auto; /* Allow natural height on mobile */
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .contact-container {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .contact-item {
+        padding: 1rem;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .map-embed iframe {
+        height: 250px;
     }
 }

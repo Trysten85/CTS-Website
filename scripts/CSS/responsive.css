@@ -188,7 +188,7 @@ h3 { font-size: clamp(1.2rem, 4vw, 1.5rem); }
     
     /* Hero section desktop scaling */
     .hero-section__logo {
-        max-width: 500px;
+        max-width: 5000px;
         margin-bottom: 2.5rem;
     }
     
@@ -245,7 +245,7 @@ h3 { font-size: clamp(1.2rem, 4vw, 1.5rem); }
     
     /* Enhanced hero section */
     .hero-section__logo {
-        max-width: 600px;
+        max-width: 6000px;
         margin-bottom: 3rem;
     }
     
@@ -311,12 +311,12 @@ h3 { font-size: clamp(1.2rem, 4vw, 1.5rem); }
     
     /* Hero section mobile */
     .hero-section__logo {
-        max-width: 240px;
+        max-width: 2400px;
         margin-bottom: 1rem;
     }
     
     .hero-section__scroll-arrow {
-        left: 1.5rem;
+        left: 2.5rem;
         bottom: 2rem;
     }
     
@@ -459,7 +459,6 @@ h3 { font-size: clamp(1.2rem, 4vw, 1.5rem); }
 /* Desktop: 3 columns */
 @media (min-width: 1024px) {
     .responsive-grid {
-        grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-xl);
     }
 }
